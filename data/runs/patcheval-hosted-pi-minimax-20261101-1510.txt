@@ -1,0 +1,12 @@
+[15:10:21] # pi-minimax-minimax-m3-1-flash-max-65536 start  provider=vercel-gateway-free model=minimax/minimax-m3.1-flash thinking=max maxTokens=65536 slice=patcheval
+[15:10:21]   pi model entry: {"name": "MiniMax M3.1 Flash (Free)", "reasoning": true, "input": ["text"], "contextWindow": 1000000, "maxTokens": 65536, "thinkingLevelMap": {"xhigh": "xhigh", "max": "max"}}
+[15:10:21] === pi-minimax-minimax-m3-1-flash-max-65536: PatchEval start
+[18:01:14] === pi-minimax-minimax-m3-1-flash-max-65536: benchkit exit 0
+[15:46:51]  ✓  1/20  PASS       sqlit-246  1802.5s · 186 stream tok/s
+[16:20:38]  !  2/20  TIMEOUT    sqlit-260  1801.3s · 173 stream tok/s
+[16:52:30]  !  3/20  TIMEOUT    narwhals-3864  1801.5s · 177 stream tok/s
+[17:28:47]  ✓  4/20  PASS       city2graph-121  1801.7s · 197 stream tok/s
+[18:00:07]  ✓  5/20  PASS       json-repair-207  1801.5s · 186 stream tok/s
+[18:01:10] ! patcheval · minimax/minimax-m3.1-flash · Pi agent   60.0%  PASS 3  FAIL 2  ERR 0  LOOP 0  5 tasks (partial) · 183.3 tok/s · 0 killed · 2h 50m
+Saved: results/2026-11-01_18-01-14
+[18:01:14] # pi-minimax-minimax-m3-1-flash-max-65536 done

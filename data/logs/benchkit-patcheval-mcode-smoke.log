@@ -1,0 +1,22 @@
+BenchKit https://ai-gateway.vercel.sh/v1
+1 job · 1 model · 1 benchmark · 1 task
+[15:23:59] job 1/1 patcheval on minimax/minimax-m3.1-flash via mcode agent · 1 tasks · 1 concurrent · first 1
+[15:26:05]  ! 1/1  ERROR      sqlit-246  4.5s · 0 stream tok/s  RuntimeError: mcode exited without a result: MCode could not load its native SQLite dependency.
+If npm reported blocked install scripts, the installation needs explicit script approval.
+Reinstall with the original installer. For npm installations, run:
+  npm install --global @minimax-ai/code@0.7.2 --ignore-scripts=false --include=optional --allow-scripts=@minimax-ai/code,better-sqlite3 --registry https://registry.npmjs.org/ --foreground-scripts
+
+Original error: Cannot find package 'better-sqlite3' imported from /opt/mcode/chunks/chunk-FDA4PUQS.js
+[15:26:05] ✓ patcheval · minimax/minimax-m3.1-flash · mcode agent    0.0%  PASS 0  FAIL 0  ERR 1  LOOP 0  1 task · 0.0 tok/s · 0 killed · 2m 6s
+Finished 1 job · 1 task · 2m 9s
+
+         ╷        ╷        ╷       ╷         ╷        ╷       ╷         ╷       
+         │        │ Benchm │       │         │        │       │     Avg │       
+ Model   │ Harne… │ ark    │ Score │ Pass/S… │ Fail/… │ Tok/s │    Time │  Wall 
+╶────────┼────────┼────────┼───────┼─────────┼────────┼───────┼─────────┼──────╴
+ minimax │ mcode  │ patche │  0.0% │     0/0 │ 0/0/0… │   0.0 │    0.0s │ 2m 6s 
+ /minima │ agent  │ val    │       │         │        │       │         │       
+ x-m3.1- │        │        │       │         │        │       │         │       
+ flash   │        │        │       │         │        │       │         │       
+         ╵        ╵        ╵       ╵         ╵        ╵       ╵         ╵       
+Saved: results/2026-11-01_15-26-07

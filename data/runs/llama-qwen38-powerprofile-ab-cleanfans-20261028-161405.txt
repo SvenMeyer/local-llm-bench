@@ -1,0 +1,24 @@
+# qwen3.8 IQ4_XS power-profile A/B start 2026-10-28T16:14:05+11:00, profile now balanced
+# engine llama.cpp version: b11027-mix-pr220-ca1426903+q2_0-avxvnni
+READY port 8099 after 51s, VRAM 7000 MiB
+# server ready in 51 s; 7000 MiB VRAM; 91Gi RAM used
+## arm balanced  (profile now balanced, platform_profile balanced)
+#   start cpu=57C  GPU ceiling 35 W
+        574 |    116.3 |    9.45 |      4.9s |    18.4s | draft 85/126
+       2029 |    175.6 |    8.68 |     11.6s |    26.2s | draft 86/122
+       3910 |    169.5 |    9.14 |     23.1s |    37.0s | draft 89/110
+       8389 |    178.0 |    8.80 |     47.1s |    61.6s | draft 83/131
+   probe GPU W mean 26.7 max 37.8  CPU mean 78C max 88C  (28 samples)
+   GPU ceiling seen:       1 35       1 43      13 45 
+   fans at end: CPU 5306 Video 5041 
+## arm performance  (profile now performance, platform_profile performance)
+#   start cpu=59C  GPU ceiling 40 W
+        574 |    122.0 |   12.10 |      4.7s |    15.4s | draft 85/126
+       2029 |    178.6 |   12.73 |     11.4s |    21.3s | draft 89/114
+       3910 |    172.4 |    9.80 |     22.7s |    35.6s | draft 79/141
+       8389 |    179.6 |   10.56 |     46.7s |    58.7s | draft 84/129
+   probe GPU W mean 27.2 max 38.2  CPU mean 97C max 100C  (26 samples)
+   GPU ceiling seen:       3 40       1 45       1 47       9 50 
+   fans at end: CPU 6291 Video 5985 
+# A/B done 2026-10-28T16:19:57+11:00
+# profile restored to balanced

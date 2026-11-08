@@ -1,0 +1,7 @@
+corpus: 65 files, 2061894 chars available
+# n_ctx 16384 n_predict 128 fit_budget 16256
+ ctx_tok |   PP t/s |  TG t/s |   prefill |     wall
+     574 |    122.0 |   12.10 |      4.7s |    15.4s | draft 85/126
+    2029 |    178.6 |   12.73 |     11.4s |    21.3s | draft 89/114
+    3910 |    172.4 |    9.80 |     22.7s |    35.6s | draft 79/141
+    8389 |    179.6 |   10.56 |     46.7s |    58.7s | draft 84/129

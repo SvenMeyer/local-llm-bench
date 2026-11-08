@@ -1,0 +1,11 @@
+# /home/sum/Downloads/AI-Runtime/llama-bench-qwen38-occupied-32k-retry.log
+# start 2026-09-18T01:26:44+10:00  profile=unknown
+# CTX=32768 NPREDICT=128 CHARS=110000
+# SKIP_RELOAD=1
+# llama-server port 50289
+# 6998 MiB, 840 MiB  Mem:           125Gi        96Gi       1.3Gi        59Gi        87Gi        28Gi
+# n_ctx 32768
+corpus: 65 files, 2061894 chars available
+ ctx_tok |   PP t/s |  TG t/s |   prefill |     wall
+   32702 |    116.7 |    7.62 |    280.3s |   288.8s | draft 35/88
+# done 2026-09-18T01:31:33+10:00

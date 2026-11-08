@@ -1,0 +1,26 @@
+{
+  "title": "Update 2026-11-07: tool-calling agent suite",
+  "subtitle": "8 small Python coding tasks through 5 OpenAI-style tools (list/read/grep/write/run_tests), graded by the task's own tests; 3 seeds = 24 runs per setup unless noted. Laptop: RTX 4070 Laptop 8 GB (35 W cap), i7-13700H, 125 GB RAM.",
+  "cards": [
+    ["24/24 · 1.2 h", "Qwen3.8 GSQ IQ3_XXS on Strata 0.2.11: still the best setup (28.9 t/s)"],
+    ["24/24 · 1.3 h", "Unsloth v3.1 UD-IQ3_XXS: same score, 15% slower decode, 8 GB bigger"],
+    ["5/8 vs 8/8", "TwIL-8B vs Qwen3.8 on the same 8 tasks (seed 1); TwIL fails the 3 hardest"],
+    ["no change", "Strata 0.2.10 -> 0.2.11 speed on this 8 GB card (IQ3_S 23.3 vs 24.2 t/s in Oct.)"]
+  ],
+  "takeaways": [
+    "**Daily pick stays Qwen3.8 GSQ IQ3_XXS on Strata.** On 0.2.11 it passed 24/24 in 1.2 h at 28.9 t/s, the fastest of all setups that pass everything.",
+    "**Unsloth's v3.1 UD-IQ3_XXS ties but does not win.** 24/24 in 1.3 h; decode 24.6 t/s against 28.9 for GSQ IQ3_XXS on the same engine, with an 84 GB file against 76 GB. It wrote 5% fewer tokens per run (4,298 vs 4,526), far from the claimed 30%. This suite is too easy to show a quality difference (every Qwen3.8 setup scores 24/24); only a PatchEval run could test the accuracy claim.",
+    "**TwIL-8B is fast on short work but not good enough for agent tasks.** It passed 5 of 8 (seed 1) where every Qwen3.8 setup passed 8 of 8, failing the LRU cache, calculator and scheduler tasks after 25-48 min each (Qwen3.8: 3-8 min). It fits fully in 7.1 GB of VRAM and needs no RAM, which is its one real advantage.",
+    "**TwIL keeps its old reasoning in the prompt by default** (its chat template preserves reasoning traces), so agent contexts reach 30k+ tokens and decode drops to 9-13 t/s. `--no-reasoning-preserve` cut the 8-task time from 2.3 h to 1.7 h (13.5 -> 19.8 t/s) but passed the same 5 tasks.",
+    "**Strata 0.2.11 is neither faster nor slower here.** Same-quant speeds match the October 0.1.52 runs (IQ3_XXS 28.9 vs 28.0 t/s, IQ3_S 23.3 vs 24.2). Its new default drafter (DFlash2) accepts 84-85% of guesses against MTP's 69-71%, but the net decode speed is the same. The prompt-speed changes in the release target larger cards."
+  ],
+  "legend": "Decode t/s = completion tokens / generation seconds over the whole suite. TwIL ran seed 1 only (8 runs): compare it with the **Seed 1** column. All Strata runs: `--set STRATA_ROUTE_TAIL_SKIP=0 --set STRATA_ROUTE_PRIOR=1.5`, 64k context, max 21,846 tokens per reply; Strata 0.2.11 used its default DFlash2 drafter, the October runs MTP.",
+  "notes": [
+    "**Unsloth v3.1 download trick:** the 28.8 GB IQ4_NL engram table (shard 4 of UD-IQ3_XXS) is byte-identical to shard 2 of our GSQ files apart from its split header. A btrfs reflink copy plus Unsloth's `set_split.py` header patch reproduced Unsloth's sha256 exactly, so only 55 of 84 GB were downloaded and the table costs no extra disk.",
+    "**TwIL-8B setup:** stock llama.cpp b12169 (no patches), mradermacher i1-Q4_K_M, KV q4_0 at 40k context, all 41 layers on the GPU. KV q8_0 only fits 24k; KV type does not change speed.",
+    "**Bonsai 2 27B** is the earlier all-GPU comparison point: 21/24, 35.7 t/s, dropped on 2026-10-28.",
+    "**Power:** GPU at its 35 W cap (~1.0-1.4 GHz) in every run; CPU 87-90 °C during Strata runs. The download was paused during the IQ3_S arm so it could not disturb RAM-resident experts.",
+    "Logs: `overnight-strata0211-v31-20261107-0108.txt`, `llama-agent-eval-<label>.{log,jsonl,log.power}`, `llama-serve-<label>.engine.log`. Pipeline script: `overnight-strata0211-v31.sh`."
+  ],
+  "highlight": ["strata0211-iq3xxs-noskip-prior15"]
+}

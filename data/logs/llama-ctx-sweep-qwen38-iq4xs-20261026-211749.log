@@ -1,0 +1,4 @@
+# QUANT=iq4xs UB=512 MTP=1 BIN=/home/sum/.unsloth/llama.cpp-mix-pr220-q2_0/build/bin extra: --cache-type-k q4_0 --cache-type-v q4_0
+131072 | LOAD FAILED: FAILED: no llama-server process after 58s | allocating 233.02 MiB on device 0
+cudaMalloc failed: out of memory
+# done 2026-10-26T21:18:47+11:00

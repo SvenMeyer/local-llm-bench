@@ -1,0 +1,389 @@
+diff --git a/src/benchkit/_pi_proxy.py b/src/benchkit/_pi_proxy.py
+index 28cb84f..a0bd284 100644
+--- a/src/benchkit/_pi_proxy.py
++++ b/src/benchkit/_pi_proxy.py
+@@ -8,16 +8,21 @@ and keeps the upstream API key out of the agent's filesystem and environment.
+ 
+ from __future__ import annotations
+ 
++import contextlib
+ import hashlib
+ import http.client
+ import json
+ import os
++import time
+ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+ from urllib.parse import urlsplit
+ 
+ ALLOWED_PATHS = ("/v1/chat/completions", "/v1/models")
+ MAX_BODY_BYTES = 32 * 1024 * 1024
+ SCAFFOLD_PATH = "/tmp/benchkit_pi_scaffold.json"
++# Local addition: one JSON line per inference request (provider, cost, tokens, timing).
++CALLS_PATH = "/tmp/benchkit_upstream_calls.jsonl"
++MAX_TAP_LINE = 4 * 1024 * 1024
+ HOP_BY_HOP = {
+     "connection",
+     "keep-alive",
+@@ -108,6 +113,104 @@ def _upstream_timeout() -> float:
+         return 600.0
+ 
+ 
++class _CallTap:
++    """Read provider, usage, cost and timing out of a forwarded response.
++
++    Never changes what is forwarded; any parsing problem only loses the record.
++    """
++
++    def __init__(self, started: float, status: int) -> None:
++        self.record: dict = {"started": round(time.time(), 3), "status": status}
++        self.t0 = started
++        self.t_first_byte: float | None = None
++        self.t_first_token: float | None = None
++        self.t_last_token: float | None = None
++        self.buffer = b""
++        self.plain = b""
++
++    def feed(self, chunk: bytes) -> None:
++        now = time.monotonic()
++        if self.t_first_byte is None:
++            self.t_first_byte = now
++        self.buffer += chunk
++        if len(self.plain) < MAX_TAP_LINE:
++            self.plain += chunk[: MAX_TAP_LINE - len(self.plain)]
++        *lines, self.buffer = self.buffer.split(b"\n")
++        if len(self.buffer) > MAX_TAP_LINE:
++            self.buffer = b""
++        for line in lines:
++            if line.startswith(b"data: {"):
++                try:
++                    self._event(json.loads(line[6:]), now)
++                except (ValueError, TypeError, AttributeError):
++                    continue
++
++    def _event(self, event: dict, now: float) -> None:
++        if event.get("provider"):  # OpenRouter
++            self.record["provider"] = str(event["provider"])
++        if event.get("model"):
++            self.record.setdefault("model", str(event["model"]))
++        for choice in event.get("choices") or []:
++            delta = choice.get("delta") or choice.get("message") or {}
++            if any(
++                delta.get(key)
++                for key in ("content", "reasoning", "reasoning_content", "tool_calls")
++            ):
++                if self.t_first_token is None:
++                    self.t_first_token = now
++                self.t_last_token = now
++            if choice.get("finish_reason"):
++                self.record["finish_reason"] = str(choice["finish_reason"])
++            routing = ((delta.get("provider_metadata") or {}).get("gateway") or {}).get(
++                "routing"
++            ) or {}
++            if routing:  # Vercel AI Gateway
++                self.record["provider"] = str(
++                    routing.get("finalProvider") or routing.get("resolvedProvider")
++                )
++        usage = event.get("usage")
++        if isinstance(usage, dict):
++            details = usage.get("prompt_tokens_details") or {}
++            completion = usage.get("completion_tokens_details") or {}
++            self.record.update(
++                prompt_tokens=int(usage.get("prompt_tokens") or 0),
++                cached_tokens=int(details.get("cached_tokens") or 0),
++                cache_write_tokens=int(
++                    details.get("cache_write_tokens")
++                    or usage.get("cache_creation_input_tokens")
++                    or 0
++                ),
++                completion_tokens=int(usage.get("completion_tokens") or 0),
++                reasoning_tokens=int(completion.get("reasoning_tokens") or 0),
++            )
++            if usage.get("cost") is not None:
++                self.record["cost"] = float(usage["cost"])
++
++    def finish(self) -> None:
++        end = time.monotonic()
++        if "completion_tokens" not in self.record and self.plain.lstrip().startswith(
++            b"{"
++        ):
++            # non-streamed JSON response
++            with contextlib.suppress(ValueError, TypeError, AttributeError):
++                self._event(json.loads(self.plain), end)
++        rec = self.record
++        rec["total_s"] = round(end - self.t0, 3)
++        if self.t_first_byte is not None:
++            rec["ttfb_s"] = round(self.t_first_byte - self.t0, 3)
++        if self.t_first_token is not None:
++            rec["ttft_s"] = round(self.t_first_token - self.t0, 3)
++            span = (self.t_last_token or end) - self.t_first_token
++            tokens = rec.get("completion_tokens") or 0
++            if span > 0 and tokens:
++                rec["decode_tok_s"] = round(tokens / span, 1)
++        try:
++            with open(CALLS_PATH, "a", encoding="utf-8") as handle:
++                handle.write(json.dumps(rec) + "\n")
++        except OSError:
++            pass
++
++
+ class ProxyHandler(BaseHTTPRequestHandler):
+     """Stream a deliberately tiny subset of an OpenAI-compatible API."""
+ 
+@@ -168,9 +271,12 @@ class ProxyHandler(BaseHTTPRequestHandler):
+             headers["Authorization"] = f"Bearer {api_key}"
+ 
+         response_started = False
++        tap: _CallTap | None = None
++        started = time.monotonic()
+         try:
+             connection.request(self.command, target, body=body, headers=headers)
+             response = connection.getresponse()
++            tap = _CallTap(started, response.status)
+             self.send_response(response.status, response.reason)
+             for key, value in response.getheaders():
+                 if key.lower() not in HOP_BY_HOP | {"content-length"}:
+@@ -178,13 +284,18 @@ class ProxyHandler(BaseHTTPRequestHandler):
+             self.send_header("Connection", "close")
+             self.end_headers()
+             response_started = True
+-            while chunk := response.read(64 * 1024):
++            # read1: forward each piece as it arrives (read() waits for 64 KiB,
++            # which batches the stream and hides time-to-first-token).
++            while chunk := response.read1(64 * 1024):
+                 self.wfile.write(chunk)
+                 self.wfile.flush()
++                tap.feed(chunk)
+         except (OSError, http.client.HTTPException) as exc:
+             if not response_started and not self.wfile.closed:
+                 self._plain(502, f"upstream error: {exc}".encode())
+         finally:
++            if tap is not None:
++                tap.finish()
+             connection.close()
+             self.close_connection = True
+ 
+diff --git a/src/benchkit/config.py b/src/benchkit/config.py
+index e708bd6..db66426 100644
+--- a/src/benchkit/config.py
++++ b/src/benchkit/config.py
+@@ -52,6 +52,8 @@ SETTINGS: tuple[tuple[str, str], ...] = (
+     ("BENCHKIT_LOOP_KILL_PERCENT",    "80"),
+     ("BENCHKIT_LOOP_KILL_SECONDS",    "10"),
+     ("BENCHKIT_PI_TIMEOUT",           "900"),
++    ("BENCHKIT_PI_MODEL",             ""),
++    ("BENCHKIT_PI_THINKING",          ""),
+     ("BENCHKIT_DOCKER",               "docker"),
+     ("BENCHKIT_SANDBOX_MEMORY",       "2g"),
+     ("BENCHKIT_SANDBOX_CPUS",         "2"),
+diff --git a/src/benchkit/engine.py b/src/benchkit/engine.py
+index c3520c1..e9c06e2 100644
+--- a/src/benchkit/engine.py
++++ b/src/benchkit/engine.py
+@@ -24,7 +24,7 @@ from dataclasses import dataclass, field, replace
+ 
+ import httpx
+ 
+-from benchkit import decision
++from benchkit import decision, mcode_agent
+ from benchkit.benchmarks.base import Task
+ from benchkit.client import GenerationUpdate, InferenceClient
+ from benchkit.controls import RunControls
+@@ -120,6 +120,11 @@ __all__ = [
+ ]
+ 
+ 
++def _agent_runner_class() -> type[PiAgentRunner]:
++    """Local addition: BENCHKIT_AGENT=mcode swaps Pi for mcode."""
++    return mcode_agent.McodeAgentRunner if mcode_agent.enabled() else PiAgentRunner
++
++
+ class _GenerationCancelled(Exception):
+     """Unwind a streaming request from its own worker thread immediately."""
+ 
+@@ -246,11 +251,11 @@ class Engine:
+                 if self._pi_runner is None:
+                     if getattr(self.client, "provider", None) == "demo":
+                         raise RuntimeError("Pi harness is unavailable in demo mode")
+-                    self._pi_runner = PiAgentRunner(self.client)
++                    self._pi_runner = _agent_runner_class()(self.client)
+                 return "", self._pi_runner
+         with self._pi_lock:
+             if key not in self._workspace_pi_runners:
+-                self._workspace_pi_runners[key] = PiAgentRunner(
++                self._workspace_pi_runners[key] = _agent_runner_class()(
+                     self.client, image=image if image is not None else image_factory()
+                 )
+             return key, self._workspace_pi_runners[key]
+@@ -1250,6 +1255,8 @@ class Engine:
+             model_turns=int(gen.get("model_turns") or 1),
+             tool_calls=int(gen.get("tool_calls") or 0),
+             tool_trace=list(gen.get("tool_trace") or []),
++            call_usage=list(gen.get("call_usage") or []),
++            upstream_calls=list(gen.get("upstream_calls") or []),
+             pi_scaffold=dict(gen.get("pi_scaffold") or {}),
+             attempts=list(gen.get("attempts") or []),
+             repair_attempts_used=int(gen.get("repair_attempts_used") or 0),
+diff --git a/src/benchkit/evaluation.py b/src/benchkit/evaluation.py
+index adbd4af..acb4086 100644
+--- a/src/benchkit/evaluation.py
++++ b/src/benchkit/evaluation.py
+@@ -175,6 +175,11 @@ def combine_attempts(
+         model_turns=sum(int(gen.get("model_turns") or 1) for gen, _ in attempts),
+         tool_calls=sum(int(gen.get("tool_calls") or 0) for gen, _ in attempts),
+         tool_trace=traces,
++        call_usage=[
++            {**call, "attempt": number}
++            for number, (gen, _) in enumerate(attempts, start=1)
++            for call in gen.get("call_usage") or []
++        ],
+         attempts=attempt_records,
+         repair_attempts_used=len(attempts) - 1,
+         repair_feedback=list(feedback_sent),
+diff --git a/src/benchkit/jobs.py b/src/benchkit/jobs.py
+index c34098a..eea3d61 100644
+--- a/src/benchkit/jobs.py
++++ b/src/benchkit/jobs.py
+@@ -8,6 +8,7 @@ gets). Nothing here talks to a model.
+ 
+ from __future__ import annotations
+ 
++import os
+ from collections.abc import Collection, Sequence
+ from dataclasses import dataclass, replace
+ from typing import Literal
+@@ -153,6 +154,8 @@ class JobSpec:
+     @property
+     def harness_label(self) -> str:
+         label = {"pi": "Pi agent", "decision": "Decision"}.get(self.harness, "Direct")
++        if self.harness == "pi" and os.environ.get("BENCHKIT_AGENT") == "mcode":
++            label = "mcode agent"  # local addition, see mcode_agent.py
+         return f"{label} + repair" if self.repair_attempts else label
+ 
+     def planned_total(self) -> int:
+diff --git a/src/benchkit/pi_agent.py b/src/benchkit/pi_agent.py
+index 015be69..ce72643 100644
+--- a/src/benchkit/pi_agent.py
++++ b/src/benchkit/pi_agent.py
+@@ -47,6 +47,8 @@ class _RpcTrace:
+     turns: int = 0
+     tool_calls_started: int = 0
+     tool_trace: list[dict[str, Any]] = field(default_factory=list)
++    # Local addition: one entry per assistant reply (tokens + stop reason).
++    call_usage: list[dict[str, Any]] = field(default_factory=list)
+     done_reason: str = "stop"
+     generation_time_s: float = 0.0
+     _assistant_started_at: float | None = field(default=None, repr=False)
+@@ -102,6 +104,13 @@ class _RpcTrace:
+                     for key in ("input", "cacheRead", "cacheWrite")
+                 )
+                 self.output_tokens += int(usage.get("output") or 0)
++                self.call_usage.append(
++                    {
++                        key: int(usage.get(key) or 0)
++                        for key in ("input", "cacheRead", "cacheWrite", "output")
++                    }
++                    | {"stop": str(message.get("stopReason") or "")}
++                )
+                 self.done_reason = str(message.get("stopReason") or self.done_reason)
+                 self._streamed_thinking.clear()
+                 self._streamed_text.clear()
+@@ -392,6 +401,7 @@ class PiAgentRunner:
+                         "model_turns": trace.turns,
+                         "tool_calls": trace.tool_calls_started,
+                         "tool_trace": trace.tool_trace,
++                        "call_usage": trace.call_usage,
+                         "workspace_evaluated": workspace_verifier is not None,
+                     }
+                     generation_results.append(generation)
+@@ -444,6 +454,9 @@ class PiAgentRunner:
+                         scaffold["system_prompt_tokens"] = len(tokens)
+                 for generation in generation_results:
+                     generation["pi_scaffold"] = scaffold
++                reader = getattr(environment, "upstream_calls", None)
++                if generation_results and callable(reader):
++                    generation_results[-1]["upstream_calls"] = reader()
+         finally:
+             if process is not None and process.poll() is None:
+                 process.terminate()
+diff --git a/src/benchkit/results.py b/src/benchkit/results.py
+index 0b73391..ff9a565 100644
+--- a/src/benchkit/results.py
++++ b/src/benchkit/results.py
+@@ -75,6 +75,8 @@ class TaskRecord:
+     model_turns: int = 1
+     tool_calls: int = 0
+     tool_trace: list[dict] = field(default_factory=list)
++    call_usage: list[dict] = field(default_factory=list)  # local addition
++    upstream_calls: list[dict] = field(default_factory=list)  # local addition
+     pi_scaffold: dict = field(default_factory=dict)
+     attempts: list[dict] = field(default_factory=list)
+     repair_attempts_used: int = 0
+@@ -498,6 +500,8 @@ def job_result(
+                 "model_turns": record.model_turns,
+                 "tool_calls": record.tool_calls,
+                 "tool_trace": record.tool_trace,
++                "call_usage": record.call_usage or None,
++                "upstream_calls": record.upstream_calls or None,
+                 "attempts": record.attempts,
+                 "repair_attempts_used": record.repair_attempts_used,
+                 "repair_feedback": record.repair_feedback,
+diff --git a/src/benchkit/sandbox.py b/src/benchkit/sandbox.py
+index a818e0d..ee42bd2 100644
+--- a/src/benchkit/sandbox.py
++++ b/src/benchkit/sandbox.py
+@@ -1049,6 +1049,15 @@ class DockerTaskEnvironment:
+         model: dict[str, object] = {"id": self.model, "name": self.model}
+         if isinstance(context_length, int) and context_length > 0:
+             model["contextWindow"] = context_length
++        # Local addition: BENCHKIT_PI_MODEL is a JSON object merged into Pi's model
++        # entry (maxTokens, reasoning, thinkingLevelMap, compat). Without it Pi
++        # defaults maxTokens to 16384 and treats the model as non-reasoning.
++        if extra := os.environ.get("BENCHKIT_PI_MODEL"):
++            overrides = json.loads(extra)
++            if not isinstance(overrides, dict):
++                raise SandboxError("BENCHKIT_PI_MODEL must be a JSON object")
++            overrides.pop("id", None)
++            model.update(overrides)
+ 
+         provider: dict[str, object] = {
+             "baseUrl": "http://inference:8080/v1",
+@@ -1093,6 +1102,10 @@ class DockerTaskEnvironment:
+             "--model",
+             self.model,
+         ]
++        # Local addition: Pi thinking level (off ... max); Pi clamps it to what
++        # the model entry's thinkingLevelMap supports.
++        if thinking := os.environ.get("BENCHKIT_PI_THINKING"):
++            command.extend(["--thinking", thinking])
+         if self.image.answer_key_guard:
+             command.extend(["--extension", "/opt/benchkit/answer_key_guard.ts"])
+         return subprocess.Popen(
+@@ -1125,6 +1138,28 @@ class DockerTaskEnvironment:
+             return {}
+         return payload if isinstance(payload, dict) else {}
+ 
++    def upstream_calls(self) -> list[dict]:
++        """Local addition: per-request records written by the inference proxy
++        (provider, cost, tokens, time to first token, decode speed)."""
++        result = _run(
++            [
++                self.docker,
++                "exec",
++                self.proxy_name,
++                "cat",
++                "/tmp/benchkit_upstream_calls.jsonl",
++            ],
++            timeout=30,
++            check=False,
++        )
++        calls: list[dict] = []
++        for line in (result.stdout or "").splitlines() if not result.returncode else []:
++            with contextlib.suppress(json.JSONDecodeError):
++                record = json.loads(line)
++                if isinstance(record, dict):
++                    calls.append(record)
++        return calls
++
+     def exec(
+         self,
+         command: list[str],

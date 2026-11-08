@@ -1,0 +1,14 @@
+# /home/sum/Downloads/AI-Runtime/llama-bench-qwen38-occupied-32k.log
+# start 2026-09-18T01:22:57+10:00  profile=unknown
+# CTX=32768 NPREDICT=128 CHARS=112000
+# SIGTERM llama-server pid 102236
+# after unload: Mem:           125Gi        11Gi        88Gi       1.3Gi        28Gi       114Gi
+reloading to ctx 32768 MTP on...
+loaded context 32768 spec mtp n_max 3
+# llama-server port 50289
+# 6998 MiB, 840 MiB  Mem:           125Gi        97Gi       1.1Gi        59Gi        87Gi        28Gi
+# n_ctx 32768
+corpus: 65 files, 2061894 chars available
+ ctx_tok |   PP t/s |  TG t/s |   prefill |     wall
+  112000 | FAILED: HTTP Error 400: Bad Request
+# done 2026-09-18T01:25:51+10:00

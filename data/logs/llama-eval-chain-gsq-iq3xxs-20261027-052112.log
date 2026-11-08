@@ -1,0 +1,47 @@
+# pipeline QUANT=gsq-iq3xxs STAGES=1 2 3 SEEDS=1,2,3 start 2026-10-27T05:21:12+11:00
+# stage 1 exit 0 -> llama-ppl-kld-qwen38-gsq-iq3xxs-b11170-c512x40-20261027-052112.log
+chunk             PPL               ln(PPL(Q)/PPL(base))          KL Divergence              Δp RMS            Same top p
+Mean PPL(Q)                   :   2.849116 ±   0.055409
+Mean PPL(Q)/PPL(base)         :   1.038700 ±   0.009725
+Mean PPL(Q)-PPL(base)         :   0.106153 ±   0.026247
+Mean    KLD:   0.292649 ±   0.006671
+Same top p: 84.196 ± 0.361 %
+READY port 8099 after 39s, VRAM 6648 MiB
+# stage 2 r1
+# 6648 MiB, 1190 MiB  Mem:           125Gi        87Gi       1.9Gi        43Gi        80Gi        37Gi
+     574 |    126.5 |   10.76 |      4.5s |    16.3s | draft 88/117
+    2029 |    265.3 |   12.67 |      7.6s |    17.7s | draft 88/117
+    3910 |    262.8 |    9.48 |     14.9s |    28.3s | draft 77/148
+    8389 |    261.4 |   11.35 |     32.1s |    43.3s | draft 85/125
+# stage 2 r2
+# 6788 MiB, 1050 MiB  Mem:           125Gi        88Gi       1.0Gi        44Gi        81Gi        36Gi
+     574 |    145.0 |   12.48 |      4.0s |    14.4s | draft 88/117
+    2029 |    265.0 |   12.22 |      7.7s |    18.1s | draft 87/116
+    3910 |    262.1 |   10.15 |     14.9s |    27.4s | draft 78/141
+    8389 |    259.2 |   11.26 |     32.4s |    43.7s | draft 84/128
+READY port 8099 after 44s, VRAM 6794 MiB
+gsq-iq3xxs t1-bugfix-stats    s1 PASS  turns  7  calls  7 bad 0  tok   1289     146s  tg 10.36  draft 890/1197
+gsq-iq3xxs t2-slugify         s1 PASS  turns  6  calls  6 bad 0  tok   4014     430s  tg 9.65  draft 2669/4056
+gsq-iq3xxs t3-refactor        s1 PASS  turns  7  calls 14 bad 0  tok   1160     118s  tg 11.73  draft 820/1020
+gsq-iq3xxs t4-logparse        s1 PASS  turns  5  calls  6 bad 0  tok   1579     270s  tg 10.49  draft 1066/1536
+gsq-iq3xxs t5-config          s1 PASS  turns  6  calls  6 bad 0  tok    727      78s  tg 11.34  draft 499/690
+gsq-iq3xxs t6-lru             s1 PASS  turns  6  calls  5 bad 0  tok   2766     300s  tg 9.81  draft 1840/2760
+gsq-iq3xxs t7-calc            s1 PASS  turns  6  calls  5 bad 0  tok   5216     519s  tg 10.33  draft 3565/4965
+gsq-iq3xxs t8-scheduler       s1 PASS  turns  7  calls 11 bad 0  tok   7549     842s  tg 9.27  draft 4919/7884
+gsq-iq3xxs t1-bugfix-stats    s2 PASS  turns  5  calls  5 bad 0  tok    855      86s  tg 11.58  draft 598/777
+gsq-iq3xxs t2-slugify         s2 PASS  turns  5  calls  5 bad 0  tok   2722     300s  tg 9.46  draft 1793/2784
+gsq-iq3xxs t3-refactor        s2 PASS  turns  6  calls 14 bad 0  tok   1078     110s  tg 11.68  draft 758/975
+gsq-iq3xxs t4-logparse        s2 PASS  turns  5  calls  5 bad 0  tok   1325     251s  tg 9.9  draft 900/1281
+gsq-iq3xxs t5-config          s2 PASS  turns  6  calls  6 bad 0  tok    556      62s  tg 11.5  draft 385/516
+gsq-iq3xxs t6-lru             s2 PASS  turns  5  calls  5 bad 0  tok   2884     306s  tg 9.98  draft 1940/2835
+gsq-iq3xxs t7-calc            s2 PASS  turns  5  calls  5 bad 0  tok   4702     487s  tg 9.9  draft 3152/4659
+gsq-iq3xxs t8-scheduler       s2 PASS  turns  9  calls 10 bad 0  tok   8572     945s  tg 9.35  draft 5596/8928
+gsq-iq3xxs t1-bugfix-stats    s3 PASS  turns  5  calls  5 bad 0  tok    904      98s  tg 10.56  draft 614/873
+gsq-iq3xxs t2-slugify         s3 PASS  turns  5  calls  5 bad 0  tok   2321     258s  tg 9.4  draft 1503/2457
+gsq-iq3xxs t3-refactor        s3 PASS  turns  5  calls 14 bad 0  tok    996      97s  tg 12.24  draft 717/843
+gsq-iq3xxs t4-logparse        s3 PASS  turns  7  calls  7 bad 0  tok   2063     366s  tg 8.7  draft 1309/2262
+gsq-iq3xxs t5-config          s3 PASS  turns  5  calls  5 bad 0  tok    556      61s  tg 11.37  draft 385/519
+gsq-iq3xxs t6-lru             s3 PASS  turns  5  calls  5 bad 0  tok   4085     488s  tg 8.67  draft 2598/4461
+gsq-iq3xxs t7-calc            s3 PASS  turns  9  calls 10 bad 0  tok   8839     863s  tg 10.54  draft 6212/7878
+gsq-iq3xxs t8-scheduler       s3 PASS  turns  7  calls  9 bad 0  tok   8017     902s  tg 9.15  draft 5198/8454
+# pipeline QUANT=gsq-iq3xxs done 2026-10-27T07:48:33+11:00

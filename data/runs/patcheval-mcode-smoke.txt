@@ -1,0 +1,8 @@
+[15:23:57] # mcode-smoke start  agent=mcode 0.7.2 provider=vercel-gateway-free model=minimax/minimax-m3.1-flash effort=max slice=patcheval:1
+[15:23:57]   sandbox config: /home/sum/Downloads/AI-Runtime/mcode-sandbox-mcode-smoke.yaml
+[15:23:58] === mcode-smoke: PatchEval start
+[15:26:07] === mcode-smoke: benchkit exit 0
+[15:26:05]  ! 1/1  ERROR      sqlit-246  4.5s · 0 stream tok/s  RuntimeError: mcode exited without a result: MCode could not load its native SQLite dependency.
+[15:26:05] ✓ patcheval · minimax/minimax-m3.1-flash · mcode agent    0.0%  PASS 0  FAIL 0  ERR 1  LOOP 0  1 task · 0.0 tok/s · 0 killed · 2m 6s
+Saved: results/2026-11-01_15-26-07
+[15:26:07] # mcode-smoke done

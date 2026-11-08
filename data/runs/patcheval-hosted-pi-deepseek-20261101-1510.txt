@@ -1,0 +1,7 @@
+[15:10:29] # pi-deepseek-deepseek-v4-1-flash-1017-max-65536 start  provider=openrouter model=deepseek/deepseek-v4.1-flash-1017 thinking=max maxTokens=65536 slice=patcheval
+[15:10:29]   pi model entry: {"name": "DeepSeek V4.1 Flash \u2014 1017 snapshot", "reasoning": true, "input": ["text", "image"], "contextWindow": 1048576, "compat": {"supportsDeveloperRole": false, "thinkingFormat": "openrouter", "supportsStrictMode": true, "sendSessionAffinityHeaders": true, "requiresReasoningContentOnAssistantMessages": true}, "thinkingLevelMap": {"off": "none", "minimal": null, "low": "low", "medium": null, "high": "high", "xhigh": null, "max": "max"}, "cost": {"input": 0.05, "output": 0.15, "cacheRead": 0.012, "cacheWrite": 0}, "maxTokens": 65536}
+[15:10:30] === pi-deepseek-deepseek-v4-1-flash-1017-max-65536: PatchEval start
+[15:22:20] === pi-deepseek-deepseek-v4-1-flash-1017-max-65536: benchkit exit 1
+[15:16:46]  ✗  1/20  FAIL       sqlit-246  5.3s · 0 stream tok/s
+[15:20:41]  ✗  2/20  FAIL       sqlit-260  4.8s · 0 stream tok/s
+[15:22:20] # pi-deepseek-deepseek-v4-1-flash-1017-max-65536 done

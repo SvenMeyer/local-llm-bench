@@ -1,0 +1,26 @@
+BenchKit http://172.17.0.1:8099/v1
+2 jobs · 1 model · 1 benchmark · 4 tasks
+[15:21:11] job 1/2 patcheval on qwen3.8-flash-next-iq3_s via Pi agent · 3 tasks · 1 concurrent · tasks 7-10
+[16:16:02]  ✓ 1/3  PASS       click-3572  3167.4s · 16 stream tok/s
+[16:22:30]  ✓ 2/3  PASS       click-3360  353.6s · 16 stream tok/s
+[16:37:22]  ✓ 3/3  PASS       click-2790  857.2s · 17 stream tok/s
+[16:37:22] ✓ patcheval · qwen3.8-flash-next-iq3_s · Pi agent  100.0%  PASS 3  FAIL 0  ERR 0  LOOP 0  3 tasks · 16.2 tok/s · 0 killed · 1h 16m
+[16:37:22] job 2/2 patcheval on qwen3.8-flash-next-iq3_s via Pi agent · 1 tasks · 1 concurrent · tasks 13-14
+[17:11:29]  ✓ 1/1  PASS       attrs-1575  1945.4s · 16 stream tok/s
+[17:11:29] ✓ patcheval · qwen3.8-flash-next-iq3_s · Pi agent  100.0%  PASS 1  FAIL 0  ERR 0  LOOP 0  1 task · 16.2 tok/s · 0 killed · 34m 7s
+Finished 2 jobs · 4 tasks · 1h 50m
+
+         ╷        ╷        ╷        ╷        ╷        ╷       ╷        ╷        
+         │        │ Benchm │        │        │        │       │    Avg │        
+ Model   │ Harne… │ ark    │  Score │ Pass/… │ Fail/… │ Tok/s │   Time │   Wall 
+╶────────┼────────┼────────┼────────┼────────┼────────┼───────┼────────┼───────╴
+ qwen3.8 │ Pi     │ patche │ 100.0% │    3/3 │ 0/0/0… │  16.2 │ 1459.… │    76m 
+ -flash- │ agent  │ val    │        │        │        │       │        │    11s 
+ next-iq │        │        │        │        │        │       │        │        
+ 3_s     │        │        │        │        │        │       │        │        
+ qwen3.8 │ Pi     │ patche │ 100.0% │    1/1 │ 0/0/0… │  16.2 │ 1945.… │ 34m 7s 
+ -flash- │ agent  │ val    │        │        │        │       │        │        
+ next-iq │        │        │        │        │        │       │        │        
+ 3_s     │        │        │        │        │        │       │        │        
+         ╵        ╵        ╵        ╵        ╵        ╵       ╵        ╵        
+Saved: results/2026-11-03_17-11-31

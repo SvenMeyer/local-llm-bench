@@ -1,0 +1,12 @@
+[15:42:19] # mcode-minimax-minimax-m3-1-flash-max start  agent=mcode 0.7.2 provider=vercel-gateway-free model=minimax/minimax-m3.1-flash effort=max slice=patcheval
+[15:42:19]   sandbox config: /home/sum/Downloads/AI-Runtime/mcode-sandbox-mcode-minimax-minimax-m3-1-flash-max.yaml
+[15:42:20] === mcode-minimax-minimax-m3-1-flash-max: PatchEval start
+[17:59:48] === mcode-minimax-minimax-m3-1-flash-max: benchkit exit 0
+[16:17:26]  ✓  1/20  PASS       sqlit-246  1801.4s · 0 stream tok/s
+[16:51:07]  ✓  2/20  PASS       sqlit-260  1801.5s · 0 stream tok/s
+[17:22:51]  !  3/20  TIMEOUT    narwhals-3864  1801.4s · 0 stream tok/s
+[17:27:37]  !  4/20  ERROR      city2graph-121  285.9s · 0 stream tok/s  SandboxError: Docker buildx failed: erio==1.5.0
+[17:59:07]  ✓  5/20  PASS       json-repair-207  1798.8s · 153 stream tok/s
+[17:59:44] ! patcheval · minimax/minimax-m3.1-flash · mcode agent   75.0%  PASS 3  FAIL 1  ERR 1  LOOP 0  5 tasks (partial) · 153.1 tok/s · 0 killed · 2h 17m
+Saved: results/2026-11-01_17-59-48
+[17:59:48] # mcode-minimax-minimax-m3-1-flash-max done

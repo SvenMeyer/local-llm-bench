@@ -1,0 +1,5 @@
+[17:40:34] pi-minimax: pid 2454705, 4/20 done; waiting for the next task to finish
+[18:00:19] pi-minimax: sent one SIGINT after task 5
+Saved: results/2026-11-01_18-01-14
+[18:01:14] pi-minimax: resuming tasks 5-20 as pi-minimax-minimax-m3-1-flash-max-65536-from5
+[18:01:34] pi-minimax: resume started: [18:01:16] job 1/1 patcheval on minimax/minimax-m3.1-flash via Pi agent · 15 tasks · 1 concurrent · tasks 5-20

@@ -1,0 +1,13 @@
+# llama-bench-qwen38-udiq4xs-b11170-128k-fill-20261026-211954.log
+# start 2026-10-26T21:19:54+11:00  profile=balanced
+# CTX=131072 NPREDICT=128 CHARS=450000 VARIANT=UD-IQ4_XS
+# engine llama.cpp version: b11027-mix-pr220-ca1426903+q2_0-avxvnni
+# SKIP_RELOAD=1
+# llama-server port 8099
+# 7774 MiB, 64 MiB  Mem:           125Gi       100Gi       894Mi        58Gi        82Gi        24Gi
+# n_ctx 131072
+corpus: 65 files, 2061894 chars available
+# n_ctx 131072 n_predict 128 fit_budget 130944
+ ctx_tok |   PP t/s |  TG t/s |   prefill |     wall
+  129263 |     34.9 |    2.01 |   3699.5s |  3763.0s
+# done 2026-10-26T22:22:37+11:00

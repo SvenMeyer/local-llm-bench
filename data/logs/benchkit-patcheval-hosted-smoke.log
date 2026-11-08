@@ -1,0 +1,17 @@
+BenchKit https://ai-gateway.vercel.sh/v1
+1 job · 1 model · 1 benchmark · 1 task
+[14:15:45] job 1/1 patcheval on minimax/minimax-m3.1-flash via Pi agent · 1 tasks · 1 concurrent · first 1
+[14:30:05]  ! 1/1  LENGTH LIMITsqlit-246  553.1s · 214 stream tok/s
+[14:30:05] ✓ patcheval · minimax/minimax-m3.1-flash · Pi agent    0.0%  PASS 0  FAIL 1  ERR 0  LOOP 0  1 task · 214.4 tok/s · 0 killed · 14m 20s
+Finished 1 job · 1 task · 14m 23s
+
+         ╷        ╷        ╷       ╷        ╷        ╷       ╷        ╷         
+         │        │ Benchm │       │        │        │       │    Avg │         
+ Model   │ Harne… │ ark    │ Score │ Pass/… │ Fail/… │ Tok/s │   Time │    Wall 
+╶────────┼────────┼────────┼───────┼────────┼────────┼───────┼────────┼────────╴
+ minimax │ Pi     │ patche │  0.0% │    0/1 │ 0/0/0… │ 214.4 │ 553.1s │ 14m 20s 
+ /minima │ agent  │ val    │       │        │        │       │        │         
+ x-m3.1- │        │        │       │        │        │       │        │         
+ flash   │        │        │       │        │        │       │        │         
+         ╵        ╵        ╵       ╵        ╵        ╵       ╵        ╵         
+Saved: results/2026-11-01_14-30-07

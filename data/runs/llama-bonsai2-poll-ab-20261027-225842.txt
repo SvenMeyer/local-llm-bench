@@ -1,0 +1,21 @@
+## arm poll=100  start cpu=64C  54C gpu
+   llama-server CPU% 99.5
+       3910 |    200.1 |    7.42 |     19.5s |    53.9s | draft 94/160
+       8389 |    182.6 |    7.58 |     45.9s |    79.6s | draft 106/149
+       3910 |    184.4 |   11.15 |     21.2s |    44.2s | draft 161/246
+       8389 |    179.8 |    8.17 |     46.6s |    77.9s | draft 123/191
+       3910 |    184.2 |   26.86 |     21.2s |    30.9s | draft 220/251
+       8389 |    178.8 |   21.45 |     46.9s |    58.8s | draft 210/229
+   mean GPU W 19.6  samples<30W 66/66  mean CPU 86C max 100C
+   CUDA errors: 0
+## arm poll=0  start cpu=64C  53C gpu
+   llama-server CPU% 99.2
+       3910 |    485.3 |   30.54 |      8.1s |    16.4s | draft 94/160
+       8389 |    475.1 |   32.38 |     17.7s |    25.5s | draft 106/149
+       3910 |    478.4 |   43.46 |      8.2s |    14.2s | draft 161/246
+       8389 |    468.3 |   34.40 |     17.9s |    25.3s | draft 123/191
+       3910 |    475.2 |   92.62 |      8.2s |    11.1s | draft 220/251
+       8389 |    465.7 |   78.34 |     18.0s |    21.3s | draft 210/229
+   mean GPU W 34.2  samples<30W 1/23  mean CPU 89C max 100C
+   CUDA errors: 0
+## done 2026-10-27T23:09:23+11:00

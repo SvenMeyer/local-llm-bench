@@ -1,0 +1,4 @@
+[14:30:42] # hosted-minimax-minimax-m3-1-flash start  provider=vercel-gateway-free model=minimax/minimax-m3.1-flash slice=patcheval
+[14:30:42] === hosted-minimax-minimax-m3-1-flash: PatchEval start
+[15:00:57] === hosted-minimax-minimax-m3-1-flash: benchkit exit 1
+[15:00:57] # hosted-minimax-minimax-m3-1-flash done

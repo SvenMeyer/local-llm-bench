@@ -1,0 +1,36 @@
+--- a/ggml/src/ggml-cuda/ggml-cuda.cu
++++ b/ggml/src/ggml-cuda/ggml-cuda.cu
+@@ -371,6 +371,33 @@
+         if (prop.major == 12 && prop.minor == 1) {
+             CUDA_CHECK(cudaSetDevice(physical_id));
+             CUDA_CHECK(cudaSetDeviceFlags(cudaDeviceScheduleSpin));
++        }
++
++        // GGML_CUDA_SCHEDULE=blocking|yield|spin|auto: how a host thread waits in a CUDA synchronize call.
++        // The driver default (auto) spins a CPU core whenever there are fewer active contexts than logical cores,
++        // i.e. always on a desktop CPU. On a laptop that shares one power budget between CPU and GPU the spinning
++        // core costs GPU watts; "blocking" sleeps the thread and the driver wakes it when the GPU is done.
++        // GGML_CUDA_BLOCKING_SYNC=1 is the name proposed upstream (ggml-org/llama.cpp PR #26487); same as =blocking.
++        const char * sched = getenv("GGML_CUDA_SCHEDULE");
++        if (!sched) {
++            const char * bs = getenv("GGML_CUDA_BLOCKING_SYNC");
++            if (bs && atoi(bs) != 0) {
++                sched = "blocking";
++            }
++        }
++        if (sched) {
++            const std::string s = sched;
++            unsigned int flag = cudaDeviceScheduleAuto;
++            if (s == "blocking") {
++                flag = cudaDeviceScheduleBlockingSync;
++            } else if (s == "yield") {
++                flag = cudaDeviceScheduleYield;
++            } else if (s == "spin") {
++                flag = cudaDeviceScheduleSpin;
++            }
++            CUDA_CHECK(cudaSetDevice(physical_id));
++            CUDA_CHECK(cudaSetDeviceFlags(flag));
++            GGML_LOG_INFO("%s: device %d: GGML_CUDA_SCHEDULE=%s\n", __func__, id, sched);
+         }
+ 
+ #endif  // defined(GGML_USE_HIP)

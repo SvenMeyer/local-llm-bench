@@ -1,0 +1,9 @@
+ggml_cuda_init: found 1 CUDA devices (Total VRAM: 7836 MiB):
+  Device 0: NVIDIA GeForce RTX 4070 Laptop GPU, compute capability 8.9, VMM: yes, VRAM: 7836 MiB
+ggml_cuda_init: device 0: GGML_CUDA_SCHEDULE=blocking
+| model                          |       size |     params | backend    | ngl | type_k | type_v |  fa |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | --: | -----: | -----: | --: | --------------: | -------------------: |
+| qwen35 27B PTQ1_0 - 1.75 bpw ternary (group 128) |   5.53 GiB |    26.90 B | CUDA       |  99 |   q8_0 |   q8_0 |   1 |           pp512 |        569.57 ± 4.21 |
+| qwen35 27B PTQ1_0 - 1.75 bpw ternary (group 128) |   5.53 GiB |    26.90 B | CUDA       |  99 |   q8_0 |   q8_0 |   1 |           tg128 |         24.12 ± 0.03 |
+
+build: adfffbe (1)

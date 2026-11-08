@@ -1,0 +1,5 @@
+[18:07:29] pi-minimax: pid 3002842, 5/20 done; waiting for the next task to finish
+[18:10:30] pi-minimax: sent one SIGINT after task 6
+Saved: results/2026-11-01_18-11-11
+[18:11:15] pi-minimax: resuming tasks 6-20 as pi-minimax-minimax-m3-1-flash-max-65536-from6
+[18:11:35] pi-minimax: resume started: 

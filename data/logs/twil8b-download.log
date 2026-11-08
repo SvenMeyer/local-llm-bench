@@ -1,0 +1,6 @@
+A new version of huggingface_hub (2.4.0) is available! You are using version 1.5.0.
+To update, run: pip install -U huggingface_hub
+
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/usr/lib/python3.14/multiprocessing/resource_tracker.py:475: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-tjl74ysi'}
+  warnings.warn(

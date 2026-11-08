@@ -1,0 +1,17 @@
+BenchKit http://172.17.0.1:8099/v1
+1 job · 1 model · 1 benchmark · 1 task
+[14:47:38] job 1/1 patcheval on qwen3.8-flash-next-iq3_s via Pi agent · 1 tasks · 1 concurrent · first 1
+[15:10:07]  ✓ 1/1  PASS       sqlit-246  1012.1s · 19 stream tok/s
+[15:10:07] ✓ patcheval · qwen3.8-flash-next-iq3_s · Pi agent  100.0%  PASS 1  FAIL 0  ERR 0  LOOP 0  1 task · 18.9 tok/s · 0 killed · 22m 29s
+Finished 1 job · 1 task · 22m 32s
+
+         ╷        ╷        ╷        ╷        ╷        ╷       ╷        ╷        
+         │        │ Benchm │        │        │        │       │    Avg │        
+ Model   │ Harne… │ ark    │  Score │ Pass/… │ Fail/… │ Tok/s │   Time │   Wall 
+╶────────┼────────┼────────┼────────┼────────┼────────┼───────┼────────┼───────╴
+ qwen3.8 │ Pi     │ patche │ 100.0% │    1/1 │ 0/0/0… │  18.9 │ 1012.… │    22m 
+ -flash- │ agent  │ val    │        │        │        │       │        │    29s 
+ next-iq │        │        │        │        │        │       │        │        
+ 3_s     │        │        │        │        │        │       │        │        
+         ╵        ╵        ╵        ╵        ╵        ╵       ╵        ╵        
+Saved: results/2026-11-03_15-10-09

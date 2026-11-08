@@ -1,0 +1,4 @@
+BenchKit http://172.17.0.1:8099/v1
+1 job · 1 model · 1 benchmark · 20 tasks
+[03:25:50] job 1/1 patcheval on bonsai-2-27b via Pi agent · 20 tasks · 1 concurrent · all tasks
+[03:46:00]  !  1/20  TIMEOUT    sqlit-246  901.5s · 25 stream tok/s

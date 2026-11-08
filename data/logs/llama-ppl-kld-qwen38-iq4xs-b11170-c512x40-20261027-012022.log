@@ -1,0 +1,12 @@
+0.00.971.853 W llama_model_loader: tensor overrides to CPU are used with mmap enabled - consider using --load-mode none for better performance
+0.15.847.214 I cmn          init: llama threadpool init, n_threads = 10
+0.18.061.971 I 
+0.18.062.030 I system_info: n_threads = 10 (n_threads_batch = 10) / 20 | CUDA : ARCHS = 890 | USE_GRAPHS = 1 | FA_QUANTS = all | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX_VNNI = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | 
+0.18.062.143 I perplexity: saving all logits to eval-data/kld-base-udiq4xs-c512x40.bin
+0.18.062.146 I perplexity: tokenizing the input ..
+0.18.500.938 I perplexity: tokenization took 438.783 ms
+0.18.501.074 I perplexity: calculating perplexity over 40 chunks, n_ctx=512, batch_size=2048, n_seq=4
+0.55.513.181 I perplexity: 36.98 seconds per pass - ETA 6.15 minutes
+[1]1.9511,[2]3.0224,[3]2.5045,[4]2.1701,[5]2.0141,[6]1.9154,[7]1.8263,[8]1.8541,[9]1.8453,[10]1.8218,[11]1.7651,[12]1.8235,[13]1.9278,[14]1.9555,[15]2.0828,[16]2.2247,[17]2.2463,[18]2.3868,[19]2.4696,[20]2.4022,[21]2.3396,[22]2.3722,[23]2.3388,[24]2.3045,[25]2.3160,[26]2.2983,[27]2.2890,[28]2.2885,[29]2.3386,[30]2.3147,[31]2.3305,[32]2.3838,[33]2.4141,[34]2.4421,[35]2.4858,[36]2.5718,[37]2.6202,[38]2.6457,[39]2.7012,[40]2.7441,
+3.31.708.651 I Final estimate: PPL = 2.7441 +/- 0.05357
+

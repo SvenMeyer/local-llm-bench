@@ -1,0 +1,18 @@
+BenchKit https://ai-gateway.vercel.sh/v1
+1 job · 1 model · 1 benchmark · 15 tasks
+[17:59:51] job 1/1 patcheval on minimax/minimax-m3.1-flash via mcode agent · 15 tasks · 1 concurrent · tasks 5-20
+[18:10:33]  ✗  1/15  FAIL       json-repair-191  507.3s · 141 stream tok/s
+Interrupted, cancelling active requests…
+[18:11:17] ! patcheval · minimax/minimax-m3.1-flash · mcode agent    0.0%  PASS 0  FAIL 1  ERR 0  LOOP 0  1 task (partial) · 140.7 tok/s · 0 killed · 11m 26s
+Stopped 1 job · 1 task · 11m 29s
+
+         ╷        ╷        ╷       ╷        ╷        ╷       ╷        ╷         
+         │        │ Benchm │       │        │        │       │    Avg │         
+ Model   │ Harne… │ ark    │ Score │ Pass/… │ Fail/… │ Tok/s │   Time │    Wall 
+╶────────┼────────┼────────┼───────┼────────┼────────┼───────┼────────┼────────╴
+ minimax │ mcode  │ patche │  0.0% │    0/1 │ 1/0/0… │ 140.7 │ 507.3s │ 11m 26s 
+ /minima │ agent  │ val    │       │        │        │       │        │         
+ x-m3.1- │        │        │       │        │        │       │        │         
+ flash   │        │        │       │        │        │       │        │         
+         ╵        ╵        ╵       ╵        ╵        ╵       ╵        ╵         
+Saved: results/2026-11-01_18-11-20

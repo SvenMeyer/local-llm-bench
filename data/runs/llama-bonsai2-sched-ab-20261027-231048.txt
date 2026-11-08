@@ -1,0 +1,21 @@
+## arm default  start cpu=64C  gpu ceiling 35 W
+   llama-server CPU% during decode: 97.0
+       3910 |    484.5 |   30.55 |      8.1s |    16.4s | draft 94/160
+       8389 |    473.7 |   32.28 |     17.7s |    25.6s | draft 106/149
+       3910 |    477.3 |   30.23 |      8.2s |    16.8s | draft 94/160
+       8389 |    467.9 |   32.39 |     17.9s |    25.8s | draft 106/149
+       3910 |    473.9 |   30.09 |      8.3s |    16.7s | draft 94/160
+       8389 |    464.2 |   32.05 |     18.1s |    26.0s | draft 106/149
+   mean GPU W 34.2  samples<30W 1/25  mean CPU 93C max 100C
+   CUDA errors: 0  schedule line: 0
+## arm blocking  start cpu=64C  gpu ceiling 35 W
+   llama-server CPU% during decode: 0.0
+       3910 |    476.3 |   29.36 |      8.2s |    16.9s | draft 94/160
+       8389 |    473.0 |   31.32 |     17.7s |    25.9s | draft 106/149
+       3910 |    477.0 |   29.07 |      8.2s |    17.1s | draft 94/160
+       8389 |    467.2 |   31.16 |     18.0s |    26.2s | draft 106/149
+       3910 |    473.3 |   29.18 |      8.3s |    17.0s | draft 94/160
+       8389 |    465.3 |   30.98 |     18.0s |    26.3s | draft 106/149
+   mean GPU W 34.0  samples<30W 1/25  mean CPU 80C max 100C
+   CUDA errors: 0  schedule line: 1
+## done 2026-10-27T23:17:48+11:00

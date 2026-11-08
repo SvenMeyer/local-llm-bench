@@ -1,0 +1,33 @@
+[23:16:53] waiting for llama-strata-overnight.sh to finish
+[03:42:02] suite finished; plan:
+pi-strata-iq3xxs-noskip | /home/sum/.cache/lm-studio/models/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-GGUF | iq3_xxs | 3 | --set STRATA_ROUTE_TAIL_SKIP=0
+[03:42:02] === pi-strata-iq3xxs-noskip: launching Strata (iq3_xxs)
+  Connect an app:  strata connect opencode      Stop:  strata launch --stop
+  To keep these settings for next time, add --save-preset NAME.
+[03:42:35] === pi-strata-iq3xxs-noskip: server model id qwen3.8-flash-next-iq3_xxs
+pi-strata-iq3xxs-noskip t1-bugfix-stats    s1 PASS  turns  6  tools  6 err 0 unk 0  tok   1124      60s  stop stop
+pi-strata-iq3xxs-noskip t2-slugify         s1 PASS  turns  9  tools 10 err 0 unk 0  tok   4645     200s  stop stop
+pi-strata-iq3xxs-noskip t3-refactor        s1 PASS  turns  6  tools  7 err 0 unk 0  tok   1059      76s  stop stop
+pi-strata-iq3xxs-noskip t4-logparse        s1 PASS  turns  5  tools  5 err 0 unk 0  tok   1232     173s  stop stop
+pi-strata-iq3xxs-noskip t5-config          s1 PASS  turns  5  tools  5 err 0 unk 0  tok    550      59s  stop stop
+pi-strata-iq3xxs-noskip t6-lru             s1 PASS  turns  6  tools  6 err 0 unk 0  tok   4883     208s  stop stop
+pi-strata-iq3xxs-noskip t7-calc            s1 PASS  turns  9  tools  8 err 1 unk 0  tok   7483     307s  stop stop
+pi-strata-iq3xxs-noskip t8-scheduler       s1 PASS  turns  8  tools 11 err 0 unk 0  tok  10158     405s  stop stop
+pi-strata-iq3xxs-noskip t1-bugfix-stats    s2 PASS  turns  6  tools  6 err 0 unk 0  tok   1527      91s  stop stop
+pi-strata-iq3xxs-noskip t2-slugify         s2 PASS  turns  6  tools  6 err 0 unk 0  tok   3155     136s  stop stop
+pi-strata-iq3xxs-noskip t3-refactor        s2 PASS  turns  5  tools  7 err 0 unk 0  tok   1132      76s  stop stop
+pi-strata-iq3xxs-noskip t4-logparse        s2 PASS  turns 15  tools 16 err 2 unk 0  tok   5487     348s  stop stop
+pi-strata-iq3xxs-noskip t5-config          s2 PASS  turns  5  tools  5 err 0 unk 0  tok    611      61s  stop stop
+pi-strata-iq3xxs-noskip t6-lru             s2 PASS  turns 19  tools 18 err 2 unk 0  tok  17169     678s  stop stop
+pi-strata-iq3xxs-noskip t7-calc            s2 PASS  turns 14  tools 14 err 2 unk 0  tok  13114    1020s  stop stop
+pi-strata-iq3xxs-noskip t8-scheduler       s2 PASS  turns 19  tools 19 err 2 unk 0  tok   9048     341s  stop stop
+pi-strata-iq3xxs-noskip t1-bugfix-stats    s3 PASS  turns  5  tools  5 err 0 unk 0  tok   1078      76s  stop stop
+pi-strata-iq3xxs-noskip t2-slugify         s3 PASS  turns  7  tools  7 err 0 unk 0  tok   4007     178s  stop stop
+pi-strata-iq3xxs-noskip t3-refactor        s3 PASS  turns  7  tools 14 err 0 unk 0  tok   1386      84s  stop stop
+pi-strata-iq3xxs-noskip t4-logparse        s3 PASS  turns  6  tools  7 err 0 unk 0  tok   1688     198s  stop stop
+pi-strata-iq3xxs-noskip t5-config          s3 PASS  turns  6  tools  6 err 0 unk 0  tok    889      71s  stop stop
+pi-strata-iq3xxs-noskip t6-lru             s3 PASS  turns  6  tools  6 err 0 unk 0  tok   2267     108s  stop stop
+pi-strata-iq3xxs-noskip t7-calc            s3 PASS  turns  7  tools  7 err 0 unk 0  tok   6126     244s  stop stop
+pi-strata-iq3xxs-noskip t8-scheduler       s3 PASS  turns 10  tools 10 err 0 unk 0  tok   7948     304s  stop stop
+Stopped iq3_xxs-64k.
+[05:14:34] === pi follow-up done

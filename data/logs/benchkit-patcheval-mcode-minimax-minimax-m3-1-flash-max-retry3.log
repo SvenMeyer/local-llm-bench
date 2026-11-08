@@ -1,0 +1,17 @@
+BenchKit https://ai-gateway.vercel.sh/v1
+1 job · 1 model · 1 benchmark · 1 task
+[17:48:08] job 1/1 patcheval on minimax/minimax-m3.1-flash via mcode agent · 1 tasks · 1 concurrent · tasks 3-4
+[18:11:41]  ✗ 1/1  FAIL       city2graph-121  1015.0s · 141 stream tok/s
+[18:11:41] ✓ patcheval · minimax/minimax-m3.1-flash · mcode agent    0.0%  PASS 0  FAIL 1  ERR 0  LOOP 0  1 task · 141.2 tok/s · 0 killed · 23m 32s
+Finished 1 job · 1 task · 23m 36s
+
+         ╷        ╷        ╷       ╷        ╷        ╷       ╷        ╷         
+         │        │ Benchm │       │        │        │       │    Avg │         
+ Model   │ Harne… │ ark    │ Score │ Pass/… │ Fail/… │ Tok/s │   Time │    Wall 
+╶────────┼────────┼────────┼───────┼────────┼────────┼───────┼────────┼────────╴
+ minimax │ mcode  │ patche │  0.0% │    0/1 │ 1/0/0… │ 141.2 │ 1015.… │ 23m 32s 
+ /minima │ agent  │ val    │       │        │        │       │        │         
+ x-m3.1- │        │        │       │        │        │       │        │         
+ flash   │        │        │       │        │        │       │        │         
+         ╵        ╵        ╵       ╵        ╵        ╵       ╵        ╵         
+Saved: results/2026-11-01_18-11-44

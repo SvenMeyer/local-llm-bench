@@ -1,0 +1,28 @@
+TwIL-8B fit+bench 20261106-204159  model=TwIL-8B.i1-Q4_K_M.gguf  build=build 12169
+== arm KV=q8_0 ctx=32768
+FAILED: no llama-server process after 33s
+  server failed, tail:
+0.02.039.976 I srv  llama_server: initializing ...
+0.02.039.986 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.02.040.291 W srv  server_setup: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
+0.02.042.541 I srv    load_model: loading model '/home/sum/.cache/lm-studio/models/mradermacher/TwIL-8B-i1-GGUF/TwIL-8B.i1-Q4_K_M.gguf'
+0.02.210.323 W common_fit_params: failed to fit params to free device memory: n_gpu_layers already set by user to 999, abort
+0.03.022.322 E ggml_backend_cuda_buffer_type_alloc_buffer: allocating 200.51 MiB on device 0: cudaMalloc failed: out of memory
+0.03.022.326 E ggml_gallocr_reserve_n_impl: failed to allocate CUDA0 buffer of size 210253952
+0.03.022.327 E graph_reserve: failed to allocate compute buffers
+0.03.025.560 E llama_init_from_model: failed to initialize the context: failed to allocate compute pp buffers
+0.03.025.565 E cmn  common_init_: failed to create context with model '/home/sum/.cache/lm-studio/models/mradermacher/TwIL-8B-i1-GGUF/TwIL-8B.i1-Q4_K_M.gguf'
+0.03.025.568 E cmn  common_init_: failed to create context with model '/home/sum/.cache/lm-studio/models/mradermacher/TwIL-8B-i1-GGUF/TwIL-8B.i1-Q4_K_M.gguf'
+0.03.025.571 E srv    load_model: failed to create_context with model '/home/sum/.cache/lm-studio/models/mradermacher/TwIL-8B-i1-GGUF/TwIL-8B.i1-Q4_K_M.gguf'
+0.03.025.572 I srv    operator(): operator(): cleaning up before exit...
+0.03.028.105 E srv  server_run_i: exiting due to model loading error
+| model                          |       size |     params | backend    | ngl | threads | type_k | type_v |  fa |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | --: | ------: | -----: | -----: | --: | --------------: | -------------------: |
+| granite 8B Q4_K - Medium       |   4.98 GiB |     8.79 B | CUDA       |  99 |      10 |   q8_0 |   q8_0 |   1 |           pp512 |       1846.35 ± 1.20 |
+| granite 8B Q4_K - Medium       |   4.98 GiB |     8.79 B | CUDA       |  99 |      10 |   q8_0 |   q8_0 |   1 |           tg128 |         37.36 ± 0.86 |
+| granite 8B Q4_K - Medium       |   4.98 GiB |     8.79 B | CUDA       |  99 |      10 |   q8_0 |   q8_0 |   1 |   pp512 @ d8192 |       1291.44 ± 2.34 |
+| granite 8B Q4_K - Medium       |   4.98 GiB |     8.79 B | CUDA       |  99 |      10 |   q8_0 |   q8_0 |   1 |   tg128 @ d8192 |         29.01 ± 0.18 |
+| granite 8B Q4_K - Medium       |   4.98 GiB |     8.79 B | CUDA       |  99 |      10 |   q8_0 |   q8_0 |   1 |  pp512 @ d16384 |       708.31 ± 40.87 |
+| granite 8B Q4_K - Medium       |   4.98 GiB |     8.79 B | CUDA       |  99 |      10 |   q8_0 |   q8_0 |   1 |  tg128 @ d16384 |         22.04 ± 0.14 |
+| granite 8B Q4_K - Medium       |   4.98 GiB |     8.79 B | CUDA       |  99 |      10 |   q8_0 |   q8_0 |   1 |  pp512 @ d24576 |       487.00 ± 63.33 |
+| granite 8B Q4_K - Medium       |   4.98 GiB |     8.79 B | CUDA       |  99 |      10 |   q8_0 |   q8_0 |   1 |  tg128 @ d24576 |         19.01 ± 0.05 |

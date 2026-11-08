@@ -1,0 +1,67 @@
+# start 2026-09-18T02:17:16+1000
+# continue n_predict=2048 prefix_chars=58067 cache_prompt=true
+# wall_s 180.8 stop=limit predicted=2048
+# timings {"cache_n": 16519, "prompt_n": 1, "prompt_ms": 512.419, "prompt_per_token_ms": 512.419, "prompt_per_second": 1.951527948807519, "predicted_n": 2048, "predicted_ms": 180286.047, "predicted_per_token_ms": 88.07330092818759, "predicted_per_second": 11.354178729094881, "draft_n": 1685, "draft_n_accepted": 1485}
+# summary prompt_n=1 predicted_n=2048 PP=1.951527948807519 TG=11.354178729094881 cache_n=16519 draft 1485/1685
+# wrote combined 12316 chars
+
+    {
+        StakeInfo storage s = stakes[account];
+        return (s.amount, s.timestamp, earned(account));
+    }
+
+    // --- Admin ---
+
+    function setRewardRate(uint256 _rewardRate) external onlyOwner {
+        _updateAllRewards();
+        rewardRate = _rewardRate;
+        emit RewardRateUpdated(_rewardRate);
+    }
+
+    function setMinStake(uint256 _minStake) external onlyOwner {
+        minStake = _minStake;
+        emit MinStakeUpdated(_minStake);
+    }
+
+    /// @notice Add rewards funding to the contract (caller must approve first)
+    function addRewards(uint256 amount) external {
+        if (amount == 0) revert ZeroAmount();
+        rewardsToken.safeTransferFrom(msg.sender, address(this), amount);
+        emit RewardAdded(amount);
+    }
+
+    // --- Staking ---
+
+    function stake(uint256 amount) external nonReentrant updateRewards(msg.sender) {
+        if (amount == 0) revert ZeroAmount();
+        if (stakes[msg.sender].amount + amount < minStake && stakes[msg.sender].amount != 0)
+            revert BelowMinimumStake();
+
+        totalStaked += amount;
+        stakes[msg.sender].amount += amount;
+        stakes[msg.sender].timestamp = block.timestamp;
+
+        stakingToken.safeTransferFrom(msg.sender, address(this), amount);
+        emit Staked(msg.sender, amount);
+    }
+
+    function unstake(uint256 amount) external nonReentrant updateRewards(msg.sender) {
+        if (amount == 0) revert ZeroAmount();
+        if (stakes[msg.sender].amount < amount) revert InsufficientStake();
+        if (stakes[msg.sender].amount == 0) revert NoStake();
+
+        // Allow full unstake even if it drops below minStake
+        if (stakes[msg.sender].amount > amount &&
+            stakes[msg.sender].amount - amount < minStake) {
+            revert BelowMinimumStake();
+        }
+
+        totalStaked -= amount;
+        stakes[msg.sender].amount -= amount;
+
+        stakingToken.safeTransfer(msg.sender, amount);
+        emit Unstaked(msg.sender, amount);
+    }
+
+    function claimR
+# done

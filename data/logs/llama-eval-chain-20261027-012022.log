@@ -1,0 +1,66 @@
+# pipeline QUANT=iq4xs STAGES=1 SEEDS=1,2,3 start 2026-10-27T01:20:22+11:00
+# stage 1 exit 0 -> llama-ppl-kld-qwen38-iq4xs-b11170-c512x40-20261027-012022.log
+Final estimate: PPL = 2.7441 +/- 0.05357
+# pipeline QUANT=iq4xs done 2026-10-27T01:23:58+11:00
+# pipeline QUANT=q2_0 STAGES=1 SEEDS=1,2,3 start 2026-10-27T01:23:58+11:00
+# stage 1 exit 0 -> llama-ppl-kld-qwen38-q2_0-b11170-c512x40-20261027-012358.log
+chunk             PPL               ln(PPL(Q)/PPL(base))          KL Divergence              Δp RMS            Same top p
+Mean PPL(Q)                   :   3.358630 ±   0.069662
+Mean PPL(Q)/PPL(base)         :   1.224454 ±   0.015564
+Mean PPL(Q)-PPL(base)         :   0.615668 ±   0.041672
+Mean    KLD:   0.498122 ±   0.009609
+Same top p: 77.980 ± 0.410 %
+# pipeline QUANT=q2_0 done 2026-10-27T01:26:13+11:00
+# pipeline QUANT=q2_0 STAGES=3 SEEDS=1,2,3 start 2026-10-27T01:26:13+11:00
+READY port 8099 after 31s, VRAM 5788 MiB
+q2_0       t8-scheduler       s1 PASS  turns  7  calls 11 bad 0  tok   9070     922s  tg 10.21  draft 6019/9165
+q2_0       t8-scheduler       s2 PASS  turns  5  calls  9 bad 0  tok   6315     681s  tg 10.63  draft 4243/6216
+q2_0       t8-scheduler       s3 PASS  turns  7  calls 11 bad 0  tok   6784     678s  tg 10.67  draft 4628/6477
+# pipeline QUANT=q2_0 done 2026-10-27T02:04:50+11:00
+# pipeline QUANT=coder STAGES=1 2 3 SEEDS=1,2,3 start 2026-10-27T02:04:50+11:00
+# stage 1 exit 0 -> llama-ppl-kld-qwen38-coder-b11170-c512x40-20261027-020450.log
+chunk             PPL               ln(PPL(Q)/PPL(base))          KL Divergence              Δp RMS            Same top p
+Mean PPL(Q)                   :   5.109711 ±   0.120792
+Mean PPL(Q)/PPL(base)         :   1.862844 ±   0.034733
+Mean PPL(Q)-PPL(base)         :   2.366748 ±   0.095734
+Mean    KLD:   0.937963 ±   0.015443
+Same top p: 68.755 ± 0.459 %
+READY port 8099 after 26s, VRAM 6618 MiB
+# stage 2 r1
+# 6618 MiB, 1220 MiB  Mem:           125Gi        70Gi       1.8Gi        27Gi        81Gi        55Gi
+     574 |    106.8 |    6.07 |      5.4s |    26.3s | draft 77/148
+    2029 |    150.1 |    6.04 |     13.5s |    34.5s | draft 80/140
+    3910 |    144.1 |    6.06 |     27.1s |    48.1s | draft 82/135
+    8389 |    141.5 |    5.45 |     59.3s |    82.6s | draft 71/164
+# stage 2 r2
+# 6760 MiB, 1078 MiB  Mem:           125Gi        71Gi       955Mi        27Gi        81Gi        54Gi
+     574 |    108.7 |    5.75 |      5.3s |    27.6s | draft 77/148
+    2029 |    139.8 |    6.13 |     14.5s |    35.2s | draft 77/149
+    3910 |    117.0 |    5.19 |     33.4s |    57.9s | draft 77/149
+    8389 |    130.6 |    5.33 |     64.2s |    88.1s | draft 78/144
+READY port 8099 after 27s, VRAM 6568 MiB
+coder      t1-bugfix-stats    s1 PASS  turns  5  calls  5 bad 0  tok    827     109s  tg 9.34  draft 579/759
+coder      t2-slugify         s1 PASS  turns  6  calls  7 bad 0  tok   2424     310s  tg 8.34  draft 1657/2304
+coder      t3-refactor        s1 PASS  turns  7  calls 14 bad 0  tok   1269     168s  tg 8.79  draft 884/1152
+coder      t4-logparse        s1 PASS  turns 11  calls 11 bad 0  tok   3225     623s  tg 7.26  draft 2134/3285
+coder      t5-config          s1 PASS  turns  5  calls  5 bad 0  tok    446      62s  tg 9.38  draft 318/393
+coder      t6-lru             s1 PASS  turns  5  calls  5 bad 0  tok   3261     441s  tg 7.79  draft 2157/3309
+coder      t7-calc            s1 PASS  turns  8  calls  8 bad 0  tok   8076    1058s  tg 7.92  draft 5430/7932
+coder      t8-scheduler       s1 PASS  turns  7  calls 10 bad 0  tok   7762    1076s  tg 7.46  draft 5079/8055
+coder      t1-bugfix-stats    s2 PASS  turns  6  calls  6 bad 0  tok    960     134s  tg 8.75  draft 655/924
+coder      t2-slugify         s2 PASS  turns  5  calls  5 bad 0  tok   1709     223s  tg 8.2  draft 1135/1719
+coder      t3-refactor        s2 PASS  turns  7  calls 14 bad 0  tok   1125     147s  tg 9.18  draft 782/1017
+coder      t4-logparse        s2 PASS  turns  5  calls  5 bad 0  tok   1745     379s  tg 7.64  draft 1135/1830
+coder      t5-config          s2 PASS  turns  5  calls  5 bad 0  tok    461      65s  tg 9.0  draft 318/435
+coder      t6-lru             s2 PASS  turns  6  calls  6 bad 0  tok   5115     686s  tg 7.73  draft 3337/5337
+coder      t7-calc            s2 PASS  turns  6  calls  6 bad 0  tok   6471     798s  tg 8.32  draft 4398/6228
+coder      t8-scheduler       s2 PASS  turns 13  calls 15 bad 0  tok  11772    1557s  tg 7.9  draft 7829/11826
+coder      t1-bugfix-stats    s3 PASS  turns  5  calls  5 bad 0  tok    970     125s  tg 8.77  draft 662/927
+coder      t2-slugify         s3 PASS  turns  9  calls  9 bad 0  tok   3509     434s  tg 8.65  draft 2403/3327
+coder      t3-refactor        s3 PASS  turns  7  calls 16 bad 0  tok   1180     157s  tg 9.07  draft 824/1080
+coder      t4-logparse        s3 PASS  turns  6  calls  8 bad 0  tok   2022     434s  tg 9.66  draft 1315/2118
+coder      t5-config          s3 PASS  turns  5  calls  5 bad 0  tok    405      40s  tg 13.18  draft 289/354
+coder      t6-lru             s3 PASS  turns  6  calls  7 bad 0  tok   4730     506s  tg 9.85  draft 3143/4764
+coder      t7-calc            s3 PASS  turns  5  calls  5 bad 0  tok   6890     722s  tg 9.69  draft 4480/7236
+coder      t8-scheduler       s3 PASS  turns  6  calls  8 bad 0  tok   6970     741s  tg 9.63  draft 4553/7251
+# pipeline QUANT=coder done 2026-10-27T05:20:14+11:00

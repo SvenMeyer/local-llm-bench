@@ -1,0 +1,6 @@
+BenchKit https://ai-gateway.vercel.sh/v1
+1 job · 1 model · 1 benchmark · 20 tasks
+[14:30:43] job 1/1 patcheval on minimax/minimax-m3.1-flash via Pi agent · 20 tasks · 1 concurrent · all tasks
+Interrupted, cancelling active requests…
+Aborted.
+No results.

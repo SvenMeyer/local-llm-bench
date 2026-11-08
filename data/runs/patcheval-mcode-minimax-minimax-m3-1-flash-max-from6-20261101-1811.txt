@@ -1,0 +1,3 @@
+[18:11:25] # mcode-minimax-minimax-m3-1-flash-max-from6 start  agent=mcode 0.7.2 provider=vercel-gateway-free model=minimax/minimax-m3.1-flash effort=max slice=patcheval:6-20
+[18:11:25]   sandbox config: /home/sum/Downloads/AI-Runtime/mcode-sandbox-mcode-minimax-minimax-m3-1-flash-max-from6.yaml
+[18:11:25] STOP: test call to minimax/minimax-m3.1-flash returned HTTP 402

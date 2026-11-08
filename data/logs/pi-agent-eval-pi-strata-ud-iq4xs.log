@@ -1,0 +1,8 @@
+pi-strata-ud-iq4xs     t1-bugfix-stats    s1 PASS  turns  6  tools  6 err 0 unk 0  tok   1058      78s  stop stop
+pi-strata-ud-iq4xs     t2-slugify         s1 PASS  turns  8  tools  8 err 0 unk 0  tok   3352     224s  stop stop
+pi-strata-ud-iq4xs     t3-refactor        s1 PASS  turns  7  tools  9 err 0 unk 0  tok   1563     130s  stop stop
+pi-strata-ud-iq4xs     t4-logparse        s1 PASS  turns  8  tools  8 err 0 unk 0  tok   2217     187s  stop stop
+pi-strata-ud-iq4xs     t5-config          s1 PASS  turns  6  tools  7 err 0 unk 0  tok    809      87s  stop stop
+pi-strata-ud-iq4xs     t6-lru             s1 PASS  turns  6  tools  6 err 0 unk 0  tok   4156     250s  stop stop
+pi-strata-ud-iq4xs     t7-calc            s1 PASS  turns 16  tools 17 err 1 unk 0  tok  14060     759s  stop stop
+pi-strata-ud-iq4xs     t8-scheduler       s1 PASS  turns 18  tools 20 err 1 unk 0  tok  14770     922s  stop stop

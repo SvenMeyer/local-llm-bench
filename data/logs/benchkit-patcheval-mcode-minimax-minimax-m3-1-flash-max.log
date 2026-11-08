@@ -1,0 +1,119 @@
+BenchKit https://ai-gateway.vercel.sh/v1
+1 job · 1 model · 1 benchmark · 20 tasks
+[15:42:21] job 1/1 patcheval on minimax/minimax-m3.1-flash via mcode agent · 20 tasks · 1 concurrent · all tasks
+[16:17:26]  ✓  1/20  PASS       sqlit-246  1801.4s · 0 stream tok/s
+[16:51:07]  ✓  2/20  PASS       sqlit-260  1801.5s · 0 stream tok/s
+[17:22:51]  !  3/20  TIMEOUT    narwhals-3864  1801.4s · 0 stream tok/s
+[17:27:37]  !  4/20  ERROR      city2graph-121  285.9s · 0 stream tok/s  SandboxError: Docker buildx failed: erio==1.5.0
+#18 85.50  + referencing==0.37.0
+#18 85.50  + requests==2.32.5
+#18 85.50  + rfc3339-validator==0.1.4
+#18 85.50  + rfc3986-validator==0.1.1
+#18 85.50  + rfc3987-syntax==1.1.0
+#18 85.50  + rpds-py==0.30.0
+#18 85.50  + rustworkx==0.17.1
+#18 85.50  + scikit-learn==1.8.0
+#18 85.50  + scipy==1.17.0
+#18 85.50  + send2trash==2.1.0
+#18 85.50  + setuptools==82.0.0
+#18 85.50  + shapely==2.1.2
+#18 85.50  + six==1.17.0
+#18 85.50  + soupsieve==2.8.3
+#18 85.50  + stack-data==0.6.3
+#18 85.50  + sympy==1.14.0
+#18 85.50  + terminado==0.18.1
+#18 85.50  + threadpoolctl==3.6.0
+#18 85.50  + tinycss2==1.4.0
+#18 85.50  + torch==2.10.0+cpu
+#18 85.50  + torch-geometric==2.7.0
+#18 85.50  + torchvision==0.25.0
+#18 85.50  + tornado==6.5.4
+#18 85.50  + tqdm==4.67.3
+#18 85.50  + traitlets==5.14.3
+#18 85.50  + typing-extensions==4.15.0
+#18 85.50  + tzdata==2025.3
+#18 85.50  + uri-template==1.3.0
+#18 85.50  + urllib3==2.6.3
+#18 85.50  + virtualenv==20.36.1
+#18 85.50  + wcwidth==0.6.0
+#18 85.50  + webcolors==25.10.0
+#18 85.50  + webencodings==0.5.1
+#18 85.50  + websocket-client==1.9.0
+#18 85.50  + widgetsnbextension==4.0.15
+#18 85.50  + xxhash==3.6.0
+#18 85.50  + xyzservices==2025.11.0
+#18 85.50  + yarl==1.22.0
+#18 DONE 86.0s
+
+#19 [benchkit-runtime 5/5] RUN rm -rf /opt/project     && test -d /opt/venv     && chmod -R a+rwX /opt/venv
+#19 DONE 1.6s
+
+#20 [stage-3 1/1] WORKDIR /workspace
+#20 DONE 0.6s
+
+#21 exporting to docker image format
+#21 exporting layers
+#21 exporting layers 50.8s done
+#21 exporting manifest sha256:14c819a27e0a0540fa3769689d89f152729e2908b4beb2ec94c13db331f6ec56 0.1s done
+#21 exporting config sha256:eaa3a2d001ed96cc1b455f3260d0238741329750aad250522e70c401a79f9494 0.1s done
+#21 sending tarball
+#21 ...
+
+#22 importing to docker
+#22 loading layer 874421af4d84 327.68kB / 30.20MB
+#22 loading layer 9852bdec8d12 16.10kB / 16.10kB
+#22 loading layer 2cc9261d3770 557.06kB / 52.84MB
+#22 loading layer 2cc9261d3770 19.50MB / 52.84MB 2.1s
+#22 loading layer 9b80195a1688 2.76kB / 2.76kB
+#22 loading layer 60eef5d760ba 1.09kB / 1.09kB
+#22 loading layer 486a26716c25 173B / 173B
+#22 loading layer 3280f2a7a52a 116B / 116B
+#22 loading layer 87069dd71907 557.06kB / 96.75MB
+#22 loading layer 6383da7ba32f 557.06kB / 96.75MB
+#22 loading layer c4141362ad80 557.06kB / 516.53MB
+#22 loading layer c4141362ad80 38.99MB / 516.53MB 2.2s
+#22 loading layer c4141362ad80 72.97MB / 516.53MB 4.2s
+#22 loading layer c4141362ad80 129.24MB / 516.53MB 6.2s
+#22 loading layer c4141362ad80 212.24MB / 516.53MB 8.7s
+#22 loading layer c4141362ad80 290.23MB / 516.53MB 10.8s
+#22 loading layer c4141362ad80 326.99MB / 516.53MB 13.3s
+#22 loading layer c4141362ad80 370.44MB / 516.53MB 15.3s
+#22 loading layer c4141362ad80 467.37MB / 516.53MB 17.4s
+#22 loading layer c4141362ad80 493.55MB / 516.53MB 22.5s
+#22 loading layer 874421af4d84 30.20MB / 30.20MB 38.3s done
+#22 loading layer 9852bdec8d12 16.10kB / 16.10kB 33.3s done
+#22 loading layer 2cc9261d3770 52.84MB / 52.84MB 33.1s done
+#22 loading layer 9b80195a1688 2.76kB / 2.76kB 29.1s done
+#22 loading layer 60eef5d760ba 1.09kB / 1.09kB 29.0s done
+#22 loading layer 486a26716c25 173B / 173B 28.9s done
+#22 loading layer 3280f2a7a52a 116B / 116B 28.8s done
+#22 loading layer 87069dd71907 96.75MB / 96.75MB 28.7s done
+#22 loading layer 6383da7ba32f 96.75MB / 96.75MB 27.1s done
+#22 loading layer c4141362ad80 498.57MB / 516.53MB 25.4s done
+#22 ERROR: write /opt/venv/lib/python3.12/site-packages/torchvision.libs/libnvjpeg.8dd2b5e6.so.12: no space left on device
+
+#21 exporting to docker image format
+#21 sending tarball 44.8s done
+#21 ERROR: rpc error: code = Unknown desc = write /opt/venv/lib/python3.12/site-packages/torchvision.libs/libnvjpeg.8dd2b5e6.so.12: no space left on device
+------
+ > exporting to docker image format:
+------
+------
+ > importing to docker:
+------
+ERROR: failed to build: failed to solve: rpc error: code = Unknown desc = write /opt/venv/lib/python3.12/site-packages/torchvision.libs/libnvjpeg.8dd2b5e6.so.12: no space left on device
+[17:59:07]  ✓  5/20  PASS       json-repair-207  1798.8s · 153 stream tok/s
+Interrupted, cancelling active requests…
+[17:59:44] ! patcheval · minimax/minimax-m3.1-flash · mcode agent   75.0%  PASS 3  FAIL 1  ERR 1  LOOP 0  5 tasks (partial) · 153.1 tok/s · 0 killed · 2h 17m
+Stopped 1 job · 5 tasks · 2h 17m
+
+         ╷        ╷        ╷       ╷        ╷        ╷       ╷        ╷         
+         │        │ Benchm │       │        │        │       │    Avg │         
+ Model   │ Harne… │ ark    │ Score │ Pass/… │ Fail/… │ Tok/s │   Time │    Wall 
+╶────────┼────────┼────────┼───────┼────────┼────────┼───────┼────────┼────────╴
+ minimax │ mcode  │ patche │ 75.0% │    3/4 │ 0/0/3… │ 153.1 │ 1798.… │    137m 
+ /minima │ agent  │ val    │       │        │        │       │        │     22s 
+ x-m3.1- │        │        │       │        │        │       │        │         
+ flash   │        │        │       │        │        │       │        │         
+         ╵        ╵        ╵       ╵        ╵        ╵       ╵        ╵         
+Saved: results/2026-11-01_17-59-48

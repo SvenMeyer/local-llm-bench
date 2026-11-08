@@ -1,0 +1,8 @@
+[22:15:49] # mcode-deepseek-v41-1017-max-64k-p2828-local1 start  agent=mcode 0.7.2 provider=openrouter model=deepseek/deepseek-v4.1-flash-1017 effort=max slice=patcheval:17-18
+[22:15:49]   sandbox config: /home/sum/Downloads/AI-Runtime/mcode-sandbox-mcode-deepseek-v41-1017-max-64k-p2828-local1.yaml
+[22:15:50] === mcode-deepseek-v41-1017-max-64k-p2828-local1: PatchEval start
+[22:21:58] === mcode-deepseek-v41-1017-max-64k-p2828-local1: benchkit exit 0
+[22:21:56]  ✗ 1/1  FAIL       pygments-2828  112.8s · 157 stream tok/s
+[22:21:56] ✓ patcheval · deepseek/deepseek-v4.1-flash-1017 · mcode agent    0.0%  PASS 0  FAIL 1  ERR 0  LOOP 0  1 task · 157.1 tok/s · 0 killed · 6m 5s
+Saved: results/2026-11-02_22-21-58
+[22:21:58] # mcode-deepseek-v41-1017-max-64k-p2828-local1 done

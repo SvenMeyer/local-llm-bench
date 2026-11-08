@@ -1,0 +1,28 @@
+[01:58:47] # ornith15-udq4kxl-llamacpp start
+[01:58:56] server ready, VRAM 7114 MiB
+[01:58:58] === ornith15-udq4kxl-llamacpp: PatchEval start (model ornith-1.5-122b-ud-q4_k_xl, context 32768)
+[10:55:28] === ornith15-udq4kxl-llamacpp: benchkit exit 0
+[02:20:57]  ✓  1/20  PASS       sqlit-246  1010.6s · 7 stream tok/s
+[02:40:56]  ✗  2/20  FAIL       sqlit-260  956.0s · 7 stream tok/s
+[03:12:52]  !  3/20  TIMEOUT    narwhals-3864  1801.3s · 7 stream tok/s
+[03:49:19]  ✓  4/20  PASS       city2graph-121  1801.7s · 7 stream tok/s
+[04:20:57]  !  5/20  TIMEOUT    json-repair-207  1801.2s · 7 stream tok/s
+[04:52:04]  !  6/20  TIMEOUT    json-repair-191  1801.8s · 6 stream tok/s
+[05:22:52]  ✓  7/20  PASS       json-repair-205  1801.4s · 8 stream tok/s
+[05:54:20]  ✓  8/20  PASS       click-3572  1801.4s · 8 stream tok/s
+[06:03:31]  ✓  9/20  PASS       click-3360  516.6s · 8 stream tok/s
+[06:12:00]  ✓ 10/20  PASS       click-2790  472.4s · 8 stream tok/s
+[06:43:51]  ! 11/20  TIMEOUT    pypdf-3982  1801.5s · 8 stream tok/s
+[07:14:58]  ! 12/20  TIMEOUT    pypdf-3878  1801.3s · 8 stream tok/s
+[07:46:00]  ✓ 13/20  PASS       pypdf-3587  1801.4s · 8 stream tok/s
+[08:17:39]  ✓ 14/20  PASS       attrs-1575  1801.3s · 7 stream tok/s
+[08:48:25]  ! 15/20  TIMEOUT    typeguard-499  1801.2s · 8 stream tok/s
+[09:19:16]  ! 16/20  TIMEOUT    structlog-710  1801.3s · 7 stream tok/s
+[09:52:26]  ! 17/20  TIMEOUT    pygments-2816  1802.0s · 6 stream tok/s
+[10:05:01]  ✗ 18/20  FAIL       pygments-2828  694.3s · 7 stream tok/s
+[10:35:33]  ! 19/20  TIMEOUT    tomlkit-440  1801.3s · 7 stream tok/s
+[10:55:22]  ✓ 20/20  PASS       tomlkit-542  1153.8s · 7 stream tok/s
+[10:55:22] ✓ patcheval · ornith-1.5-122b-ud-q4_k_xl · Pi agent   45.0%  PASS 9  FAIL 11  ERR 0  LOOP 0  20 tasks · 7.2 tok/s · 0 killed · 8h 56m
+Saved: results/2026-11-01_10-55-28
+    mean GPU W 25.2  mean CPU 75C max 100C
+[10:55:28] # ornith15-udq4kxl-llamacpp done

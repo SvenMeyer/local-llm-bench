@@ -1,0 +1,11 @@
+[14:46:52] # patcheval-strata-quants start  arms: iq3s  slice: patcheval:1  0.2.10 build 0.1.56  route: --set STRATA_ROUTE_TAIL_SKIP=0 --set STRATA_ROUTE_PRIOR=1.5  timeout: 3600s  maxTokens: 65536  profile=balanced
+[14:46:53] === iq3s-noskip-prior15-0156-dflash2-sqlit246: cooling to 65C (now 57C)
+[14:46:56] === iq3s-noskip-prior15-0156-dflash2-sqlit246: launching (58C)
+  To keep these settings for next time, add --save-preset NAME.
+[14:47:37] === iq3s-noskip-prior15-0156-dflash2-sqlit246: PatchEval start (model qwen3.8-flash-next-iq3_s, timeout 3600s, maxTokens 65536, patcheval:1)
+[15:10:09] === iq3s-noskip-prior15-0156-dflash2-sqlit246: benchkit exit 0
+[15:10:07]  ✓ 1/1  PASS       sqlit-246  1012.1s · 19 stream tok/s
+[15:10:07] ✓ patcheval · qwen3.8-flash-next-iq3_s · Pi agent  100.0%  PASS 1  FAIL 0  ERR 0  LOOP 0  1 task · 18.9 tok/s · 0 killed · 22m 29s
+Saved: results/2026-11-03_15-10-09
+    mean GPU W 21.5  mean CPU 76C max 100C
+[15:10:13] # patcheval-strata-quants done

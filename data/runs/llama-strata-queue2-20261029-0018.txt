@@ -1,0 +1,63 @@
+[00:18:39] waiting for llama-strata-overnight.sh and pi-strata-followup.sh
+[05:14:50] === strata-iq3xxs-faithful: launching
+  Connect an app:  strata connect opencode      Stop:  strata launch --stop
+  To keep these settings for next time, add --save-preset NAME.
+strata serve: route tail skip: 9365178 missed experts skipped (9915108 entries) since the start
+strata verify: residency-biased routing is on by default on this card (STRATA_ROUTE_PRIOR=1.5: a card of 13 GiB or less; it changes which experts run; STRATA_ROUTE_PRIOR=0 turns it off)
+strata verify: residency-biased routing is on by default on this card (STRATA_ROUTE_PRIOR=1.5: a card of 13 GiB or less; it changes which experts run; STRATA_ROUTE_PRIOR=0 turns it off)
+strata-iq3xxs-faithful t1-bugfix-stats    s1 PASS  turns  6  calls  6 bad 0  tok    950      40s  tg 30.73  draft 617/828
+strata-iq3xxs-faithful t2-slugify         s1 PASS  turns  5  calls  5 bad 0  tok   2436     114s  tg 22.89  draft 1471/2258
+strata-iq3xxs-faithful t3-refactor        s1 PASS  turns  6  calls 14 bad 0  tok   1057      60s  tg 20.64  draft 707/850
+strata-iq3xxs-faithful t4-logparse        s1 PASS  turns  9  calls  8 bad 1  tok   4025     241s  tg 23.39  draft 2597/3543
+strata-iq3xxs-faithful t5-config          s1 PASS  turns  5  calls  5 bad 0  tok    471      41s  tg 18.5  draft 312/405
+strata-iq3xxs-faithful t6-lru             s1 PASS  turns  5  calls  5 bad 0  tok   3376     162s  tg 22.01  draft 2063/2994
+strata-iq3xxs-faithful t7-calc            s1 PASS  turns 10  calls 10 bad 0  tok   9437     457s  tg 23.98  draft 6270/8022
+strata-iq3xxs-faithful t8-scheduler       s1 PASS  turns 11  calls 11 bad 1  tok   9688     446s  tg 22.54  draft 6114/8290
+strata-iq3xxs-faithful t1-bugfix-stats    s2 PASS  turns  6  calls  6 bad 0  tok    890      55s  tg 24.54  draft 575/756
+strata-iq3xxs-faithful t2-slugify         s2 PASS  turns  7  calls  7 bad 0  tok   3870     194s  tg 20.99  draft 2442/3390
+strata-iq3xxs-faithful t3-refactor        s2 PASS  turns  6  calls 14 bad 0  tok    974      40s  tg 31.99  draft 673/799
+strata-iq3xxs-faithful t4-logparse        s2 PASS  turns  6  calls  7 bad 0  tok   1526     135s  tg 20.86  draft 945/1309
+strata-iq3xxs-faithful t5-config          s2 PASS  turns  5  calls  6 bad 0  tok    471      42s  tg 15.17  draft 303/384
+strata-iq3xxs-faithful t6-lru             s2 PASS  turns  5  calls  5 bad 0  tok   4529     231s  tg 20.76  draft 2594/4069
+strata-iq3xxs-faithful t7-calc            s2 PASS  turns  5  calls  5 bad 0  tok   5630     283s  tg 22.93  draft 3460/5072
+strata-iq3xxs-faithful t8-scheduler       s2 PASS  turns  6  calls  9 bad 0  tok  10045     487s  tg 21.56  draft 6090/8985
+strata-iq3xxs-faithful t1-bugfix-stats    s3 PASS  turns  6  calls  6 bad 0  tok   1131      66s  tg 21.01  draft 701/998
+strata-iq3xxs-faithful t2-slugify         s3 PASS  turns  5  calls  5 bad 0  tok   2993     146s  tg 22.32  draft 1844/2651
+strata-iq3xxs-faithful t3-refactor        s3 PASS  turns  6  calls 14 bad 0  tok   1214      66s  tg 24.47  draft 782/1019
+strata-iq3xxs-faithful t4-logparse        s3 PASS  turns  9  calls 10 bad 0  tok   3379     219s  tg 24.77  draft 2167/2864
+strata-iq3xxs-faithful t5-config          s3 PASS  turns  5  calls  5 bad 0  tok    513      25s  tg 29.18  draft 327/426
+strata-iq3xxs-faithful t6-lru             s3 PASS  turns  6  calls  6 bad 0  tok   4820     253s  tg 21.51  draft 3099/4255
+strata-iq3xxs-faithful t7-calc            s3 PASS  turns 11  calls 10 bad 1  tok  13298     580s  tg 24.0  draft 8738/11289
+strata-iq3xxs-faithful t8-scheduler       s3 PASS  turns  7  calls  8 bad 0  tok   7862     373s  tg 21.79  draft 4723/6965
+Stopped iq3_xxs-64k.
+[06:34:48] === pi-strata-ud-iq4xs: launching
+  Connect an app:  strata connect opencode      Stop:  strata launch --stop
+  To keep these settings for next time, add --save-preset NAME.
+pi-strata-ud-iq4xs     t1-bugfix-stats    s1 PASS  turns  6  tools  6 err 0 unk 0  tok   1058      78s  stop stop
+pi-strata-ud-iq4xs     t2-slugify         s1 PASS  turns  8  tools  8 err 0 unk 0  tok   3352     224s  stop stop
+pi-strata-ud-iq4xs     t3-refactor        s1 PASS  turns  7  tools  9 err 0 unk 0  tok   1563     130s  stop stop
+pi-strata-ud-iq4xs     t4-logparse        s1 PASS  turns  8  tools  8 err 0 unk 0  tok   2217     187s  stop stop
+pi-strata-ud-iq4xs     t5-config          s1 PASS  turns  6  tools  7 err 0 unk 0  tok    809      87s  stop stop
+pi-strata-ud-iq4xs     t6-lru             s1 PASS  turns  6  tools  6 err 0 unk 0  tok   4156     250s  stop stop
+pi-strata-ud-iq4xs     t7-calc            s1 PASS  turns 16  tools 17 err 1 unk 0  tok  14060     759s  stop stop
+pi-strata-ud-iq4xs     t8-scheduler       s1 PASS  turns 18  tools 20 err 1 unk 0  tok  14770     922s  stop stop
+Stopped ud-iq4_xs-64k.
+[07:19:29] === summary
+| model | pass | tool calls (bad) | errors | length stops | avg turns | avg tokens | avg min/task | total h | agent TG t/s | MTP accept |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| gsq-iq3xxs | 24/24 | 175 (0) | 0 | 0 | 6.0 | 3116 | 5.8 | 2.3 | 9.76 | 67% |
+| strata-iq3xxs | 23/24 | 208 (5) | 0 | 0 | 7.0 | 5654 | 3.9 | 1.6 | 29.51 | 67% |
+| strata-iq3xxs-noskip | 24/24 | 180 (5) | 0 | 0 | 6.2 | 3767 | 2.7 | 1.1 | 28.02 | 69% |
+| strata-iq3xxs-faithful | 24/24 | 187 (3) | 0 | 0 | 6.6 | 3941 | 3.3 | 1.3 | 22.64 | 72% |
+
+| task | gsq-iq3xxs pass · min | strata-iq3xxs pass · min | strata-iq3xxs-noskip pass · min | strata-iq3xxs-faithful pass · min |
+|---|---:|---:|---:|---:|
+| t1-bugfix-stats | 3/3 · 1.8 | 3/3 · 0.5 | 3/3 · 0.5 | 3/3 · 0.9 |
+| t2-slugify | 3/3 · 5.5 | 3/3 · 2.5 | 3/3 · 2.1 | 3/3 · 2.5 |
+| t3-refactor | 3/3 · 1.8 | 3/3 · 1.0 | 3/3 · 0.8 | 3/3 · 0.9 |
+| t4-logparse | 3/3 · 4.9 | 3/3 · 3.4 | 3/3 · 2.9 | 3/3 · 3.3 |
+| t5-config | 3/3 · 1.1 | 3/3 · 0.6 | 3/3 · 0.5 | 3/3 · 0.6 |
+| t6-lru | 3/3 · 6.1 | 3/3 · 3.8 | 3/3 · 3.6 | 3/3 · 3.6 |
+| t7-calc | 3/3 · 10.4 | 3/3 · 5.6 | 3/3 · 4.8 | 3/3 · 7.3 |
+| t8-scheduler | 3/3 · 14.9 | 2/3 · 13.7 | 3/3 · 6.4 | 3/3 · 7.3 |
+[07:19:29] === queue 2 done

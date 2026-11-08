@@ -1,0 +1,38 @@
+BenchKit http://172.17.0.1:8099/v1
+1 job · 1 model · 1 benchmark · 20 tasks
+[00:52:08] job 1/1 patcheval on qwen3.8-flash-next-unsloth-ud-iq4_xs-v31 via Pi agent · 20 tasks · 1 concurrent · all tasks
+[01:19:04]  ✓  1/20  PASS       sqlit-246  1278.0s · 16 stream tok/s
+[01:52:56]  !  2/20  TIMEOUT    sqlit-260  1801.4s · 13 stream tok/s
+[02:24:51]  !  3/20  TIMEOUT    narwhals-3864  1801.5s · 15 stream tok/s
+[03:01:09]  ✓  4/20  PASS       city2graph-121  1801.5s · 16 stream tok/s
+[03:33:00]  !  5/20  TIMEOUT    json-repair-207  1801.9s · 15 stream tok/s
+[04:03:56]  ✓  6/20  PASS       json-repair-191  1801.4s · 16 stream tok/s
+[04:34:44]  !  7/20  TIMEOUT    json-repair-205  1801.5s · 15 stream tok/s
+[05:06:03]  ✓  8/20  PASS       click-3572  1801.5s · 14 stream tok/s
+[05:12:51]  ✓  9/20  PASS       click-3360  348.8s · 20 stream tok/s
+[05:24:29]  ✓ 10/20  PASS       click-2790  663.0s · 16 stream tok/s
+[05:56:20]  ✓ 11/20  PASS       pypdf-3982  1802.2s · 15 stream tok/s
+[06:27:34]  ! 12/20  TIMEOUT    pypdf-3878  1803.6s · 15 stream tok/s
+[06:58:38]  ✓ 13/20  PASS       pypdf-3587  1801.5s · 16 stream tok/s
+[07:23:10]  ✓ 14/20  PASS       attrs-1575  1378.0s · 16 stream tok/s
+[07:54:01]  ✓ 15/20  PASS       typeguard-499  1801.5s · 15 stream tok/s
+[08:24:36]  ! 16/20  TIMEOUT    structlog-710  1801.4s · 15 stream tok/s
+[08:57:02]  ! 17/20  TIMEOUT    pygments-2816  1801.5s · 14 stream tok/s
+[09:16:57]  ✓ 18/20  PASS       pygments-2828  1130.5s · 15 stream tok/s
+[09:44:31]  ✓ 19/20  PASS       tomlkit-440  1613.0s · 14 stream tok/s
+[09:49:24]  ✗ 20/20  FAIL       tomlkit-542  254.8s · 14 stream tok/s
+[09:49:24] ✓ patcheval · qwen3.8-flash-next-unsloth-ud-iq4_xs-v31 · Pi agent   60.0%  PASS 12  FAIL 8  ERR 0  LOOP 0  20 tasks · 15.1 tok/s · 0 killed · 8h 57m
+Finished 1 job · 20 tasks · 8h 57m
+
+         ╷        ╷        ╷       ╷        ╷        ╷       ╷        ╷         
+         │        │ Benchm │       │        │        │       │    Avg │         
+ Model   │ Harne… │ ark    │ Score │ Pass/… │ Fail/… │ Tok/s │   Time │    Wall 
+╶────────┼────────┼────────┼───────┼────────┼────────┼───────┼────────┼────────╴
+ qwen3.8 │ Pi     │ patche │ 60.0% │  12/20 │ 1/0/1… │  15.1 │ 1504.… │    537m 
+ -flash- │ agent  │ val    │       │        │        │       │        │     16s 
+ next-un │        │        │       │        │        │       │        │         
+ sloth-u │        │        │       │        │        │       │        │         
+ d-iq4_x │        │        │       │        │        │       │        │         
+ s-v31   │        │        │       │        │        │       │        │         
+         ╵        ╵        ╵       ╵        ╵        ╵       ╵        ╵         
+Saved: results/2026-11-08_09-49-31

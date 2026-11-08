@@ -1,0 +1,30 @@
+corpus: 65 files, 2061894 chars available
+# n_ctx 262144 n_predict 256 fit_budget 261888
+ ctx_tok |   PP t/s |  TG t/s |   prefill |     wall
+    3910 |    557.9 |   34.34 |      7.0s |    14.4s | draft 94/160
+    8389 |    555.7 |   37.26 |     15.1s |    22.0s | draft 106/149
+corpus: 65 files, 2061894 chars available
+# n_ctx 262144 n_predict 256 fit_budget 261888
+ ctx_tok |   PP t/s |  TG t/s |   prefill |     wall
+    3910 |    556.6 |   34.29 |      7.0s |    14.6s | draft 94/160
+    8389 |    547.7 |   36.74 |     15.3s |    22.3s | draft 106/149
+corpus: 65 files, 2061894 chars available
+# n_ctx 262144 n_predict 256 fit_budget 261888
+ ctx_tok |   PP t/s |  TG t/s |   prefill |     wall
+    3910 |    552.7 |   34.03 |      7.1s |    14.6s | draft 94/160
+    8389 |    545.5 |   36.41 |     15.4s |    22.4s | draft 106/149
+corpus: 65 files, 2061894 chars available
+# n_ctx 262144 n_predict 256 fit_budget 261888
+ ctx_tok |   PP t/s |  TG t/s |   prefill |     wall
+    3910 |    552.2 |   34.23 |      7.1s |    14.5s | draft 94/160
+    8389 |    546.8 |   36.89 |     15.3s |    22.3s | draft 106/149
+corpus: 65 files, 2061894 chars available
+# n_ctx 262144 n_predict 256 fit_budget 261888
+ ctx_tok |   PP t/s |  TG t/s |   prefill |     wall
+    3910 |    551.3 |   34.15 |      7.1s |    14.6s | draft 94/160
+    8389 |    546.4 |   36.66 |     15.4s |    22.3s | draft 106/149
+corpus: 65 files, 2061894 chars available
+# n_ctx 262144 n_predict 256 fit_budget 261888
+ ctx_tok |   PP t/s |  TG t/s |   prefill |     wall
+    3910 |    553.6 |   34.14 |      7.1s |    14.5s | draft 94/160
+    8389 |    547.4 |   36.70 |     15.3s |    22.3s | draft 106/149

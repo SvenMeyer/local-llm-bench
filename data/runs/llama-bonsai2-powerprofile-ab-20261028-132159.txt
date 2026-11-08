@@ -1,0 +1,43 @@
+# power-profile A/B start 2026-10-28T13:27:59+11:00, profile now balanced
+## arm balanced  (profile now balanced, platform_profile balanced)
+#   start cpu=65C  GPU ceiling 35 W  (max 50.00 W)
+   | qwen35 27B PTQ1_0 - 1.75 bpw ternary (group 128) |   5.53 GiB |    26.90 B | CUDA       |  99 |   q8_0 |   q8_0 |   1 |           pp512 |        518.03 ± 6.43 |
+   | qwen35 27B PTQ1_0 - 1.75 bpw ternary (group 128) |   5.53 GiB |    26.90 B | CUDA       |  99 |   q8_0 |   q8_0 |   1 |           tg128 |         22.94 ± 0.15 |
+   llama-bench GPU W mean 30.4 max 35.0
+       3910 |    472.3 |   28.78 |      8.3s |    17.1s | draft 94/160
+       8389 |    468.8 |   30.27 |     17.9s |    26.3s | draft 106/149
+       3910 |    474.2 |   28.11 |      8.2s |    17.5s | draft 94/160
+       8389 |    466.0 |   30.39 |     18.0s |    26.4s | draft 106/149
+       3910 |    473.2 |   28.69 |      8.3s |    17.2s | draft 94/160
+       8389 |    464.6 |   30.31 |     18.1s |    26.5s | draft 106/149
+       3910 |    470.5 |   28.54 |      8.3s |    17.3s | draft 94/160
+       8389 |    463.5 |   30.28 |     18.1s |    26.5s | draft 106/149
+       3910 |    469.8 |   28.29 |      8.3s |    17.3s | draft 94/160
+       8389 |    462.9 |   30.02 |     18.1s |    26.6s | draft 106/149
+       3910 |    469.0 |   28.35 |      8.3s |    17.3s | draft 94/160
+       8389 |    462.4 |   30.58 |     18.1s |    26.5s | draft 106/149
+   probe GPU W mean 34.4 max 35.2  samples<30W 1/51  CPU mean 76C max 95C
+   GPU ceiling seen:      27 35 
+   fans at end: CPU 5895 Video 5601 
+## arm performance  (profile now performance, platform_profile performance)
+#   start cpu=66C  GPU ceiling 40 W  (max 50.00 W)
+   | qwen35 27B PTQ1_0 - 1.75 bpw ternary (group 128) |   5.53 GiB |    26.90 B | CUDA       |  99 |   q8_0 |   q8_0 |   1 |           pp512 |        569.57 ± 4.21 |
+   | qwen35 27B PTQ1_0 - 1.75 bpw ternary (group 128) |   5.53 GiB |    26.90 B | CUDA       |  99 |   q8_0 |   q8_0 |   1 |           tg128 |         24.12 ± 0.03 |
+   llama-bench GPU W mean 34.2 max 40.0
+       3910 |    515.4 |   31.10 |      7.6s |    15.8s | draft 94/160
+       8389 |    514.6 |   33.15 |     16.3s |    24.0s | draft 106/149
+       3910 |    520.2 |   31.03 |      7.5s |    15.9s | draft 94/160
+       8389 |    509.7 |   33.00 |     16.5s |    24.2s | draft 106/149
+       3910 |    516.2 |   30.96 |      7.6s |    15.8s | draft 94/160
+       8389 |    507.1 |   32.99 |     16.5s |    24.3s | draft 106/149
+       3910 |    514.9 |   30.90 |      7.6s |    15.9s | draft 94/160
+       8389 |    505.0 |   32.85 |     16.6s |    24.4s | draft 106/149
+       3910 |    511.9 |   30.74 |      7.6s |    15.9s | draft 94/160
+       8389 |    504.8 |   33.00 |     16.6s |    24.4s | draft 106/149
+       3910 |    511.3 |   30.81 |      7.6s |    15.9s | draft 94/160
+       8389 |    502.7 |   32.80 |     16.7s |    24.5s | draft 106/149
+   probe GPU W mean 39.3 max 40.0  samples<30W 1/47  CPU mean 89C max 100C
+   GPU ceiling seen:      25 40 
+   fans at end: CPU 6281 Video 5975 
+# power-profile A/B done 2026-10-28T13:38:02+11:00
+# profile restored to balanced

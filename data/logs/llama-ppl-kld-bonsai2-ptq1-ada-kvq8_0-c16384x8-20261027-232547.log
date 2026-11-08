@@ -1,0 +1,14 @@
+0.00.582.303 W common_fit_params: failed to fit params to free device memory: n_gpu_layers already set by user to 99, abort
+0.01.789.537 I cmn          init: llama threadpool init, n_threads = 6
+0.01.791.512 W ggml_cuda_graph_check_compability: attention does not read the host tail of the tiered KV cache: CUDA graphs on (later switches: debug log)
+0.01.877.435 I 
+0.01.877.557 I system_info: n_threads = 6 (n_threads_batch = 6) / 20 | CUDA : ARCHS = 890 | USE_GRAPHS = 1 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX_VNNI = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | 
+0.01.877.739 I perplexity: saving all logits to eval-data/kld-base-bonsai2-ptq1-kvq8-c16384x8.bin
+0.01.877.746 I perplexity: tokenizing the input ..
+0.02.328.514 I perplexity: tokenization took 450.761 ms
+0.02.328.714 I perplexity: calculating perplexity over 8 chunks, n_ctx=16384, batch_size=2048, n_seq=1
+0.03.396.755 W ggml_cuda_op_gated_delta_net_impl: chunked GDN prefill (MMA) engaged: 512 tokens (512 by MMA), K 1, H 48, H_k 16, raw 1, gather 1, seqs 1
+0.42.453.709 I perplexity: 39.12 seconds per pass - ETA 5.20 minutes
+[1]4.6800,[2]6.2663,[3]6.9101,[4]6.9755,[5]6.3518,[6]6.9849,[7]6.7747,[8]7.2588,
+5.28.755.620 I Final estimate: PPL = 7.2588 +/- 0.07320
+

@@ -1,0 +1,27 @@
+TwIL-8B fit+bench 20261106-204437  model=TwIL-8B.i1-Q4_K_M.gguf  build=build 12169
+== arm KV=q4_0 ctx=32768
+READY port 8080 after 4s, VRAM 6726 MiB
+  VRAM 6726 MiB, 8188 MiB
+| model                          |       size |     params | backend    | ngl | threads | type_k | type_v |  fa |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | --: | ------: | -----: | -----: | --: | --------------: | -------------------: |
+| granite 8B Q4_K - Medium       |   4.98 GiB |     8.79 B | CUDA       |  99 |      10 |   q4_0 |   q4_0 |   1 |           pp512 |      1789.21 ± 35.30 |
+| granite 8B Q4_K - Medium       |   4.98 GiB |     8.79 B | CUDA       |  99 |      10 |   q4_0 |   q4_0 |   1 |           tg128 |         37.16 ± 0.84 |
+| granite 8B Q4_K - Medium       |   4.98 GiB |     8.79 B | CUDA       |  99 |      10 |   q4_0 |   q4_0 |   1 |   pp512 @ d8192 |       1306.46 ± 5.07 |
+| granite 8B Q4_K - Medium       |   4.98 GiB |     8.79 B | CUDA       |  99 |      10 |   q4_0 |   q4_0 |   1 |   tg128 @ d8192 |         28.66 ± 0.24 |
+| granite 8B Q4_K - Medium       |   4.98 GiB |     8.79 B | CUDA       |  99 |      10 |   q4_0 |   q4_0 |   1 |  pp512 @ d16384 |        684.99 ± 5.56 |
+| granite 8B Q4_K - Medium       |   4.98 GiB |     8.79 B | CUDA       |  99 |      10 |   q4_0 |   q4_0 |   1 |  tg128 @ d16384 |         19.05 ± 0.89 |
+| granite 8B Q4_K - Medium       |   4.98 GiB |     8.79 B | CUDA       |  99 |      10 |   q4_0 |   q4_0 |   1 |  pp512 @ d24576 |        448.82 ± 0.58 |
+| granite 8B Q4_K - Medium       |   4.98 GiB |     8.79 B | CUDA       |  99 |      10 |   q4_0 |   q4_0 |   1 |  tg128 @ d24576 |         15.25 ± 0.08 |
+== arm KV=q8_0 ctx=32768
+READY port 8080 after 3s, VRAM 6798 MiB
+  VRAM 6798 MiB, 8188 MiB
+| model                          |       size |     params | backend    | ngl | threads | type_k | type_v |  fa |            test |                  t/s |
+| ------------------------------ | ---------: | ---------: | ---------- | --: | ------: | -----: | -----: | --: | --------------: | -------------------: |
+| granite 8B Q4_K - Medium       |   4.98 GiB |     8.79 B | CUDA       |  99 |      10 |   q8_0 |   q8_0 |   1 |           pp512 |       1408.48 ± 8.92 |
+| granite 8B Q4_K - Medium       |   4.98 GiB |     8.79 B | CUDA       |  99 |      10 |   q8_0 |   q8_0 |   1 |           tg128 |         29.92 ± 0.04 |
+| granite 8B Q4_K - Medium       |   4.98 GiB |     8.79 B | CUDA       |  99 |      10 |   q8_0 |   q8_0 |   1 |   pp512 @ d8192 |       1044.52 ± 8.14 |
+| granite 8B Q4_K - Medium       |   4.98 GiB |     8.79 B | CUDA       |  99 |      10 |   q8_0 |   q8_0 |   1 |   tg128 @ d8192 |         22.61 ± 0.08 |
+| granite 8B Q4_K - Medium       |   4.98 GiB |     8.79 B | CUDA       |  99 |      10 |   q8_0 |   q8_0 |   1 |  pp512 @ d16384 |        613.39 ± 7.28 |
+| granite 8B Q4_K - Medium       |   4.98 GiB |     8.79 B | CUDA       |  99 |      10 |   q8_0 |   q8_0 |   1 |  tg128 @ d16384 |         17.89 ± 0.02 |
+| granite 8B Q4_K - Medium       |   4.98 GiB |     8.79 B | CUDA       |  99 |      10 |   q8_0 |   q8_0 |   1 |  pp512 @ d24576 |       429.49 ± 15.78 |
+| granite 8B Q4_K - Medium       |   4.98 GiB |     8.79 B | CUDA       |  99 |      10 |   q8_0 |   q8_0 |   1 |  tg128 @ d24576 |         14.47 ± 0.20 |

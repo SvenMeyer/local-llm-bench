@@ -1,0 +1,29 @@
+# patcheval start 2026-10-28T13:39:33+11:00 profile=balanced  docker 29.7.2
+#   start cpu=61C ceiling=35W
+READY port 8099 after 4s, VRAM 7594 MiB
+# model   Ternary-Bonsai-2-27B-PTQ1_0-mtp-procreations-q4head.gguf  head=q4 spec=1/1 replay=0 lookup=1 sched=blocking
+# window  262144 / q3_0  ub 512  vram free 7798 MiB  fixed 6435 MiB  margin 225
+# kv      vram cells 82688 (dense line 82688)  staging_frac 0.312500  demote_frac 0.043945
+# think   0 effort=medium budget=20480
+#   benchkit exit 0
+BenchKit http://172.17.0.1:8099/v1
+1 job · 1 model · 1 benchmark · 20 tasks
+[13:39:55] job 1/1 patcheval on bonsai-2-27b via Pi agent · 20 tasks · 1 concurrent · all tasks
+[13:56:51]  ✓  1/20  PASS       sqlit-246  712.6s · 27 stream tok/s
+[14:25:20]  ✗  2/20  FAIL       sqlit-260  1479.2s · 19 stream tok/s
+[14:57:14]  !  3/20  TIMEOUT    narwhals-3864  1801.4s · 23 stream tok/s
+Interrupted, cancelling active requests…
+[15:02:56] ! patcheval · bonsai-2-27b · Pi agent   33.3%  PASS 1  FAIL 2  ERR 0  LOOP 0  3 tasks (partial) · 23.1 tok/s · 0 killed · 1h 23m
+Stopped 1 job · 3 tasks · 1h 23m
+
+         ╷        ╷        ╷       ╷        ╷        ╷       ╷         ╷        
+         │        │ Benchm │       │        │        │       │     Avg │        
+ Model   │ Harne… │ ark    │ Score │ Pass/… │ Fail/… │ Tok/s │    Time │   Wall 
+╶────────┼────────┼────────┼───────┼────────┼────────┼───────┼─────────┼───────╴
+ bonsai- │ Pi     │ patche │ 33.3% │    1/3 │ 1/0/1… │  23.1 │ 1331.1s │ 83m 0s 
+ 2-27b   │ agent  │ val    │       │        │        │       │         │        
+         ╵        ╵        ╵       ╵        ╵        ╵       ╵         ╵        
+Saved: results/2026-10-28_15-02-59
+#   mean GPU W 23.1  samples<30W 413/953  mean CPU 75C max 100C
+#   CUDA errors: 0
+# patcheval done 2026-10-28T15:03:01+11:00

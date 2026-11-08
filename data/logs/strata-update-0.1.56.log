@@ -1,0 +1,28 @@
+Strata update (https://github.com/Niko1221/Strata/releases/latest/download)
+  Reading the signed update feed
+  downloading engine 0.1.56 linux-x86_64-cuda-cuda13: 0%
+  downloading engine 0.1.56 linux-x86_64-cuda-cuda13: 10%
+  downloading engine 0.1.56 linux-x86_64-cuda-cuda13: 20%
+  downloading engine 0.1.56 linux-x86_64-cuda-cuda13: 30%
+  downloading engine 0.1.56 linux-x86_64-cuda-cuda13: 40%
+  downloading engine 0.1.56 linux-x86_64-cuda-cuda13: 50%
+  downloading engine 0.1.56 linux-x86_64-cuda-cuda13: 60%
+  downloading engine 0.1.56 linux-x86_64-cuda-cuda13: 70%
+  downloading engine 0.1.56 linux-x86_64-cuda-cuda13: 80%
+  downloading engine 0.1.56 linux-x86_64-cuda-cuda13: 90%
+  downloading engine 0.1.56 linux-x86_64-cuda-cuda13: 100%
+  Unpacking 0.1.56 linux-x86_64-cuda-cuda13
+  Checking the package signature and every file
+  Test-starting engine 0.1.56 linux-x86_64-cuda-cuda13 before switching to it
+  Engine 0.1.56 is loading the model (1 s)
+  Engine 0.1.56 has loaded the model; waiting for it to answer one token (24 s)
+  Switching to engine 0.1.56 linux-x86_64-cuda-cuda13
+  Engine 0.1.56 is installed and will be used on the next start
+  downloading Control 0.1.56: 100%
+  Unpacking Control 0.1.56
+  Test-starting Control 0.1.56
+Feed sequence 120, signed by 5d1bc23abbeffd0d
+Engine  0.1.55 -> 0.1.56   updated (tested: started, answered one token, stopped)
+Control 0.1.55 -> 0.1.56   updated. The next `strata` command already runs it; the app switches on its next start
+Saved tuning presets: marked for the short re-check (nothing was deleted).
+The previous engine version is kept; `strata components rollback` returns to it.

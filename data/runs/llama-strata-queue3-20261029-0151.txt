@@ -1,0 +1,50 @@
+[01:51:08] waiting for the suite, pi follow-up and queue 2
+[07:19:56] === strata-iq3s-noskip: launching
+  Connect an app:  strata connect opencode      Stop:  strata launch --stop
+  To keep these settings for next time, add --save-preset NAME.
+strata-iq3s-noskip t1-bugfix-stats    s1 PASS  turns  6  calls  6 bad 0  tok   1381      52s  tg 33.07  draft 887/1236
+strata-iq3s-noskip t2-slugify         s1 PASS  turns  6  calls  7 bad 0  tok   2549     112s  tg 25.23  draft 1663/2299
+strata-iq3s-noskip t3-refactor        s1 PASS  turns  7  calls 13 bad 0  tok   1104      65s  tg 25.28  draft 751/894
+strata-iq3s-noskip t4-logparse        s1 PASS  turns 12  calls 13 bad 0  tok   4561     297s  tg 21.86  draft 2779/4012
+strata-iq3s-noskip t5-config          s1 PASS  turns  5  calls  5 bad 0  tok    519      29s  tg 32.79  draft 327/446
+strata-iq3s-noskip t6-lru             s1 PASS  turns  7  calls  7 bad 0  tok   3110     150s  tg 22.58  draft 1946/2739
+strata-iq3s-noskip t7-calc            s1 PASS  turns  5  calls  5 bad 0  tok   6605     298s  tg 24.2  draft 4025/5972
+strata-iq3s-noskip t8-scheduler       s1 PASS  turns 16  calls 21 bad 0  tok  12972     562s  tg 24.27  draft 7902/11397
+strata-iq3s-noskip t1-bugfix-stats    s2 PASS  turns  5  calls  6 bad 0  tok    867      56s  tg 18.97  draft 557/737
+strata-iq3s-noskip t2-slugify         s2 PASS  turns  5  calls  5 bad 0  tok   1644      78s  tg 23.14  draft 1035/1494
+strata-iq3s-noskip t3-refactor        s2 PASS  turns  6  calls 13 bad 0  tok    947      54s  tg 25.89  draft 652/787
+strata-iq3s-noskip t4-logparse        s2 PASS  turns  6  calls  6 bad 0  tok   1595     141s  tg 28.67  draft 958/1410
+strata-iq3s-noskip t5-config          s2 PASS  turns  5  calls  5 bad 0  tok    487      20s  tg 36.08  draft 342/405
+strata-iq3s-noskip t6-lru             s2 PASS  turns  5  calls  5 bad 0  tok   2796     138s  tg 21.73  draft 1682/2549
+strata-iq3s-noskip t7-calc            s2 PASS  turns 10  calls 10 bad 0  tok  10074     398s  tg 26.5  draft 6749/8925
+strata-iq3s-noskip t8-scheduler       s2 PASS  turns  8  calls 10 bad 0  tok   7643     325s  tg 24.44  draft 4741/6731
+strata-iq3s-noskip t1-bugfix-stats    s3 PASS  turns  6  calls  5 bad 0  tok   1333      70s  tg 21.38  draft 822/1240
+strata-iq3s-noskip t2-slugify         s3 PASS  turns  8  calls  8 bad 0  tok   5846     247s  tg 24.7  draft 3782/5160
+strata-iq3s-noskip t3-refactor        s3 PASS  turns  5  calls 13 bad 0  tok   1106      49s  tg 36.65  draft 760/903
+strata-iq3s-noskip t4-logparse        s3 PASS  turns  9  calls  9 bad 0  tok   4241     319s  tg 22.19  draft 2660/3705
+strata-iq3s-noskip t5-config          s3 PASS  turns  7  calls  7 bad 0  tok    920      60s  tg 20.88  draft 526/767
+strata-iq3s-noskip t6-lru             s3 PASS  turns  7  calls  7 bad 0  tok   4605     214s  tg 22.92  draft 2933/3949
+strata-iq3s-noskip t7-calc            s3 PASS  turns 11  calls 11 bad 0  tok   7619     331s  tg 25.06  draft 4776/6925
+strata-iq3s-noskip t8-scheduler       s3 PASS  turns  7  calls  9 bad 1  tok  11272     514s  tg 23.35  draft 6747/9889
+Stopped iq3_s-64k.
+[08:37:02] === summary (all setups)
+| model | pass | tool calls (bad) | errors | length stops | avg turns | avg tokens | avg min/task | total h | agent TG t/s | MTP accept |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| gsq-iq3xxs | 24/24 | 175 (0) | 0 | 0 | 6.0 | 3116 | 5.8 | 2.3 | 9.76 | 67% |
+| strata-iq3xxs | 23/24 | 208 (5) | 0 | 0 | 7.0 | 5654 | 3.9 | 1.6 | 29.51 | 67% |
+| strata-iq3xxs-noskip | 24/24 | 180 (5) | 0 | 0 | 6.2 | 3767 | 2.7 | 1.1 | 28.02 | 69% |
+| strata-iq3xxs-faithful | 24/24 | 187 (3) | 0 | 0 | 6.6 | 3941 | 3.3 | 1.3 | 22.64 | 72% |
+| strata-ud-iq4xs | 24/24 | 214 (7) | 0 | 0 | 7.5 | 4847 | 4.6 | 1.8 | 20.23 | 71% |
+| strata-iq3s-noskip | 24/24 | 206 (1) | 0 | 0 | 7.2 | 3992 | 3.2 | 1.3 | 24.24 | 71% |
+
+| task | gsq-iq3xxs pass · min | strata-iq3xxs pass · min | strata-iq3xxs-noskip pass · min | strata-iq3xxs-faithful pass · min | strata-ud-iq4xs pass · min | strata-iq3s-noskip pass · min |
+|---|---:|---:|---:|---:|---:|---:|
+| t1-bugfix-stats | 3/3 · 1.8 | 3/3 · 0.5 | 3/3 · 0.5 | 3/3 · 0.9 | 3/3 · 0.8 | 3/3 · 1.0 |
+| t2-slugify | 3/3 · 5.5 | 3/3 · 2.5 | 3/3 · 2.1 | 3/3 · 2.5 | 3/3 · 2.8 | 3/3 · 2.4 |
+| t3-refactor | 3/3 · 1.8 | 3/3 · 1.0 | 3/3 · 0.8 | 3/3 · 0.9 | 3/3 · 1.4 | 3/3 · 0.9 |
+| t4-logparse | 3/3 · 4.9 | 3/3 · 3.4 | 3/3 · 2.9 | 3/3 · 3.3 | 3/3 · 5.5 | 3/3 · 4.2 |
+| t5-config | 3/3 · 1.1 | 3/3 · 0.6 | 3/3 · 0.5 | 3/3 · 0.6 | 3/3 · 0.8 | 3/3 · 0.6 |
+| t6-lru | 3/3 · 6.1 | 3/3 · 3.8 | 3/3 · 3.6 | 3/3 · 3.6 | 3/3 · 4.0 | 3/3 · 2.8 |
+| t7-calc | 3/3 · 10.4 | 3/3 · 5.6 | 3/3 · 4.8 | 3/3 · 7.3 | 3/3 · 12.0 | 3/3 · 5.7 |
+| t8-scheduler | 3/3 · 14.9 | 2/3 · 13.7 | 3/3 · 6.4 | 3/3 · 7.3 | 3/3 · 9.6 | 3/3 · 7.8 |
+[08:37:02] === queue 3 done

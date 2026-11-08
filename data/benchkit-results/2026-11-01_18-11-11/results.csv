@@ -1,0 +1,97 @@
+model,benchmark,benchmark_label,variant,harness,harness_label,harness_version,score,passed,total,scored_total,tok_s,tok_s_per_stream,tok_s_aggregate,concurrency_eff,throughput_coverage,throughput_items,throughput_wall_time,total_output_tokens,throughput_output_tokens,total_input_tokens,model_turns,tool_calls,tool_schema_valid_calls,tool_schema_invalid_calls,tool_schema_validity_rate,errored_tool_calls,post_error_recoveries,post_error_recovery_rate,redundant_tool_calls,redundant_action_rate,destructive_action_count,destructive_action_rate,avg_turns_to_solve,avg_tokens_to_solve,first_attempt_score,repair_delta_pp,repair_attempted,repair_turns,repair_successes,repair_score_curve,sum_generation_time,sum_request_time,avg_response_time,total_time,slice,concurrency,errors,harness_errors,contaminated,contamination_by_language,contaminated_tasks,length_exceeded,failures,timeouts,loop_kills,loops,suspected_loops,recovered_loops,loop_rate,trace_coverage,median_thinking_time,median_time_to_answer,loop_kill_enabled,loop_kill_percent,loop_kill_seconds,pi_system_prompt,pi_system_prompt_sha256,pi_system_prompt_chars,pi_tools_available,pi_tool_schema_sha256,pi_max_output_tokens,pi_max_output_tokens_field,dataset_release,repair_attempts
+minimax/minimax-m3.1-flash,patcheval,patcheval,,pi,Pi agent,0.84.2,0.0,0,1,1,173.7,173.7,102.8,0.74,100.0,1,592.668,60911,60911,476975,17,31,0,0,,0,0,,0,,0,,,,0.0,0.0,0,0,0,[],350.645,438.646,438.6,592.7,5-20,1,0,0,0,{},[],0,1,0,0,0,0,0,0.0,100.0,0.0,0.0,True,80.0,10.0,"You are an expert coding assistant operating inside pi, a coding agent harness. You help users by reading files, executing commands, editing code, and writing new files.
+
+Available tools:
+- read: Read file contents
+- bash: Execute bash commands (ls, grep, find, etc.)
+- edit: Make precise file edits with exact text replacement, including multiple disjoint edits in one call
+- write: Create or overwrite files
+
+In addition to the tools above, you may have access to other custom tools depending on the project.
+
+Guidelines:
+- Use bash for file operations like ls, rg, find
+- Use read to examine files instead of cat or sed.
+- You can inspect PI_* environment variables for current model and session details.
+- Use edit for precise changes (edits[].oldText must match exactly)
+- When changing multiple separate locations in one file, use one edit call with multiple entries in edits[] instead of multiple edit calls
+- Each edits[].oldText is matched against the original file, not after earlier edits are applied. Do not emit overlapping or nested edits. Merge nearby changes into one edit.
+- Keep edits[].oldText as small as possible while still being unique in the file. Do not pad with large unchanged regions.
+- Use write only for new files or complete rewrites.
+- Be concise in your responses
+- Show file paths clearly when working with files
+
+Pi documentation (read only when the user asks about pi itself, its SDK, extensions, themes, skills, or TUI):
+- Main documentation: /opt/benchkit/pi/node_modules/@earendil-works/pi-coding-agent/README.md
+- Additional docs: /opt/benchkit/pi/node_modules/@earendil-works/pi-coding-agent/docs
+- Examples: /opt/benchkit/pi/node_modules/@earendil-works/pi-coding-agent/examples (extensions, custom tools, SDK)
+- When reading pi docs or examples, resolve docs/... under Additional docs and examples/... under Examples, not the current working directory
+- When asked about: extensions (docs/extensions.md, examples/extensions/), themes (docs/themes.md), skills (docs/skills.md), prompt templates (docs/prompt-templates.md), TUI components (docs/tui.md), keybindings (docs/keybindings.md), SDK integrations (docs/sdk.md), custom providers (docs/custom-provider.md), adding models (docs/models.md), pi packages (docs/packages.md), environment variables (docs/environment-variables.md)
+- When working on pi topics, read the docs and examples, and follow .md cross-references before implementing
+- Always read pi .md files completely and follow links to related docs (e.g., tui.md for TUI API details)
+
+<project_context>
+
+Project-specific instructions and guidelines:
+
+<project_instructions path=""/workspace/repo/AGENTS.md"">
+# Repo Notes for Codex
+
+## Environment
+- Use the uv-managed environment at `.venv`; install dev dependencies with `uv sync --group dev`.
+- Prefer `uv run ...` for Python tooling.
+- Dependency groups live in `pyproject.toml`; update `uv.lock` when dependencies change.
+
+## Validation
+- Run the full test suite with `uv run pytest`.
+- Run the full hook stack with `pre-commit run --all-files`.
+- `tests/test_performance.py` is timing-sensitive and can fail on slower machines.
+- Keep schema performance coverage in `tests/test_performance.py` for both fast-path (`skip_json_loads=False`) and parser-path (`skip_json_loads=True`) scenarios.
+- The `uv-lock-upgrade` hook can rewrite `uv.lock`, including the local `json-repair` package version, so restage it before committing after version bumps or dependency changes.
+- Keep schema-only dependencies in their own `schema` group; CI jobs that only exercise core parser paths should use `--no-default-groups` and omit `schema` so Python prerelease jobs are not blocked on upstream PyO3 wheels.
+
+## Release / Packaging
+- Project version lives in `pyproject.toml` under `[project].version`; use semantic versioning, with patch bumps for bug fixes.
+- Keep `MANIFEST.in` pruning `tests` so test modules are not shipped in the sdist.
+- In `[tool.setuptools.package-data]`, use the real package key `json_repair` so `py.typed` stays included reliably.
+- Run `uvx twine check dist/*` after building and before publishing.
+- Gate optional schema dependencies with `python_full_version` markers during new Python prerelease cycles so core installs and non-schema tests can still run before upstream PyO3 wheels are available.
+
+## Docs
+- Keep `README.zh.md` aligned with `README.md` when contributor guidance or usage behavior changes.
+- For local docs demo validation, follow `.agents/skills/docs-demo-local-test/SKILL.md`.
+
+## Code Areas
+- API and CLI entry points: `src/json_repair/json_repair.py`, `src/json_repair/__init__.py`, `src/json_repair/__main__.py`.
+- Parser orchestration: `src/json_repair/json_parser.py`.
+- Repair primitives: `src/json_repair/parse_*.py`, `src/json_repair/parse_string_helpers/*`.
+- Schema logic: `src/json_repair/schema_repair.py`.
+- Demo API/UI: `docs/app.py`, `docs/index.js`, `docs/index*.html`, `docs/styles.css`.
+
+## Repo-Specific Implementation Notes
+- Avoid extracting short, non-shared helpers in parser code when the inline logic is still readable.
+- `JSONParser.parse` should return only JSON; use `parser.logger` for logs instead of tuple returns.
+- Parser fast paths must work for both plain strings and `StringFileWrapper`; do not rely on `str`-only helpers inside parse helpers.
+- When adding repair heuristics, emit a `self.log` entry and keep `strict=True` conservative unless the relaxed behavior is explicitly intended.
+- When a schema is provided, apply schema repair and validation for both valid and invalid JSON inputs.
+- Keep schema-guided dispatch centralized in `JSONParser.parse_json(schema, path)`; avoid duplicating parser switch logic.
+- `patternProperties` matching is intentionally limited to a safe literal-plus-anchor subset; do not execute user-supplied regexes.
+- `SchemaRepairer.repair_value` repairs only a subset of JSON Schema; `SchemaRepairer.validate(...)` must remain the enforcement path for unsupported keywords.
+- `schema_repair_mode` supports only `standard` and opt-in `salvage`; `salvage` should stay limited to best-effort structural recovery.
+- `schema_repair_mode=""salvage""` without a schema must raise `ValueError`.
+- Treat `skip_json_loads=True` as an explicit opt-out of JSON loader fast paths.
+
+## Known Pitfalls
+- In `SchemaRepairer._repair_type_union`, validate each candidate branch before returning so mixed unions can fall back to a later valid branch.
+- In salvage mode, keep list-to-object/root-array salvage heuristics scoped to object-only schemas; skip them when array is also allowed at that level.
+- In `repair_json`, keep a single shared output-finalization path for logging, `return_objects`, empty-string handling, and `json.dumps`.
+- In `schema_repair_mode=""salvage""`, only drop array items for data-repair failures; propagate schema-definition errors.
+- In `parse_object`, keep the empty-object-to-array fallback gated by object-shape detection; escaped object keys or object-style `:` separators must stay on the object-repair path instead of being reclassified as set literals.
+- Parenthesized Python syntax must distinguish explicit tuples like `()` and `(1,)` from grouped scalars like `(1)`, and array repair must preserve the expected closing delimiter so `[` inputs still log a missing `]` when they end with `)`.
+- Top-level comment skipping currently bounces between `parse_json` and `parse_comment`; prefer iterative re-entry when touching that flow because comment-heavy inputs can hit `RecursionError` after a few hundred comments.
+
+</project_instructions>
+
+</project_context>
+
+Current working directory: /workspace/repo",3ad368e7610a66ee2010d8e818b1ec4fabf64a8a6f02a85840d3d15199844c5a,7637,"['read', 'bash', 'edit', 'write']",c760175ee743551974d44df87a01e02c7aeaf7ded05bf10449b1bca3c1d48012,65536,max_completion_tokens,pilot-20,0

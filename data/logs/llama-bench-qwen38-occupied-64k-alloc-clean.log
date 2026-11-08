@@ -1,0 +1,13 @@
+# /home/sum/Downloads/AI-Runtime/llama-bench-qwen38-occupied-64k-alloc-clean.log
+# start 2026-09-18T01:49:28+10:00  profile=unknown
+# CTX=65536 NPREDICT=128 CHARS=54000,110000
+# SKIP_RELOAD=1
+# llama-server port 44477
+# 7682 MiB, 156 MiB  Mem:           125Gi        98Gi       1.0Gi        59Gi        86Gi        27Gi
+# n_ctx 65536
+corpus: 65 files, 2061894 chars available
+# n_ctx 65536 n_predict 128 fit_budget 65408
+ ctx_tok |   PP t/s |  TG t/s |   prefill |     wall
+   15456 |    119.8 |    9.70 |    129.0s |   143.1s | draft 85/126
+   32702 |    115.6 |    8.00 |    282.9s |   298.9s | draft 75/153
+# done 2026-09-18T01:56:50+10:00

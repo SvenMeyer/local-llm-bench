@@ -1,0 +1,39 @@
+# /home/sum/Downloads/AI-Runtime/llama-bench-qwen38-pr220-20260918-214747.log
+# start 2026-09-18T21:47:47+10:00 profile=unknown
+version: 0.4.1-dev (build 11166, commit 10921f3f1)
+built with GNU 16.2.1 for Linux x86_64 (Compiled by the Unsloth team)
+# engine 
+# llama.cpp version: b11027-mix-pr220-ca1426903 requested source ref: unslothai/llama.cpp#220 pin #144@ca1426903 on ggml-org b11027 resolved source ref: mixed HEAD 10921f3f1 variant: local-native-sm89 
+# GPU 43 MiB, 7795 MiB, 52, 6.87 W
+# Mem:           125Gi        19Gi        85Gi       2.7Gi        23Gi       105Gi
+# --- load 8192 + MTP ---
+reloading to ctx 8192 MTP on...
+loaded context 8192 spec mtp n_max 3
+# llama-server port 50247
+ 558033 /home/sum/.unsloth/llama.cpp/llama-server -m /home/sum/.cache/lm-studio/models/unsloth/Qwen3.8-Flash-Next-GGUF/Qwen3.8-Flash-Next-UD-IQ4_XS-00001-of-00003.gguf --port 50247 --parallel 1 --flash-attn on --no-context-shift -c 8192 --video-fps 1 --alias Qwen3.8-Flash-Next-UD-IQ4_XS-00001-of-00003 --fit on --metrics --slot-save-path /home/sum/.unsloth/studio/cache/llama-slots --fit-ctx 8192 --jinja --cache-type-k q8_0 --cache-type-v q8_0 --model-draft /home/sum/.cache/lm-studio/models/unsloth/Qwen3.8-Flash-Next-GGUF/mtp-Qwen3.8-Flash-Next-shared-Q4_K_M.gguf --spec-type draft-mtp --spec-draft-n-max 3 --chat-template-kwargs {"enable_thinking": true, "preserve_thinking": true} --load-mode none --cpu-moe --spec-draft-cpu-moe --n-gpu-layers 999 --flash-attn on --cache-type-k q8_0 --cache-type-v q8_0 --threads 10 --jinja --no-mmproj --temp 1.0 --min-p 0.0 --load-mode none --lazy-mode off --no-mmproj-auto
+# n_ctx 8192
+# argv has draft-mtp? 1
+# GPU 6546 MiB, 1292 MiB  Mem:           125Gi       105Gi       1.0Gi        60Gi        80Gi        19Gi
+# --- Group A ---
+# n_ctx 8192 n_predict 128 port 50247
+digits   | ctx_tok    37 | PP    18.9 | TG   11.37 | prefill    2.0s | wall   13.1s | pred 128 draft 90/111 (81%)
+prose    | ctx_tok    30 | PP    15.3 | TG    9.31 | prefill    2.0s | wall   29.5s | pred 256 draft 171/250 (68%)
+# group-a done
+# --- occupied Group C 16384 ---
+# SIGTERM llama-server pid 558033
+# after unload: Mem:           125Gi        20Gi        87Gi       2.8Gi        21Gi       105Gi
+reloading to ctx 16384 MTP on...
+loaded context 16384 spec mtp n_max 3
+# llama-server port 41875
+# n_ctx 16384
+# GPU 6696 MiB, 1142 MiB  Mem:           125Gi       105Gi       991Mi        60Gi        80Gi        19Gi
+corpus: 65 files, 2061894 chars available
+# n_ctx 16384 n_predict 128 fit_budget 16256
+ ctx_tok |   PP t/s |  TG t/s |   prefill |     wall
+     574 |     88.9 |    8.94 |      6.5s |    20.7s | draft 87/119
+    2029 |    110.5 |   10.58 |     18.4s |    30.4s | draft 85/124
+    3910 |    105.9 |    9.43 |     36.9s |    50.4s | draft 82/132
+    8389 |    114.9 |    9.25 |     73.0s |    86.8s | draft 84/126
+# GPU 7454 MiB, 384 MiB, 72, 16.06 W
+# Mem:           125Gi       106Gi       869Mi        60Gi        79Gi        18Gi
+# done 2026-09-18T21:55:41+10:00

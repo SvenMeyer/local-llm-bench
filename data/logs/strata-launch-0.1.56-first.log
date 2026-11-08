@@ -1,0 +1,33 @@
+    Checking the engine for this computer…
+    Engine 0.1.56 (cuda) is installed.
+    The model already installed here is somewhere else than the folder you gave, so Strata uses the folder you gave and points this launch at it.
+    Getting your model ready
+    Checking your computer
+    Getting the helper packages ready
+    Checking the engine for this PC
+    Getting the model files
+    The model files are on this computer; checking them
+    Preparing your model for Strata (one time)
+    Preparing the draft layer
+    Saving the model's settings
+    Qwen3.8-Flash-Next IQ3_S is ready.
+    Downloading the DFlash2 drafter…
+    Packing the DFlash2 drafter for the engine…
+    The DFlash2 drafter's smaller selector is ready.
+    The DFlash2 drafter is ready.
+    Writing this launch's settings…
+    Settings are saved.
+    Starting the engine and loading the model. The first start can take a few minutes.
+    Loading the model… 15 s
+    The model is loaded and answering.
+    Ready: http://127.0.0.1:8099
+    Strata is serving.
+
+Strata is serving.
+  This computer  http://127.0.0.1:8099/v1
+  Anthropic apps http://127.0.0.1:8099   (Claude Code: ANTHROPIC_BASE_URL, no /v1 at the end)
+  Engine log     /home/sum/.local/state/strata/launch/iq3_s-64k.engine.log   (follow it: strata logs --follow)
+[!] DFlash2 answers one request at a time, so Strata set this model to one request at a time.
+  Watch it:    strata monitor --url http://127.0.0.1:8099
+  Connect an app:  strata connect opencode      Stop:  strata launch --stop
+  To keep these settings for next time, add --save-preset NAME.

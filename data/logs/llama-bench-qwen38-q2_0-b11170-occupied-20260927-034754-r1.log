@@ -1,0 +1,16 @@
+# llama-bench-qwen38-q2_0-b11170-occupied-20260927-034754-r1.log
+# start 2026-09-27T03:47:54+10:00  profile=balanced
+# CTX=16384 NPREDICT=128 CHARS=2000,7000,14000,28000 VARIANT=Q2_0
+# engine llama.cpp version: b11027-mix-pr220-ca1426903+q2_0-avxvnni
+# SKIP_RELOAD=1
+# llama-server port 49395
+# 4790 MiB, 3048 MiB  Mem:           125Gi        75Gi       870Mi        35Gi        85Gi        49Gi
+# n_ctx 16384
+corpus: 65 files, 2061894 chars available
+# n_ctx 16384 n_predict 128 fit_budget 16256
+ ctx_tok |   PP t/s |  TG t/s |   prefill |     wall
+     574 |    144.3 |   20.22 |      4.0s |    10.3s | draft 80/138
+    2029 |    177.1 |   22.15 |     11.5s |    17.2s | draft 83/128
+    3910 |    168.5 |   18.01 |     23.2s |    30.3s | draft 75/155
+    8389 |    180.2 |   21.23 |     46.6s |    52.6s | draft 84/124
+# done 2026-09-27T03:49:45+10:00

@@ -1,0 +1,18 @@
+BenchKit https://openrouter.ai/api/v1
+1 job · 1 model · 1 benchmark · 1 task
+[22:15:52] job 1/1 patcheval on deepseek/deepseek-v4.1-flash-1017 via Pi agent · 1 tasks · 1 concurrent · tasks 17-18
+[22:22:03]  ✓ 1/1  PASS       pygments-2828  118.2s · 253 stream tok/s
+[22:22:03] ✓ patcheval · deepseek/deepseek-v4.1-flash-1017 · Pi agent  100.0%  PASS 1  FAIL 0  ERR 0  LOOP 0  1 task · 252.6 tok/s · 0 killed · 6m 11s
+Finished 1 job · 1 task · 6m 13s
+
+         ╷        ╷        ╷        ╷        ╷        ╷       ╷        ╷        
+         │        │ Benchm │        │        │        │       │    Avg │        
+ Model   │ Harne… │ ark    │  Score │ Pass/… │ Fail/… │ Tok/s │   Time │   Wall 
+╶────────┼────────┼────────┼────────┼────────┼────────┼───────┼────────┼───────╴
+ deepsee │ Pi     │ patche │ 100.0% │    1/1 │ 0/0/0… │ 252.6 │ 118.2s │ 6m 11s 
+ k/deeps │ agent  │ val    │        │        │        │       │        │        
+ eek-v4. │        │        │        │        │        │       │        │        
+ 1-flash │        │        │        │        │        │       │        │        
+ -1017   │        │        │        │        │        │       │        │        
+         ╵        ╵        ╵        ╵        ╵        ╵       ╵        ╵        
+Saved: results/2026-11-02_22-22-05

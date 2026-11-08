@@ -1,0 +1,8 @@
+[17:48:06] # mcode-minimax-minimax-m3-1-flash-max-retry3 start  agent=mcode 0.7.2 provider=vercel-gateway-free model=minimax/minimax-m3.1-flash effort=max slice=patcheval:3-4
+[17:48:06]   sandbox config: /home/sum/Downloads/AI-Runtime/mcode-sandbox-mcode-minimax-minimax-m3-1-flash-max-retry3.yaml
+[17:48:07] === mcode-minimax-minimax-m3-1-flash-max-retry3: PatchEval start
+[18:11:44] === mcode-minimax-minimax-m3-1-flash-max-retry3: benchkit exit 0
+[18:11:41]  ✗ 1/1  FAIL       city2graph-121  1015.0s · 141 stream tok/s
+[18:11:41] ✓ patcheval · minimax/minimax-m3.1-flash · mcode agent    0.0%  PASS 0  FAIL 1  ERR 0  LOOP 0  1 task · 141.2 tok/s · 0 killed · 23m 32s
+Saved: results/2026-11-01_18-11-44
+[18:11:44] # mcode-minimax-minimax-m3-1-flash-max-retry3 done

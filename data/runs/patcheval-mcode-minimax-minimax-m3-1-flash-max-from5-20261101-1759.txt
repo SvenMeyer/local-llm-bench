@@ -1,0 +1,8 @@
+[17:59:49] # mcode-minimax-minimax-m3-1-flash-max-from5 start  agent=mcode 0.7.2 provider=vercel-gateway-free model=minimax/minimax-m3.1-flash effort=max slice=patcheval:5-20
+[17:59:49]   sandbox config: /home/sum/Downloads/AI-Runtime/mcode-sandbox-mcode-minimax-minimax-m3-1-flash-max-from5.yaml
+[17:59:50] === mcode-minimax-minimax-m3-1-flash-max-from5: PatchEval start
+[18:11:20] === mcode-minimax-minimax-m3-1-flash-max-from5: benchkit exit 0
+[18:10:33]  ✗  1/15  FAIL       json-repair-191  507.3s · 141 stream tok/s
+[18:11:17] ! patcheval · minimax/minimax-m3.1-flash · mcode agent    0.0%  PASS 0  FAIL 1  ERR 0  LOOP 0  1 task (partial) · 140.7 tok/s · 0 killed · 11m 26s
+Saved: results/2026-11-01_18-11-20
+[18:11:20] # mcode-minimax-minimax-m3-1-flash-max-from5 done

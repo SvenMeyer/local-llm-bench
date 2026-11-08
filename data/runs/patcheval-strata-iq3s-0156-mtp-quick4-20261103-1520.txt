@@ -1,0 +1,15 @@
+[15:20:28] # patcheval-strata-quants start  arms: iq3s  slice: patcheval:7-10,patcheval:13-14  0.2.10 build 0.1.56  route: --set STRATA_ROUTE_TAIL_SKIP=0 --set STRATA_ROUTE_PRIOR=1.5 --drafting mtp  timeout: 3600s  maxTokens: 65536  profile=balanced
+[15:20:28] === iq3s-noskip-prior15-0156-mtp-quick4: cooling to 65C (now 56C)
+[15:20:28] === iq3s-noskip-prior15-0156-mtp-quick4: launching (56C)
+  To keep these settings for next time, add --save-preset NAME.
+[15:21:10] === iq3s-noskip-prior15-0156-mtp-quick4: PatchEval start (model qwen3.8-flash-next-iq3_s, timeout 3600s, maxTokens 65536, patcheval:7-10,patcheval:13-14)
+[17:11:31] === iq3s-noskip-prior15-0156-mtp-quick4: benchkit exit 0
+[16:16:02]  ✓ 1/3  PASS       click-3572  3167.4s · 16 stream tok/s
+[16:22:30]  ✓ 2/3  PASS       click-3360  353.6s · 16 stream tok/s
+[16:37:22]  ✓ 3/3  PASS       click-2790  857.2s · 17 stream tok/s
+[16:37:22] ✓ patcheval · qwen3.8-flash-next-iq3_s · Pi agent  100.0%  PASS 3  FAIL 0  ERR 0  LOOP 0  3 tasks · 16.2 tok/s · 0 killed · 1h 16m
+[17:11:29]  ✓ 1/1  PASS       attrs-1575  1945.4s · 16 stream tok/s
+[17:11:29] ✓ patcheval · qwen3.8-flash-next-iq3_s · Pi agent  100.0%  PASS 1  FAIL 0  ERR 0  LOOP 0  1 task · 16.2 tok/s · 0 killed · 34m 7s
+Saved: results/2026-11-03_17-11-31
+    mean GPU W 21.9  mean CPU 74C max 100C
+[17:11:35] # patcheval-strata-quants done

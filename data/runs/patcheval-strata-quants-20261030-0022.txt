@@ -1,0 +1,59 @@
+[00:22:48] # patcheval-strata-quants start  arms: iq3xxs iq3s udiq4xs  slice: patcheval  profile=balanced
+[00:22:48] === iq3xxs-noskip: cooling to 65C (now 51C)
+[00:22:51] === iq3xxs-noskip: launching (62C)
+  To keep these settings for next time, add --save-preset NAME.
+[00:23:18] === iq3xxs-noskip: PatchEval start (model qwen3.8-flash-next-iq3_xxs)
+[09:31:41] === iq3xxs-noskip: benchkit exit 0
+[00:58:28]  ✓  1/20  PASS       sqlit-246  1801.5s · 21 stream tok/s
+[01:32:30]  ✓  2/20  PASS       sqlit-260  1801.4s · 22 stream tok/s
+[02:05:02]  !  3/20  TIMEOUT    narwhals-3864  1801.4s · 23 stream tok/s
+[02:12:33]  ✗  4/20  FAIL       city2graph-121  75.2s · 13 stream tok/s
+[02:44:06]  !  5/20  TIMEOUT    json-repair-207  1801.4s · 24 stream tok/s
+[03:14:57]  ✓  6/20  PASS       json-repair-191  1801.4s · 23 stream tok/s
+[03:45:56]  ✓  7/20  PASS       json-repair-205  1802.1s · 22 stream tok/s
+[04:17:16]  ✓  8/20  PASS       click-3572  1801.4s · 26 stream tok/s
+[04:22:39]  ✓  9/20  PASS       click-3360  288.6s · 29 stream tok/s
+[04:33:42]  ✓ 10/20  PASS       click-2790  628.6s · 27 stream tok/s
+[05:05:42]  ✓ 11/20  PASS       pypdf-3982  1802.3s · 25 stream tok/s
+[05:37:18]  ! 12/20  TIMEOUT    pypdf-3878  1801.4s · 25 stream tok/s
+[06:02:29]  ✓ 13/20  PASS       pypdf-3587  1450.0s · 30 stream tok/s
+[06:34:05]  ✓ 14/20  PASS       attrs-1575  1801.4s · 25 stream tok/s
+[07:04:29]  ✓ 15/20  PASS       typeguard-499  1782.7s · 25 stream tok/s
+[07:35:07]  ✓ 16/20  PASS       structlog-710  1801.2s · 24 stream tok/s
+[08:07:36]  ! 17/20  TIMEOUT    pygments-2816  1801.7s · 25 stream tok/s
+[08:30:12]  ✗ 18/20  FAIL       pygments-2828  1294.7s · 25 stream tok/s
+[09:00:57]  ✓ 19/20  PASS       tomlkit-440  1802.7s · 22 stream tok/s
+[09:31:29]  ✓ 20/20  PASS       tomlkit-542  1801.5s · 22 stream tok/s
+[09:31:29] ✓ patcheval · qwen3.8-flash-next-iq3_xxs · Pi agent   70.0%  PASS 14  FAIL 6  ERR 0  LOOP 0  20 tasks · 24.0 tok/s · 0 killed · 9h 8m
+Saved: results/2026-10-30_09-31-39
+    mean GPU W 29.2  mean CPU 80C max 100C
+[09:31:41] === iq3s-noskip: cooling to 65C (now 66C)
+[09:31:52] === iq3s-noskip: launching (63C)
+  To keep these settings for next time, add --save-preset NAME.
+[09:32:21] === iq3s-noskip: PatchEval start (model qwen3.8-flash-next-iq3_s)
+[18:19:26] === iq3s-noskip: benchkit exit 0
+[09:54:48]  ✓  1/20  PASS       sqlit-246  1042.3s · 20 stream tok/s
+[10:22:15]  ✗  2/20  FAIL       sqlit-260  1416.6s · 16 stream tok/s
+[10:54:48]  !  3/20  TIMEOUT    narwhals-3864  1801.3s · 18 stream tok/s
+[11:32:11]  ✓  4/20  PASS       city2graph-121  1801.6s · 18 stream tok/s
+[12:03:46]  !  5/20  TIMEOUT    json-repair-207  1801.4s · 16 stream tok/s
+[12:34:45]  !  6/20  TIMEOUT    json-repair-191  1801.2s · 16 stream tok/s
+[13:05:45]  ✓  7/20  PASS       json-repair-205  1801.9s · 17 stream tok/s
+[13:26:31]  ✓  8/20  PASS       click-3572  1146.4s · 17 stream tok/s
+[13:32:34]  ✓  9/20  PASS       click-3360  323.1s · 20 stream tok/s
+[13:41:35]  ✓ 10/20  PASS       click-2790  506.5s · 18 stream tok/s
+[14:13:31]  ✓ 11/20  PASS       pypdf-3982  1801.5s · 18 stream tok/s
+[14:45:05]  ✓ 12/20  PASS       pypdf-3878  1803.0s · 18 stream tok/s
+[15:09:09]  ✓ 13/20  PASS       pypdf-3587  1384.1s · 18 stream tok/s
+[15:33:32]  ✓ 14/20  PASS       attrs-1575  1370.0s · 19 stream tok/s
+[16:04:51]  ✓ 15/20  PASS       typeguard-499  1801.2s · 18 stream tok/s
+[16:35:36]  ✓ 16/20  PASS       structlog-710  1801.2s · 16 stream tok/s
+[17:08:19]  ! 17/20  TIMEOUT    pygments-2816  1801.6s · 17 stream tok/s
+[17:26:59]  ✗ 18/20  FAIL       pygments-2828  1058.5s · 17 stream tok/s
+[17:57:32]  ✓ 19/20  PASS       tomlkit-440  1801.3s · 18 stream tok/s
+[18:19:21]  ✓ 20/20  PASS       tomlkit-542  1280.0s · 17 stream tok/s
+[18:19:21] ✓ patcheval · qwen3.8-flash-next-iq3_s · Pi agent   70.0%  PASS 14  FAIL 6  ERR 0  LOOP 0  20 tasks · 17.4 tok/s · 0 killed · 8h 47m
+Saved: results/2026-10-30_18-19-26
+    mean GPU W 27.1  mean CPU 78C max 100C
+[18:19:26] === ud-iq4xs: cooling to 65C (now 70C)
+[18:19:30] # queue stopped after IQ3_S (UD-IQ4_XS deferred)

@@ -1,0 +1,12 @@
+{
+  "_doc": "Post-hoc re-grades applied by build_patcheval_data.py on top of the raw BenchKit results (which stay unchanged). Each entry: task, the arms it applies to, the new outcome, and the evidence. The report shows the corrected score with the original next to it and marks re-graded cells. See PATCHEVAL-RUNBOOK.md section 7.",
+  "regrades": [
+    {
+      "task": "pygments-2828",
+      "arms": ["deepseek", "iq3xxs", "iq3s", "udiq4xs", "ornith", "bonsai"],
+      "outcome": "pass",
+      "reason": "hidden test fixed (pilot-20-local1, BenchKit issue #89)",
+      "evidence": "Each arm's saved patch (lexer changes only, as graded) passes the fixed hidden test tests/test_patcheval_jsonnet_array_slice.py in a network-less container (2026-11-02); the original runs' regression suites already passed (exit 0). Control checks: unfixed lexer fails, upstream fix passes, a wrong token type fails. Live confirmation on the fixed dataset: pi + DeepSeek V4.1 Flash PASS (results/2026-11-02_22-22-05)."
+    }
+  ]
+}

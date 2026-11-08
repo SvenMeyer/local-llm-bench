@@ -1,0 +1,15 @@
+# /home/sum/Downloads/AI-Runtime/llama-bench-qwen38-occupied-64k.log
+# start 2026-09-18T01:34:33+10:00  profile=unknown
+# CTX=65536 NPREDICT=128 CHARS=220000
+# SIGTERM llama-server pid 115666
+# after unload: Mem:           125Gi        10Gi        87Gi       1.4Gi        28Gi       114Gi
+reloading to ctx 65536 MTP on...
+loaded context 65536 spec mtp n_max 3
+# llama-server port 44477
+# 7602 MiB, 236 MiB  Mem:           125Gi        97Gi       977Mi        59Gi        87Gi        28Gi
+# n_ctx 65536
+corpus: 65 files, 2061894 chars available
+# n_ctx 65536 n_predict 128 fit_budget 65408
+ ctx_tok |   PP t/s |  TG t/s |   prefill |     wall
+   64099 |    105.8 |    7.86 |    606.0s |   622.2s | draft 83/130
+# done 2026-09-18T01:47:53+10:00

@@ -1,0 +1,22 @@
+BenchKit http://172.17.0.1:8099/v1
+1 job · 1 model · 1 benchmark · 6 tasks
+[01:49:03] job 1/1 patcheval on qwen3.8-flash-next-iq3_s via Pi agent · 6 tasks · 1 concurrent · first 6
+[02:07:10]  ✓ 1/6  PASS       sqlit-246  782.8s · 21 stream tok/s
+[02:37:08]  ✗ 2/6  FAIL       sqlit-260  1570.9s · 16 stream tok/s
+[03:39:42]  ! 3/6  TIMEOUT    narwhals-3864  3601.6s · 17 stream tok/s
+[04:35:48]  ✓ 4/6  PASS       city2graph-121  2996.8s · 21 stream tok/s
+[05:37:42]  ! 5/6  TIMEOUT    json-repair-207  3601.9s · 17 stream tok/s
+[06:21:38]  ✓ 6/6  PASS       json-repair-191  2590.7s · 18 stream tok/s
+[06:21:38] ✓ patcheval · qwen3.8-flash-next-iq3_s · Pi agent   50.0%  PASS 3  FAIL 3  ERR 0  LOOP 0  6 tasks · 18.0 tok/s · 0 killed · 4h 32m
+Finished 1 job · 6 tasks · 4h 32m
+
+         ╷        ╷        ╷       ╷        ╷        ╷       ╷        ╷         
+         │        │ Benchm │       │        │        │       │    Avg │         
+ Model   │ Harne… │ ark    │ Score │ Pass/… │ Fail/… │ Tok/s │   Time │    Wall 
+╶────────┼────────┼────────┼───────┼────────┼────────┼───────┼────────┼────────╴
+ qwen3.8 │ Pi     │ patche │ 50.0% │    3/6 │ 1/0/2… │  18.0 │ 2524.… │    272m 
+ -flash- │ agent  │ val    │       │        │        │       │        │     34s 
+ next-iq │        │        │       │        │        │       │        │         
+ 3_s     │        │        │       │        │        │       │        │         
+         ╵        ╵        ╵       ╵        ╵        ╵       ╵        ╵         
+Saved: results/2026-11-03_06-21-42

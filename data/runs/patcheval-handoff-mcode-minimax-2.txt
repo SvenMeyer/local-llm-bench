@@ -1,0 +1,5 @@
+[18:07:29] mcode-minimax: pid 2989772, 5/20 done; waiting for the next task to finish
+[18:10:45] mcode-minimax: sent one SIGINT after task 6
+Saved: results/2026-11-01_18-11-20
+[18:11:25] mcode-minimax: resuming tasks 6-20 as mcode-minimax-minimax-m3-1-flash-max-from6
+[18:11:45] mcode-minimax: resume started: 

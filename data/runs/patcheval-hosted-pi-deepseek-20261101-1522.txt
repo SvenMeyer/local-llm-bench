@@ -1,0 +1,27 @@
+[15:22:29] # pi-deepseek-deepseek-v4-1-flash-1017-max-65536 start  provider=openrouter model=deepseek/deepseek-v4.1-flash-1017 thinking=max maxTokens=65536 slice=patcheval
+[15:22:29]   pi model entry: {"name": "DeepSeek V4.1 Flash \u2014 1017 snapshot", "reasoning": true, "input": ["text", "image"], "contextWindow": 1048576, "compat": {"supportsDeveloperRole": false, "thinkingFormat": "openrouter", "supportsStrictMode": true, "sendSessionAffinityHeaders": true, "requiresReasoningContentOnAssistantMessages": true}, "thinkingLevelMap": {"off": "none", "minimal": null, "low": "low", "medium": null, "high": "high", "xhigh": null, "max": "max"}, "cost": {"input": 0.05, "output": 0.15, "cacheRead": 0.012, "cacheWrite": 0}, "maxTokens": 65536}
+[15:22:30] === pi-deepseek-deepseek-v4-1-flash-1017-max-65536: PatchEval start
+[16:54:55] === pi-deepseek-deepseek-v4-1-flash-1017-max-65536: benchkit exit 0
+[15:30:02]  ✓  1/20  PASS       sqlit-246  143.1s · 267 stream tok/s
+[15:36:32]  ✗  2/20  FAIL       sqlit-260  157.2s · 272 stream tok/s
+[15:43:45]  ✓  3/20  PASS       narwhals-3864  300.2s · 248 stream tok/s
+[15:53:19]  ✓  4/20  PASS       city2graph-121  201.9s · 342 stream tok/s
+[15:59:51]  ✓  5/20  PASS       json-repair-207  293.1s · 221 stream tok/s
+[16:04:18]  ✓  6/20  PASS       json-repair-191  216.9s · 371 stream tok/s
+[16:07:28]  ✓  7/20  PASS       json-repair-205  148.2s · 281 stream tok/s
+[16:09:43]  ✓  8/20  PASS       click-3572  104.4s · 320 stream tok/s
+[16:11:17]  ✓  9/20  PASS       click-3360  66.1s · 263 stream tok/s
+[16:13:14]  ✓ 10/20  PASS       click-2790  89.8s · 191 stream tok/s
+[16:20:45]  ✓ 11/20  PASS       pypdf-3982  333.4s · 202 stream tok/s
+[16:24:12]  ✓ 12/20  PASS       pypdf-3878  148.0s · 306 stream tok/s
+[16:26:58]  ✓ 13/20  PASS       pypdf-3587  110.1s · 303 stream tok/s
+[16:30:46]  ✓ 14/20  PASS       attrs-1575  140.3s · 259 stream tok/s
+[16:34:17]  ✗ 15/20  FAIL       typeguard-499  175.3s · 173 stream tok/s
+[16:40:10]  ✓ 16/20  PASS       structlog-710  325.8s · 166 stream tok/s
+[16:46:46]  ✗ 17/20  FAIL       pygments-2816  251.7s · 318 stream tok/s
+[16:49:26]  ✗ 18/20  FAIL       pygments-2828  96.9s · 330 stream tok/s
+[16:53:10]  ✓ 19/20  PASS       tomlkit-440  201.8s · 161 stream tok/s
+[16:54:50]  ✓ 20/20  PASS       tomlkit-542  70.0s · 281 stream tok/s
+[16:54:50] ✓ patcheval · deepseek/deepseek-v4.1-flash-1017 · Pi agent   80.0%  PASS 16  FAIL 4  ERR 0  LOOP 0  20 tasks · 243.2 tok/s · 0 killed · 1h 32m
+Saved: results/2026-11-01_16-54-55
+[16:54:55] # pi-deepseek-deepseek-v4-1-flash-1017-max-65536 done

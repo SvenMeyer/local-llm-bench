@@ -1,0 +1,105 @@
+# /home/sum/Downloads/AI-Runtime/llama-qwen38-realworld-staking-retry.log
+# start 2026-09-18T02:12:43+10:00
+# NPREDICT=1024 CHARS=54000
+# argv: 130763 /home/sum/.unsloth/llama.cpp/llama-server -m /home/sum/.cache/lm-studio/models/unsloth/Qwen3.8-Flash-Next-GGUF/Qwen3.8-Flash-Next-UD-IQ4_XS-00001-of-00003.gguf --port 33057 --parallel 1 --flash-attn on --no-context-shift -c 65536 --video-fps 1 --alias Qwen3.8-Flash-Next-UD-IQ4_XS-00001-of-00003 --fit on --metrics --slot-save-path /home/sum/.unsloth/studio/cache/llama-slots --fit-ctx 65536 --jinja --cache-type-k q8_0 --cache-type-v q8_0 --model-draft /home/sum/.cache/lm-studio/models/unsloth/Qwen3.8-Flash-Next-GGUF/mtp-Qwen3.8-Flash-Next-shared-Q4_K_M.gguf --spec-type draft-mtp --spec-draft-n-max 3 --chat-template-kwargs {"enable_thinking": true, "preserve_thinking": true} --load-mode none --cpu-moe --spec-draft-cpu-moe --n-gpu-layers 999 --flash-attn on --cache-type-k q8_0 --cache-type-v q8_0 --threads 10 --jinja --no-mmproj --temp 1.0 --min-p 0.0 --load-mode none --lazy-mode off --no-mmproj-auto
+# llama-server port 33057
+# 7646 MiB, 192 MiB
+# n_ctx 65536
+# prompt_chars 54248
+# POST /completion n_predict=1024
+# wall_s 223.6 stop=limit predicted=1024
+# timings {"cache_n": 0, "prompt_n": 15496, "prompt_ms": 125929.916, "prompt_per_token_ms": 8.126607898812596, "prompt_per_second": 123.05257155892966, "predicted_n": 1024, "predicted_ms": 97209.998, "predicted_per_token_ms": 95.02443597262953, "predicted_per_second": 10.523608898747225, "draft_n": 921, "draft_n_accepted": 715}
+# summary prompt_n=15496 predicted_n=1024 PP=123.05257155892966 TG=10.523608898747225 draft 715/921
+# wrote 3819 chars
+<think>
+The user wants me to write a Solidity staking contract and a TypeScript test suite. The reference context is unrelated C++ code (llama.cpp adapter code), which I should ignore as stated.
+
+Let me design a reasonable staking contract with common features:
+- Stake tokens
+- Unstake tokens
+- Earn rewards based on staking duration
+- Admin controls
+- Then write a comprehensive TypeScript test suite using Hardhat/Foundry style (I'll go with Hardhat + ethers.js as it's more common)
+
+Let me write a staking contract that:
+1. Allows users to stake ERC20 tokens
+2. Tracks staking periods
+3. Distributes rewards proportionally to staking time
+4. Allows unstaking
+5. Has admin functions for rewards
+
+I'll write a clean, well-structured contract and a thorough test suite.
+</think>
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+
+contract StakingContract is Ownable, ReentrancyGuard {
+    using SafeERC20 for IERC20;
+
+    // --- Structs ---
+    struct StakeInfo {
+        uint256 amount;        // staked amount
+        uint256 timestamp;     // when staked
+        uint256 rewardDebt;    // accumulated reward debt
+    }
+
+    // --- State ---
+    IERC20 public immutable stakingToken;
+    IERC20 public immutable rewardsToken;
+
+    uint256 public rewardRate;          // rewards per second
+    uint256 public totalStaked;         // total amount staked
+    uint256 public rewardPerTokenStored;
+    uint256 public lastRewardTime;
+    uint256 public minStake;            // minimum stake amount
+
+    mapping(address => StakeInfo) public stakes;
+    mapping(address => uint256) public rewards;
+
+    // --- Events ---
+    event Staked(address indexed account, uint256 amount);
+    event Unstaked(address indexed account, uint256 amount);
+    event RewardsPaid(address indexed account, uint256 amount);
+    event RewardRateUpdated(uint256 newRate);
+    event MinStakeUpdated(uint256 newMinStake);
+    event RewardAdded(uint256 amount);
+
+    // --- Errors ---
+    error InsufficientStake();
+    error ZeroAmount();
+    error NoStake();
+    error ContractNotFunded();
+    error BelowMinimumStake();
+
+    // --- Modifiers ---
+    modifier updateRewards(address account) {
+        rewardPerTokenStored = rewardPerToken();
+        lastRewardTime = block.timestamp;
+
+        if (account != address(0)) {
+            StakeInfo storage s = stakes[account];
+            rewards[account] += earnedFor(s);
+            s.rewardDebt = rewardPerTokenStored * s.amount;
+        }
+        _;
+    }
+
+    constructor(
+        address _stakingToken,
+        address _rewardsToken,
+        uint256 _rewardRate,
+        uint256 _minStake
+    ) Ownable(msg.sender) {
+        stakingToken = IERC20(_stakingToken);
+        rewardsToken = IERC20(_rewardsToken);
+        r
+# … truncated preview, full output in /home/sum/Downloads/AI-Runtime/llama-qwen38-realworld-staking-retry-output.md
+# 7682 MiB, 156 MiB, 69, 16.55 W
+# done 2026-09-18T02:16:27+10:00

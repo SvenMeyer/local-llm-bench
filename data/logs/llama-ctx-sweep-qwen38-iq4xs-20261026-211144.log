@@ -1,0 +1,5 @@
+# QUANT=iq4xs UB=256 MTP=0 BIN=/home/sum/.unsloth/llama.cpp-mix-pr220-q2_0/build/bin extra: --override-tensor token_embd.weight=CPU
+131072 | n_ctx 131072 | idle 7774 MiB | after 7788 MiB | short prompt: ok TG 7.45 | alive
+196608 | LOAD FAILED: FAILED: no llama-server process after 55s | allocating 1075.04 MiB on device 0
+cudaMalloc failed: out of memory
+# done 2026-10-26T21:13:44+11:00

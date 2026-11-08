@@ -1,0 +1,14 @@
+# /home/sum/Downloads/AI-Runtime/llama-qwen38-48k-mtp-probe.log
+# start 2026-09-19T01:13:15+10:00 CTX=49152
+# SIGTERM llama-server 645411
+# after unload Mem:           125Gi        16Gi        86Gi       2.0Gi        25Gi       109Gi  gpu 176 MiB, 7662 MiB
+loading 49152 MTP...
+loaded context 49152 spec mtp n_max 3
+# empty 7433 MiB, 405 MiB  Mem:           125Gi       102Gi       1.4Gi        59Gi        82Gi        23Gi
+ 648211 /home/sum/.unsloth/llama.cpp/llama-server -m /home/sum/.cache/lm-studio/models/unsloth/Qwen3.8-Flash-Next-GGUF/Qwen3.8-Flash-Next-UD-IQ4_XS-00001-of-00003.gguf --port 55721 --parallel 1 --flash-attn on --no-context-shift -c 49152 --video-fps 1 --alias Qwen3.8-Flash-Next-UD-IQ4_XS-00001-of-00003 --fit on --metrics --slot-save-path /home/sum/.unsloth/studio/cache/llama-slots --fit-ctx 49152 --jinja --cache-type-k q8_0 --cache-type-v q8_0 --model-draft /home/sum/.cache/lm-studio/models/unsloth/Qwen3.8-Flash-Next-GGUF/mtp-Qwen3.8-Flash-Next-shared-Q4_K_M.gguf --spec-type draft-mtp --spec-draft-n-max 3 --chat-template-kwargs {"enable_thinking": true, "preserve_thinking": true} --load-mode none --cpu-moe --spec-draft-cpu-moe --n-gpu-layers 999 --flash-attn on --cache-type-k q8_0 --cache-type-v q8_0 --threads 10 --jinja --no-mmproj --temp 1.0 --min-p 0.0 --load-mode none --lazy-mode off --no-mmproj-auto
+# llama-server port 55721
+# props n_ctx=49152 want=49152
+short chat...
+content 'pong' usage {'prompt_tokens': 34, 'completion_tokens': 2, 'total_tokens': 36, 'prompt_tokens_details': {'cached_tokens': 0, 'audio_tokens': 0}, 'completion_tokens_details': {'reasoning_tokens': 0, 'audio_tokens': 0, 'accepted_prediction_tokens': 0, 'rejected_prediction_tokens': 0}}
+# after short chat 7493 MiB, 345 MiB
+# done 2026-09-19T01:16:12+10:00

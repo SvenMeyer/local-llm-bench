@@ -1,0 +1,9 @@
+corpus: 65 files, 2061894 chars available
+# n_ctx 262144 n_predict 128 fit_budget 262016
+ ctx_tok |   PP t/s |  TG t/s |   prefill |     wall
+     574 |    312.5 |   50.54 |      1.8s |     4.4s | draft 88/104
+    2029 |    483.0 |   73.28 |      4.2s |     5.9s | draft 100/112
+   14000 | FAILED: Remote end closed connection without response
+   28000 | FAILED: <urlopen error [Errno 111] Connection refused>
+  112000 | FAILED: <urlopen error [Errno 111] Connection refused>
+  210000 | FAILED: <urlopen error [Errno 111] Connection refused>

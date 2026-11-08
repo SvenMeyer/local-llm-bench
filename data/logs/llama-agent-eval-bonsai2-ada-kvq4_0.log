@@ -1,0 +1,24 @@
+bonsai2-ada-kvq4_0 t1-bugfix-stats    s1 PASS  turns  6  calls  6 bad 0  tok    922      35s  tg 31.58  draft 440/567
+bonsai2-ada-kvq4_0 t2-slugify         s1 PASS  turns 15  calls 15 bad 0  tok   2669      78s  tg 41.73  draft 1737/2071
+bonsai2-ada-kvq4_0 t3-refactor        s1 PASS  turns  7  calls 15 bad 0  tok    992      38s  tg 31.37  draft 507/705
+bonsai2-ada-kvq4_0 t4-logparse        s1 PASS  turns 16  calls 18 bad 1  tok   3015     149s  tg 30.16  draft 1531/2120
+bonsai2-ada-kvq4_0 t5-config          s1 PASS  turns  6  calls  6 bad 0  tok    532      23s  tg 28.81  draft 244/340
+bonsai2-ada-kvq4_0 t6-lru             s1 PASS  turns 11  calls 11 bad 0  tok   3292      85s  tg 44.99  draft 2286/2882
+bonsai2-ada-kvq4_0 t7-calc            s1 fail  turns 10  calls 11 bad 1  tok  15970     530s  tg 31.28  draft 8353/11544  ERR HTTPError: HTTP Error 500: Internal Server Error
+bonsai2-ada-kvq4_0 t8-scheduler       s1 PASS  turns 16  calls 18 bad 0  tok  25235     917s  tg 28.71  draft 12217/16914
+bonsai2-ada-kvq4_0 t1-bugfix-stats    s2 PASS  turns  6  calls  6 bad 0  tok    575      26s  tg 29.24  draft 277/428
+bonsai2-ada-kvq4_0 t2-slugify         s2 PASS  turns 10  calls 10 bad 0  tok   1852      52s  tg 41.19  draft 1221/1524
+bonsai2-ada-kvq4_0 t3-refactor        s2 PASS  turns  5  calls 13 bad 0  tok    765      30s  tg 30.53  draft 402/686
+bonsai2-ada-kvq4_0 t4-logparse        s2 PASS  turns  5  calls  5 bad 0  tok    519      56s  tg 30.29  draft 241/304
+bonsai2-ada-kvq4_0 t5-config          s2 PASS  turns  5  calls  5 bad 0  tok    336      15s  tg 30.0  draft 175/264
+bonsai2-ada-kvq4_0 t6-lru             s2 PASS  turns  8  calls  8 bad 0  tok   1706      54s  tg 38.35  draft 1059/1337
+bonsai2-ada-kvq4_0 t7-calc            s2 fail  turns  8  calls  9 bad 1  tok  14811     407s  tg 36.99  draft 9046/11547  ERR HTTPError: HTTP Error 500: Internal Server Error
+bonsai2-ada-kvq4_0 t8-scheduler       s2 fail  turns 16  calls 20 bad 0  tok   9259     358s  tg 42.37  draft 6196/7525
+bonsai2-ada-kvq4_0 t1-bugfix-stats    s3 PASS  turns  6  calls  6 bad 0  tok    639      27s  tg 30.84  draft 317/438
+bonsai2-ada-kvq4_0 t2-slugify         s3 fail  turns 16  calls 17 bad 0  tok   2560      53s  tg 65.93  draft 2134/2450
+bonsai2-ada-kvq4_0 t3-refactor        s3 PASS  turns  6  calls 15 bad 0  tok    950      36s  tg 31.37  draft 490/721
+bonsai2-ada-kvq4_0 t4-logparse        s3 PASS  turns  5  calls  6 bad 1  tok    546      57s  tg 29.05  draft 246/340
+bonsai2-ada-kvq4_0 t5-config          s3 PASS  turns  5  calls  5 bad 0  tok    344      16s  tg 28.62  draft 169/307
+bonsai2-ada-kvq4_0 t6-lru             s3 PASS  turns  7  calls  7 bad 0  tok   1457      55s  tg 31.59  draft 760/1107
+bonsai2-ada-kvq4_0 t7-calc            s3 fail  turns 16  calls 17 bad 0  tok  11426     223s  tg 56.31  draft 9054/11362
+bonsai2-ada-kvq4_0 t8-scheduler       s3 fail  turns 16  calls 22 bad 0  tok   8618     306s  tg 37.91  draft 5404/6972

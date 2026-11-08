@@ -1,0 +1,30 @@
+[00:27:49] # patcheval-strata-quants start  arms: udiq4xs  slice: patcheval  profile=balanced
+[00:27:49] === ud-iq4xs: cooling to 65C (now 50C)
+[00:27:49] === ud-iq4xs: launching (50C)
+  To keep these settings for next time, add --save-preset NAME.
+[00:28:27] === ud-iq4xs: PatchEval start (model qwen3.8-flash-next-unsloth-ud-iq4_xs)
+[09:58:47] === ud-iq4xs: benchkit exit 0
+[01:04:26]  ✓  1/20  PASS       sqlit-246  1801.5s · 15 stream tok/s
+[01:38:54]  ✓  2/20  PASS       sqlit-260  1801.5s · 15 stream tok/s
+[02:11:09]  !  3/20  TIMEOUT    narwhals-3864  1802.0s · 16 stream tok/s
+[02:48:37]  ✓  4/20  PASS       city2graph-121  1801.6s · 18 stream tok/s
+[03:20:22]  !  5/20  TIMEOUT    json-repair-207  1801.3s · 16 stream tok/s
+[03:51:08]  !  6/20  TIMEOUT    json-repair-191  1801.3s · 16 stream tok/s
+[04:22:17]  ✓  7/20  PASS       json-repair-205  1801.9s · 16 stream tok/s
+[04:41:49]  ✓  8/20  PASS       click-3572  1137.0s · 16 stream tok/s
+[04:48:29]  ✓  9/20  PASS       click-3360  365.5s · 17 stream tok/s
+[05:03:57]  ✓ 10/20  PASS       click-2790  877.5s · 18 stream tok/s
+[05:35:56]  ✓ 11/20  PASS       pypdf-3982  1801.3s · 17 stream tok/s
+[06:07:29]  ! 12/20  TIMEOUT    pypdf-3878  1802.0s · 15 stream tok/s
+[06:38:40]  ✓ 13/20  PASS       pypdf-3587  1801.3s · 17 stream tok/s
+[07:03:17]  ✓ 14/20  PASS       attrs-1575  1385.0s · 18 stream tok/s
+[07:34:04]  ! 15/20  TIMEOUT    typeguard-499  1801.3s · 17 stream tok/s
+[08:04:46]  ✓ 16/20  PASS       structlog-710  1801.3s · 16 stream tok/s
+[08:37:26]  ! 17/20  TIMEOUT    pygments-2816  1801.6s · 17 stream tok/s
+[08:57:02]  ✗ 18/20  FAIL       pygments-2828  1114.4s · 18 stream tok/s
+[09:27:54]  ✓ 19/20  PASS       tomlkit-440  1802.9s · 15 stream tok/s
+[09:58:42]  ✓ 20/20  PASS       tomlkit-542  1803.3s · 16 stream tok/s
+[09:58:42] ✓ patcheval · qwen3.8-flash-next-unsloth-ud-iq4_xs · Pi agent   65.0%  PASS 13  FAIL 7  ERR 0  LOOP 0  20 tasks · 16.4 tok/s · 0 killed · 9h 30m
+Saved: results/2026-10-31_09-58-47
+    mean GPU W 28.7  mean CPU 80C max 100C
+[09:58:50] # patcheval-strata-quants done

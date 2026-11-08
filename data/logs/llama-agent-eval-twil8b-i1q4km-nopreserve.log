@@ -1,0 +1,8 @@
+twil8b-i1q4km-nopreserve t1-bugfix-stats    s1 PASS  turns  7  calls  7 bad 0  tok   2106      89s  tg 24.28  draft 0/0
+twil8b-i1q4km-nopreserve t2-slugify         s1 PASS  turns  7  calls  7 bad 0  tok   7120     333s  tg 21.79  draft 0/0
+twil8b-i1q4km-nopreserve t3-refactor        s1 PASS  turns 10  calls 17 bad 0  tok   2568     107s  tg 24.37  draft 0/0
+twil8b-i1q4km-nopreserve t4-logparse        s1 PASS  turns  7  calls  6 bad 0  tok   1345      98s  tg 16.15  draft 0/0
+twil8b-i1q4km-nopreserve t5-config          s1 PASS  turns  5  calls  4 bad 0  tok    471      18s  tg 27.44  draft 0/0
+twil8b-i1q4km-nopreserve t6-lru             s1 fail  turns 16  calls 14 bad 0  tok  28443    1514s  tg 18.9  draft 0/0
+twil8b-i1q4km-nopreserve t7-calc            s1 fail  turns  9  calls  6 bad 0  tok  30493    1566s  tg 19.52  draft 0/0
+twil8b-i1q4km-nopreserve t8-scheduler       s1 fail  turns 12  calls  6 bad 0  tok  49407    2467s  tg 20.07  draft 0/0  ERR task timeout

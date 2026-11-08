@@ -1,0 +1,16 @@
+# /home/sum/Downloads/AI-Runtime/llama-bench-qwen38-q2_0-b11876-direct-20261026-205554-r1.log
+# start 2026-10-26T20:55:54+11:00  profile=balanced
+# CTX=16384 NPREDICT=128 CHARS=2000,7000,14000,28000 VARIANT=Q2_0
+# engine llama.cpp version: b11027-mix-pr220-ca1426903+q2_0-avxvnni
+# SKIP_RELOAD=1
+# llama-server port 8099
+# 6370 MiB, 1468 MiB  Mem:           125Gi        78Gi       1.0Gi        35Gi        83Gi        47Gi
+# n_ctx 16384
+corpus: 65 files, 2061894 chars available
+# n_ctx 16384 n_predict 128 fit_budget 16256
+ ctx_tok |   PP t/s |  TG t/s |   prefill |     wall
+     574 |    185.1 |   15.66 |      3.1s |    11.2s | draft 82/133
+    2029 |    434.8 |   18.67 |      4.7s |    11.5s | draft 83/131
+    3910 |    430.1 |   13.95 |      9.1s |    18.2s | draft 78/142
+    8389 |    428.4 |   15.39 |     19.6s |    27.9s | draft 82/129
+# done 2026-10-26T20:57:03+11:00

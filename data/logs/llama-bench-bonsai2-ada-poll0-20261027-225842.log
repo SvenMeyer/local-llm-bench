@@ -1,0 +1,15 @@
+corpus: 65 files, 2061894 chars available
+# n_ctx 262144 n_predict 256 fit_budget 261888
+ ctx_tok |   PP t/s |  TG t/s |   prefill |     wall
+    3910 |    485.3 |   30.54 |      8.1s |    16.4s | draft 94/160
+    8389 |    475.1 |   32.38 |     17.7s |    25.5s | draft 106/149
+corpus: 65 files, 2061894 chars available
+# n_ctx 262144 n_predict 256 fit_budget 261888
+ ctx_tok |   PP t/s |  TG t/s |   prefill |     wall
+    3910 |    478.4 |   43.46 |      8.2s |    14.2s | draft 161/246
+    8389 |    468.3 |   34.40 |     17.9s |    25.3s | draft 123/191
+corpus: 65 files, 2061894 chars available
+# n_ctx 262144 n_predict 256 fit_budget 261888
+ ctx_tok |   PP t/s |  TG t/s |   prefill |     wall
+    3910 |    475.2 |   92.62 |      8.2s |    11.1s | draft 220/251
+    8389 |    465.7 |   78.34 |     18.0s |    21.3s | draft 210/229

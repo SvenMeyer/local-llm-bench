@@ -1,0 +1,19 @@
+# /home/sum/Downloads/AI-Runtime/llama-qwen38-realworld-staking.log
+# start 2026-09-18T02:08:16+10:00  profile=unknown
+# CTX=65536 NPREDICT=1024 CHARS=54000
+# prompt: write a Solidity staking contract and a test suite in typescript
+reloading to ctx 65536 MTP on...
+loaded context 65536 spec mtp n_max 3
+# argv: 130763 /home/sum/.unsloth/llama.cpp/llama-server -m /home/sum/.cache/lm-studio/models/unsloth/Qwen3.8-Flash-Next-GGUF/Qwen3.8-Flash-Next-UD-IQ4_XS-00001-of-00003.gguf --port 33057 --parallel 1 --flash-attn on --no-context-shift -c 65536 --video-fps 1 --alias Qwen3.8-Flash-Next-UD-IQ4_XS-00001-of-00003 --fit on --metrics --slot-save-path /home/sum/.unsloth/studio/cache/llama-slots --fit-ctx 65536 --jinja --cache-type-k q8_0 --cache-type-v q8_0 --model-draft /home/sum/.cache/lm-studio/models/unsloth/Qwen3.8-Flash-Next-GGUF/mtp-Qwen3.8-Flash-Next-shared-Q4_K_M.gguf --spec-type draft-mtp --spec-draft-n-max 3 --chat-template-kwargs {"enable_thinking": true, "preserve_thinking": true} --load-mode none --cpu-moe --spec-draft-cpu-moe --n-gpu-layers 999 --flash-attn on --cache-type-k q8_0 --cache-type-v q8_0 --threads 10 --jinja --no-mmproj --temp 1.0 --min-p 0.0 --load-mode none --lazy-mode off --no-mmproj-auto
+# llama-server port 33057
+# 7602 MiB, 236 MiB, 54, 11.58 W  Mem:           125Gi        97Gi       1.9Gi        59Gi        86Gi        28Gi
+# n_ctx 65536
+# prompt_chars 54138 (filler 54000)
+# trying /completion n_predict=1024
+# wall_s 127.9
+# timings {"cache_n": 0, "prompt_n": 15477, "prompt_ms": 127856.011, "prompt_per_token_ms": 8.261033210570524, "prompt_per_second": 121.05023361005688, "predicted_n": 1, "predicted_ms": 0.001, "predicted_per_token_ms": 0.0, "predicted_per_second": 0.0}
+# summary prompt_n=15477 predicted_n=1 PP=121.05023361005688 TG=0.0
+# wrote /home/sum/Downloads/AI-Runtime/llama-qwen38-realworld-staking-response.json and /home/sum/Downloads/AI-Runtime/llama-qwen38-realworld-staking-output.md (0 chars)
+
+# 7646 MiB, 192 MiB, 67, 34.60 W
+# done 2026-09-18T02:11:17+10:00

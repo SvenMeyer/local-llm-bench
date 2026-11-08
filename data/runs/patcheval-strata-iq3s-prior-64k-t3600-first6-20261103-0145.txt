@@ -1,0 +1,24 @@
+[23:39:03] scheduled start 01:45 (pid 113822)
+[01:45:00] # patcheval-strata-quants start  arms: iq3s  slice: patcheval:6  0.2.9 build 0.1.55  route: --set STRATA_ROUTE_TAIL_SKIP=0 --set STRATA_ROUTE_PRIOR=1.5  timeout: 3600s  maxTokens: 65536  profile=balanced
+[01:45:00] === iq3s-noskip-prior15-64k-t3600-first6: cooling to 65C (now 58C)
+[01:45:00] === iq3s-noskip-prior15-64k-t3600-first6: launching (58C)
+  To keep these settings for next time, add --save-preset NAME.
+[01:45:41] === iq3s-noskip-prior15-64k-t3600-first6: max_tokens=65536 rejected by server, skipped
+[01:45:46] # patcheval-strata-quants done
+[01:48:19] restart after check fix (pipefail)
+[01:48:19] # patcheval-strata-quants start  arms: iq3s  slice: patcheval:6  0.2.9 build 0.1.55  route: --set STRATA_ROUTE_TAIL_SKIP=0 --set STRATA_ROUTE_PRIOR=1.5  timeout: 3600s  maxTokens: 65536  profile=balanced
+[01:48:19] === iq3s-noskip-prior15-64k-t3600-first6: cooling to 65C (now 57C)
+[01:48:24] === iq3s-noskip-prior15-64k-t3600-first6: launching (61C)
+  To keep these settings for next time, add --save-preset NAME.
+[01:49:02] === iq3s-noskip-prior15-64k-t3600-first6: PatchEval start (model qwen3.8-flash-next-iq3_s, timeout 3600s, maxTokens 65536, patcheval:6)
+[06:21:42] === iq3s-noskip-prior15-64k-t3600-first6: benchkit exit 0
+[02:07:10]  ✓ 1/6  PASS       sqlit-246  782.8s · 21 stream tok/s
+[02:37:08]  ✗ 2/6  FAIL       sqlit-260  1570.9s · 16 stream tok/s
+[03:39:42]  ! 3/6  TIMEOUT    narwhals-3864  3601.6s · 17 stream tok/s
+[04:35:48]  ✓ 4/6  PASS       city2graph-121  2996.8s · 21 stream tok/s
+[05:37:42]  ! 5/6  TIMEOUT    json-repair-207  3601.9s · 17 stream tok/s
+[06:21:38]  ✓ 6/6  PASS       json-repair-191  2590.7s · 18 stream tok/s
+[06:21:38] ✓ patcheval · qwen3.8-flash-next-iq3_s · Pi agent   50.0%  PASS 3  FAIL 3  ERR 0  LOOP 0  6 tasks · 18.0 tok/s · 0 killed · 4h 32m
+Saved: results/2026-11-03_06-21-42
+    mean GPU W 26.6  mean CPU 80C max 100C
+[06:21:46] # patcheval-strata-quants done

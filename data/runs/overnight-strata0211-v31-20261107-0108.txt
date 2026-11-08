@@ -1,0 +1,243 @@
+[01:08:46] # overnight start; log overnight-strata0211-v31-20261107-0108.txt
+[01:55:49] TwIL runs done:
+twil8b-i1q4km t1-bugfix-stats    s1 PASS  turns  6  calls  6 bad 0  tok   1863      64s  tg 30.01  draft 0/0
+twil8b-i1q4km t2-slugify         s1 PASS  turns  8  calls  8 bad 0  tok  10833     546s  tg 20.24  draft 0/0
+twil8b-i1q4km t3-refactor        s1 PASS  turns  9  calls 16 bad 0  tok   2212      92s  tg 24.58  draft 0/0
+twil8b-i1q4km t4-logparse        s1 PASS  turns  7  calls  6 bad 0  tok   1435     103s  tg 16.13  draft 0/0
+twil8b-i1q4km t5-config          s1 PASS  turns  5  calls  4 bad 0  tok    471      18s  tg 27.39  draft 0/0
+twil8b-i1q4km t6-lru             s1 fail  turns 16  calls 16 bad 0  tok  28082    2248s  tg 12.63  draft 0/0
+twil8b-i1q4km t7-calc            s1 fail  turns 13  calls 10 bad 0  tok  34703    2903s  tg 12.08  draft 0/0  ERR task timeout
+twil8b-i1q4km t8-scheduler       s1 fail  turns 16  calls 14 bad 0  tok  27949    2196s  tg 13.55  draft 0/0
+twil8b-i1q4km-nopreserve t1-bugfix-stats    s1 PASS  turns  7  calls  7 bad 0  tok   2106      89s  tg 24.28  draft 0/0
+twil8b-i1q4km-nopreserve t2-slugify         s1 PASS  turns  7  calls  7 bad 0  tok   7120     333s  tg 21.79  draft 0/0
+twil8b-i1q4km-nopreserve t3-refactor        s1 PASS  turns 10  calls 17 bad 0  tok   2568     107s  tg 24.37  draft 0/0
+twil8b-i1q4km-nopreserve t4-logparse        s1 PASS  turns  7  calls  6 bad 0  tok   1345      98s  tg 16.15  draft 0/0
+twil8b-i1q4km-nopreserve t5-config          s1 PASS  turns  5  calls  4 bad 0  tok    471      18s  tg 27.44  draft 0/0
+twil8b-i1q4km-nopreserve t6-lru             s1 fail  turns 16  calls 14 bad 0  tok  28443    1514s  tg 18.9  draft 0/0
+twil8b-i1q4km-nopreserve t7-calc            s1 fail  turns  9  calls  6 bad 0  tok  30493    1566s  tg 19.52  draft 0/0
+twil8b-i1q4km-nopreserve t8-scheduler       s1 fail  turns 12  calls  6 bad 0  tok  49407    2467s  tg 20.07  draft 0/0  ERR task timeout
+| model | pass | tool calls (bad) | errors | length stops | avg turns | avg tokens | avg min/task | total h | agent TG t/s | MTP accept |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| twil8b-i1q4km | 5/8 | 80 (0) | 1 | 5 | 10.0 | 13444 | 17.0 | 2.3 | 13.52 | 0% |
+| twil8b-i1q4km-nopreserve | 5/8 | 67 (0) | 1 | 10 | 9.1 | 15244 | 12.9 | 1.7 | 19.84 | 0% |
+| strata-iq3xxs-noskip | 24/24 | 180 (5) | 0 | 0 | 6.2 | 3767 | 2.7 | 1.1 | 28.02 | 69% |
+| bonsai2-ada | 21/24 | 278 (1) | 0 | 0 | 9.8 | 3781 | 2.1 | 0.8 | 35.73 | 76% |
+
+| task | twil8b-i1q4km pass · min | twil8b-i1q4km-nopreserve pass · min | strata-iq3xxs-noskip pass · min | bonsai2-ada pass · min |
+|---|---:|---:|---:|---:|
+| t1-bugfix-stats | 1/1 · 1.1 | 1/1 · 1.5 | 3/3 · 0.5 | 3/3 · 0.6 |
+| t2-slugify | 1/1 · 9.1 | 1/1 · 5.5 | 3/3 · 2.1 | 3/3 · 1.8 |
+| t3-refactor | 1/1 · 1.5 | 1/1 · 1.8 | 3/3 · 0.8 | 3/3 · 0.6 |
+| t4-logparse | 1/1 · 1.7 | 1/1 · 1.6 | 3/3 · 2.9 | 2/3 · 1.8 |
+| t5-config | 1/1 · 0.3 | 1/1 · 0.3 | 3/3 · 0.5 | 3/3 · 0.3 |
+| t6-lru | 0/1 · 37.5 | 0/1 · 25.2 | 3/3 · 3.6 | 2/3 · 1.1 |
+| t7-calc | 0/1 · 48.4 | 0/1 · 26.1 | 3/3 · 4.8 | 3/3 · 4.6 |
+| t8-scheduler | 0/1 · 36.6 | 0/1 · 41.1 | 3/3 · 6.4 | 2/3 · 5.9 |
+[01:55:51] === strata update (before: strata 0.2.10 (build 0.1.56; python 3.12.15 at /home/sum/.local/share/strata/components/control/0.1.56/python/bin/python3.12))
+Strata update (https://github.com/Niko1221/Strata/releases/latest/download)
+  Reading the signed update feed
+  downloading engine 0.1.57 linux-x86_64-cuda-cuda13: 0%
+  downloading engine 0.1.57 linux-x86_64-cuda-cuda13: 10%
+  downloading engine 0.1.57 linux-x86_64-cuda-cuda13: 20%
+  downloading engine 0.1.57 linux-x86_64-cuda-cuda13: 30%
+  downloading engine 0.1.57 linux-x86_64-cuda-cuda13: 40%
+  downloading engine 0.1.57 linux-x86_64-cuda-cuda13: 50%
+  downloading engine 0.1.57 linux-x86_64-cuda-cuda13: 60%
+  downloading engine 0.1.57 linux-x86_64-cuda-cuda13: 70%
+  downloading engine 0.1.57 linux-x86_64-cuda-cuda13: 80%
+  downloading engine 0.1.57 linux-x86_64-cuda-cuda13: 90%
+  downloading engine 0.1.57 linux-x86_64-cuda-cuda13: 100%
+  Unpacking 0.1.57 linux-x86_64-cuda-cuda13
+  Checking the package signature and every file
+  Test-starting engine 0.1.57 linux-x86_64-cuda-cuda13 before switching to it
+  Engine 0.1.57 is loading the model (1 s)
+  Engine 0.1.57 has loaded the model; waiting for it to answer one token (29 s)
+  Switching to engine 0.1.57 linux-x86_64-cuda-cuda13
+  Engine 0.1.57 is installed and will be used on the next start
+  downloading Control 0.1.57: 100%
+  Unpacking Control 0.1.57
+  Test-starting Control 0.1.57
+Feed sequence 121, signed by 5d1bc23abbeffd0d
+Engine  0.1.56 -> 0.1.57   updated (tested: started, answered one token, stopped)
+Dsv41   no DeepSeek engine installed
+Control 0.1.56 -> 0.1.57   updated. The next `strata` command already runs it; the app switches on its next start
+Saved tuning presets: marked for the short re-check (nothing was deleted).
+The previous engine version is kept; `strata components rollback` returns to it.
+[02:31:05] update exit 0
+[02:31:05] after: strata 0.2.11 (build 0.1.57; python 3.12.15 at /home/sum/.local/share/strata/components/control/0.1.57/python/bin/python3.12)
+[02:31:05] download paused (1346845)
+Nothing from `strata launch` is running.
+[02:31:06] === strata0211-iq3s-noskip-prior15: cooling to 65C (now 52C)
+[02:31:06] === strata0211-iq3s-noskip-prior15: launching (CPU 52C, GPU limit 45.00W)
+    Checking the engine for this computer…
+    Engine 0.1.57 (cuda) is installed.
+    The model already installed here is somewhere else than the folder you gave, so Strata uses the folder you gave and points this launch at it.
+    Getting your model ready
+    Checking your computer
+    Getting the helper packages ready
+    Checking the engine for this PC
+    Getting the model files
+    The model files are on this computer; checking them
+    Preparing your model for Strata (one time)
+    Preparing the draft layer
+    Saving the model's settings
+    Qwen3.8-Flash-Next IQ3_S is ready.
+    Writing this launch's settings…
+    Settings are saved.
+    Starting the engine and loading the model. The first start can take a few minutes.
+    Loading the model… 15 s
+    Loading the model… 30 s
+    The model is loaded and answering.
+    Ready: http://127.0.0.1:8099
+    Strata is serving.
+
+Strata is serving.
+  This computer  http://127.0.0.1:8099/v1
+  Anthropic apps http://127.0.0.1:8099   (Claude Code: ANTHROPIC_BASE_URL, no /v1 at the end)
+  Engine log     /home/sum/.local/state/strata/launch/iq3_s-64k.engine.log   (follow it: strata logs --follow)
+[!] DFlash2 answers one request at a time, so Strata set this model to one request at a time.
+  Watch it:    strata monitor --url http://127.0.0.1:8099
+  Connect an app:  strata connect opencode      Stop:  strata launch --stop
+  To keep these settings for next time, add --save-preset NAME.
+[02:31:49] launch exit 0 after 43s
+[03:48:55] === strata0211-iq3s-noskip-prior15: eval exit 0
+[03:48:55] engine log /home/sum/.local/state/strata/launch/iq3_s-64k.engine.log -> llama-serve-strata0211-iq3s-noskip-prior15.engine.log
+                 PROFILE, ranked by routing frequency, no eviction.
+strata verify: residency-biased routing is on by default on this card (STRATA_ROUTE_PRIOR=1.5: a card of 13 GiB or less; it changes which experts run; STRATA_ROUTE_PRIOR=0 turns it off)
+strata serve: decode expert cache hit rate: 21.5% (77 hits / 358 lookups); 122 more read by the GPU over PCIe or from another GPU (25.4% of all 480 routed)
+strata serve: decode expert cache hit rate: 49.4% (54989 hits / 111411 lookups); 13389 more read by the GPU over PCIe or from another GPU (10.7% of all 124800 routed)
+strata serve: decode expert cache hit rate: 49.7% (13514 hits / 27176 lookups); 2104 more read by the GPU over PCIe or from another GPU (7.2% of all 29280 routed)
+strata serve: decode expert cache hit rate: 46.2% (76156 hits / 164933 lookups); 13147 more read by the GPU over PCIe or from another GPU (7.4% of all 178080 routed)
+strata serve: decode expert cache hit rate: 48.6% (96768 hits / 199243 lookups); 15797 more read by the GPU over PCIe or from another GPU (7.3% of all 215040 routed)
+strata serve: decode expert cache hit rate: 34.0% (5492 hits / 16164 lookups); 1596 more read by the GPU over PCIe or from another GPU (9.0% of all 17760 routed)
+Stopped iq3_s-64k.
+| strata0211-iq3s-noskip-prior15 | 24/24 | 187 (1) | 0 | 0 | 6.5 | 3958 | 3.2 | 1.3 | 23.26 | 84% |
+[03:49:05] download resumed (1346845)
+[04:47:06] UD-IQ3_XXS download complete: 10946618 Qwen3.8-Flash-Next-UD-IQ3_XXS-00001-of-00004.gguf 49946027488 Qwen3.8-Flash-Next-UD-IQ3_XXS-00002-of-00004.gguf 4869325888 Qwen3.8-Flash-Next-UD-IQ3_XXS-00003-of-00004.gguf 28800138432 Qwen3.8-Flash-Next-UD-IQ3_XXS-00004-of-00004.gguf 
+Nothing from `strata launch` is running.
+[04:47:06] === strata0211-ud31-iq3xxs-noskip-prior15: cooling to 65C (now 53C)
+[04:47:08] === strata0211-ud31-iq3xxs-noskip-prior15: launching (CPU 53C, GPU limit 45.00W)
+    These files are unsloth UD-IQ3_XXS.
+    Checking the engine for this computer…
+    Engine 0.1.57 (cuda) is installed.
+    Preparing Qwen3.8-Flash-Next (Unsloth) UD-IQ3_XXS from your model files…
+    Getting your model ready
+    Checking your computer
+    Getting the helper packages ready
+    Checking the engine for this PC
+    Getting the model files
+    Checking that the model files are complete (a few minutes for a big model; nothing is downloaded)
+    Checking that the model files are complete (a few minutes for a big model; nothing is downloaded): 6.1 of 50.0 GB
+    Checking that the model files are complete (a few minutes for a big model; nothing is downloaded): 12.1 of 50.0 GB
+    Checking that the model files are complete (a few minutes for a big model; nothing is downloaded): 18.2 of 50.0 GB
+    Checking that the model files are complete (a few minutes for a big model; nothing is downloaded): 24.3 of 50.0 GB
+    Checking that the model files are complete (a few minutes for a big model; nothing is downloaded): 30.1 of 50.0 GB
+    Checking that the model files are complete (a few minutes for a big model; nothing is downloaded): 35.8 of 50.0 GB
+    Checking that the model files are complete (a few minutes for a big model; nothing is downloaded): 41.6 of 50.0 GB
+    Checking that the model files are complete (a few minutes for a big model; nothing is downloaded): 47.5 of 50.0 GB
+    Preparing your model for Strata (one time)
+    Preparing the model data for the engine (one time)
+    Preparing the draft layer
+    Saving the model's settings
+    Qwen3.8-Flash-Next (Unsloth) UD-IQ3_XXS is ready.
+    Writing this launch's settings…
+    Settings are saved.
+    Starting the engine and loading the model. The first start can take a few minutes.
+    Loading the model… 15 s
+    Loading the model… 30 s
+    The model is loaded and answering.
+    Ready: http://127.0.0.1:8099
+    Strata is serving.
+
+Strata is serving.
+  This computer  http://127.0.0.1:8099/v1
+  Anthropic apps http://127.0.0.1:8099   (Claude Code: ANTHROPIC_BASE_URL, no /v1 at the end)
+  Engine log     /home/sum/.local/state/strata/launch/ud-iq3_xxs-64k.engine.log   (follow it: strata logs --follow)
+[!] DFlash2 answers one request at a time, so Strata set this model to one request at a time.
+  Watch it:    strata monitor --url http://127.0.0.1:8099
+  Connect an app:  strata connect opencode      Stop:  strata launch --stop
+  To keep these settings for next time, add --save-preset NAME.
+[04:49:12] launch exit 0 after 124s
+[06:07:06] === strata0211-ud31-iq3xxs-noskip-prior15: eval exit 0
+[06:07:06] engine log /home/sum/.local/state/strata/launch/ud-iq3_xxs-64k.engine.log -> llama-serve-strata0211-ud31-iq3xxs-noskip-prior15.engine.log
+                 PROFILE, ranked by routing frequency, no eviction.
+strata serve: decode expert cache hit rate: 19.1% (84 hits / 440 lookups); 40 more read by the GPU over PCIe or from another GPU (8.3% of all 480 routed)
+strata serve: decode expert cache hit rate: 41.7% (10592 hits / 25417 lookups); 1463 more read by the GPU over PCIe or from another GPU (5.4% of all 26880 routed)
+strata serve: decode expert cache hit rate: 52.2% (19092 hits / 36541 lookups); 1859 more read by the GPU over PCIe or from another GPU (4.8% of all 38400 routed)
+strata serve: decode expert cache hit rate: 49.1% (113817 hits / 231956 lookups); 16684 more read by the GPU over PCIe or from another GPU (6.7% of all 248640 routed)
+strata serve: decode expert cache hit rate: 47.1% (36927 hits / 78473 lookups); 5527 more read by the GPU over PCIe or from another GPU (6.6% of all 84000 routed)
+strata serve: decode expert cache hit rate: 47.1% (42134 hits / 89414 lookups); 7066 more read by the GPU over PCIe or from another GPU (7.3% of all 96480 routed)
+strata serve: decode expert cache hit rate: 32.8% (4463 hits / 13593 lookups); 1287 more read by the GPU over PCIe or from another GPU (8.6% of all 14880 routed)
+Stopped ud-iq3_xxs-64k.
+| strata0211-ud31-iq3xxs-noskip-prior15 | 24/24 | 199 (2) | 0 | 0 | 7.1 | 4298 | 3.2 | 1.3 | 24.63 | 84% |
+Nothing from `strata launch` is running.
+[06:07:11] === strata0211-iq3xxs-noskip-prior15: cooling to 65C (now 70C)
+[06:07:28] === strata0211-iq3xxs-noskip-prior15: launching (CPU 60C, GPU limit 35.00W)
+    Checking the engine for this computer…
+    Engine 0.1.57 (cuda) is installed.
+    The model already installed here is somewhere else than the folder you gave, so Strata uses the folder you gave and points this launch at it.
+    Getting your model ready
+    Checking your computer
+    Getting the helper packages ready
+    Checking the engine for this PC
+    Getting the model files
+    The model files are on this computer; checking them
+    Preparing your model for Strata (one time)
+    Preparing the draft layer
+    Saving the model's settings
+    Qwen3.8-Flash-Next IQ3_XXS is ready.
+    Writing this launch's settings…
+    Settings are saved.
+    Starting the engine and loading the model. The first start can take a few minutes.
+    Loading the model… 15 s
+    Loading the model… 30 s
+    The model is loaded and answering.
+    Ready: http://127.0.0.1:8099
+    Strata is serving.
+
+Strata is serving.
+  This computer  http://127.0.0.1:8099/v1
+  Anthropic apps http://127.0.0.1:8099   (Claude Code: ANTHROPIC_BASE_URL, no /v1 at the end)
+  Engine log     /home/sum/.local/state/strata/launch/iq3_xxs-64k.engine.log   (follow it: strata logs --follow)
+[!] DFlash2 answers one request at a time, so Strata set this model to one request at a time.
+  Watch it:    strata monitor --url http://127.0.0.1:8099
+  Connect an app:  strata connect opencode      Stop:  strata launch --stop
+  To keep these settings for next time, add --save-preset NAME.
+[06:08:14] launch exit 0 after 46s
+[07:19:42] === strata0211-iq3xxs-noskip-prior15: eval exit 0
+[07:19:42] engine log /home/sum/.local/state/strata/launch/iq3_xxs-64k.engine.log -> llama-serve-strata0211-iq3xxs-noskip-prior15.engine.log
+                 PROFILE, ranked by routing frequency, no eviction.
+strata verify: residency-biased routing is on by default on this card (STRATA_ROUTE_PRIOR=1.5: a card of 13 GiB or less; it changes which experts run; STRATA_ROUTE_PRIOR=0 turns it off)
+strata serve: STRATA_ROUTE_TAIL_SKIP=7 is ON (default): a missed expert that every token of a verify window routes at rank 7 or lower is skipped (+10..20% decode on 12-16 GB cards that miss experts, answers differ slightly from 0.1.41); STRATA_ROUTE_TAIL_SKIP=0 turns it off
+strata serve: decode expert cache hit rate: 37.0% (108 hits / 292 lookups); 75 more read by the GPU over PCIe or from another GPU (20.4% of all 367 routed)
+strata serve: route tail skip: 3084 missed experts skipped (3420 entries) since the start
+strata serve: decode expert cache hit rate: 69.5% (13386 hits / 19252 lookups); 1803 more read by the GPU over PCIe or from another GPU (8.6% of all 21055 routed)
+strata serve: route tail skip: 6511 missed experts skipped (7108 entries) since the start
+strata serve: decode expert cache hit rate: 77.2% (8857 hits / 11474 lookups); 852 more read by the GPU over PCIe or from another GPU (6.9% of all 12326 routed)
+Stopped iq3_xxs-64k.
+| strata0211-iq3xxs-noskip-prior15 | 24/24 | 187 (5) | 0 | 0 | 6.7 | 4526 | 3.0 | 1.2 | 28.87 | 85% |
+Nothing from `strata launch` is running.
+[07:20:01] === summary
+| model | pass | tool calls (bad) | errors | length stops | avg turns | avg tokens | avg min/task | total h | agent TG t/s | MTP accept |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| strata-iq3xxs-noskip | 24/24 | 180 (5) | 0 | 0 | 6.2 | 3767 | 2.7 | 1.1 | 28.02 | 69% |
+| strata-iq3s-noskip | 24/24 | 206 (1) | 0 | 0 | 7.2 | 3992 | 3.2 | 1.3 | 24.24 | 71% |
+| strata-iq3s-noskip-0155 | 24/24 | 179 (0) | 0 | 0 | 6.1 | 3536 | 4.1 | 1.6 | 16.33 | 70% |
+| strata0211-iq3s-noskip-prior15 | 24/24 | 187 (1) | 0 | 0 | 6.5 | 3958 | 3.2 | 1.3 | 23.26 | 84% |
+| strata0211-ud31-iq3xxs-noskip-prior15 | 24/24 | 199 (2) | 0 | 0 | 7.1 | 4298 | 3.2 | 1.3 | 24.63 | 84% |
+| strata0211-iq3xxs-noskip-prior15 | 24/24 | 187 (5) | 0 | 0 | 6.7 | 4526 | 3.0 | 1.2 | 28.87 | 85% |
+| twil8b-i1q4km | 5/8 | 80 (0) | 1 | 5 | 10.0 | 13444 | 17.0 | 2.3 | 13.52 | 0% |
+| twil8b-i1q4km-nopreserve | 5/8 | 67 (0) | 1 | 10 | 9.1 | 15244 | 12.9 | 1.7 | 19.84 | 0% |
+| bonsai2-ada | 21/24 | 278 (1) | 0 | 0 | 9.8 | 3781 | 2.1 | 0.8 | 35.73 | 76% |
+
+| task | strata-iq3xxs-noskip pass · min | strata-iq3s-noskip pass · min | strata-iq3s-noskip-0155 pass · min | strata0211-iq3s-noskip-prior15 pass · min | strata0211-ud31-iq3xxs-noskip-prior15 pass · min | strata0211-iq3xxs-noskip-prior15 pass · min | twil8b-i1q4km pass · min | twil8b-i1q4km-nopreserve pass · min | bonsai2-ada pass · min |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| t1-bugfix-stats | 3/3 · 0.5 | 3/3 · 1.0 | 3/3 · 0.9 | 3/3 · 0.7 | 3/3 · 0.7 | 3/3 · 0.5 | 1/1 · 1.1 | 1/1 · 1.5 | 3/3 · 0.6 |
+| t2-slugify | 3/3 · 2.1 | 3/3 · 2.4 | 3/3 · 3.2 | 3/3 · 2.2 | 3/3 · 3.8 | 3/3 · 2.1 | 1/1 · 9.1 | 1/1 · 5.5 | 3/3 · 1.8 |
+| t3-refactor | 3/3 · 0.8 | 3/3 · 0.9 | 3/3 · 1.4 | 3/3 · 1.0 | 3/3 · 1.1 | 3/3 · 0.9 | 1/1 · 1.5 | 1/1 · 1.8 | 3/3 · 0.6 |
+| t4-logparse | 3/3 · 2.9 | 3/3 · 4.2 | 3/3 · 4.1 | 3/3 · 2.6 | 3/3 · 1.4 | 3/3 · 1.8 | 1/1 · 1.7 | 1/1 · 1.6 | 2/3 · 1.8 |
+| t5-config | 3/3 · 0.5 | 3/3 · 0.6 | 3/3 · 0.7 | 3/3 · 0.5 | 3/3 · 0.3 | 3/3 · 0.6 | 1/1 · 0.3 | 1/1 · 0.3 | 3/3 · 0.3 |
+| t6-lru | 3/3 · 3.6 | 3/3 · 2.8 | 3/3 · 4.6 | 3/3 · 3.0 | 3/3 · 3.1 | 3/3 · 3.2 | 0/1 · 37.5 | 0/1 · 25.2 | 2/3 · 1.1 |
+| t7-calc | 3/3 · 4.8 | 3/3 · 5.7 | 3/3 · 8.1 | 3/3 · 7.9 | 3/3 · 8.1 | 3/3 · 6.9 | 0/1 · 48.4 | 0/1 · 26.1 | 3/3 · 4.6 |
+| t8-scheduler | 3/3 · 6.4 | 3/3 · 7.8 | 3/3 · 9.9 | 3/3 · 7.8 | 3/3 · 7.4 | 3/3 · 7.7 | 0/1 · 36.6 | 0/1 · 41.1 | 2/3 · 5.9 |
+[07:20:01] # overnight done

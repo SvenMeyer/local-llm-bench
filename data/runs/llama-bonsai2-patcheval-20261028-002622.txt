@@ -1,0 +1,7 @@
+# patcheval start 2026-10-28T03:17:24+11:00 profile=balanced  docker 29.7.2
+#   start cpu=66C ceiling=35W
+READY port 8099 after 4s, VRAM 7594 MiB
+# model   Ternary-Bonsai-2-27B-PTQ1_0-mtp-procreations-q4head.gguf  head=q4 spec=1/1 replay=0 lookup=1 sched=blocking
+# window  262144 / q3_0  ub 512  vram free 7798 MiB  fixed 6435 MiB  margin 225
+# kv      vram cells 82688 (dense line 82688)  staging_frac 0.312500  demote_frac 0.043945
+# think   1 effort=medium budget=20480

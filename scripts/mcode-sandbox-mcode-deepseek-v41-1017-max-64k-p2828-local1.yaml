@@ -1,0 +1,58 @@
+logLevel: info
+tui:
+  statusLine:
+  - current-dir
+  - session-title
+  - git-branch
+  - review-link
+  - plan-mode
+  - approval-mode
+  - model-with-reasoning
+  - context-window
+  - subagent
+  - token-quota
+  - context-remaining
+  - model
+  - cache-read-ratio
+  - context-meter
+  - custom-command
+permissionMode: bypassPermissions
+defaultModelContextWindow: 1000000
+defaultModelVariant: thinking
+defaultModelThinking:
+  effort: max
+defaultModel: custom_provider:openrouter/deepseek/deepseek-v4.1-flash-1017
+custom_provider:
+  openrouter:
+    name: openrouter
+    kind: custom
+    enabled: true
+    api: openai-completions
+    options:
+      apiKey: benchkit-sandbox
+      baseURL: http://inference:8080/v1
+      authMode: api-key
+    models:
+      deepseek/deepseek-v4.1-flash-1017:
+        name: DeepSeek V4.1 Flash
+        reasoning: true
+        tool_call: true
+        temperature: true
+        attachment: true
+        limit:
+          context: 1048576
+          output: 65536
+        thinking:
+          effortOptions:
+          - low
+          - high
+          - max
+          defaultEffort: max
+        thinking_config:
+          mode: forced_on
+        modalities:
+          input:
+          - text
+          - image
+          output:
+          - text
