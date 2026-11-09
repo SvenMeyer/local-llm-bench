@@ -1,0 +1,29 @@
+[17:16:56] # mem check  setups: 64k 128k 96k 64k  engine: 0.1.57  max_tokens 700
+[17:16:56] === 64k: --context 64k (CPU 51C)
+  To keep these settings for next time, add --save-preset NAME.
+[17:17:36]     slots 465, free 737 MiB at load, KV int8, 32768 cells on the card
+[17:18:03]     code	110	700	30.5	75.0	251/313	24.5  (min free so far 582 MiB)
+[17:18:37]     agent8k	5333	700	27.3	641.3	350/446	33.9  (min free so far 234 MiB)
+[17:19:59]     huge40k	33163	700	25.6	605.1	253/329	82.2  (min free so far 136 MiB)
+[17:20:34] === 128k: --context 128k (CPU 62C)
+  To keep these settings for next time, add --save-preset NAME.
+[17:21:14]     slots 481, free 737 MiB at load, KV int8, 20480 cells on the card
+[17:21:43]     code	110	700	27.6	75.4	231/288	26.9  (min free so far 582 MiB)
+[17:22:14]     agent8k	5333	700	35.9	476.5	437/472	30.7  (min free so far 234 MiB)
+[17:23:47]     huge40k	33163	700	26.4	496.8	241/352	93.4  (min free so far 118 MiB)
+[17:24:21] === 96k: --context 96k (CPU 62C)
+  To keep these settings for next time, add --save-preset NAME.
+[17:25:00]     slots 510, free 739 MiB at load, KV int8, 20480 cells on the card
+[17:25:28]     code	110	700	29.6	79.4	288/367	25.1  (min free so far 584 MiB)
+[17:26:02]     agent8k	5333	700	30.7	484.1	351/452	33.8  (min free so far 188 MiB)
+[17:27:29]     huge40k	33163	700	28.5	529.0	297/371	87.3  (min free so far 120 MiB)
+[17:28:13] === 64k: --context 64k (CPU 61C)
+  To keep these settings for next time, add --save-preset NAME.
+[17:28:52]     slots 465, free 737 MiB at load, KV int8, 32768 cells on the card
+[17:29:21]     code	110	700	27.5	71.6	221/271	27.0  (min free so far 564 MiB)
+[17:29:56]     agent8k	5333	700	29.8	480.0	325/424	34.7  (min free so far 216 MiB)
+[17:31:29]     huge40k	33163	700	26.5	495.4	254/349	93.4  (min free so far 118 MiB)
+[17:31:32] # done; table: strata-ctx-check-20261109-1716.tsv
+64k     slots 465  free at load 737  min free 118 MiB  decode 27.8 t/s  code 30.5  agent8k 27.3  huge40k 25.6  code 27.5  agent8k 29.8  huge40k 26.5  40K prompt 33163 tok, prefill 605.1 t/s
+128k    slots 481  free at load 737  min free 118 MiB  decode 29.4 t/s  code 27.6  agent8k 35.9  huge40k 26.4  40K prompt 33163 tok, prefill 496.8 t/s
+96k     slots 510  free at load 739  min free 120 MiB  decode 29.6 t/s  code 29.6  agent8k 30.7  huge40k 28.5  40K prompt 33163 tok, prefill 529.0 t/s

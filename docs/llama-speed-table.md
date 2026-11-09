@@ -161,5 +161,8 @@ TG = suite completion tokens / generation seconds. October 0.1.52 (MTP): IQ3_XXS
 | 2026-11-08 | Unsloth v3.1 UD-IQ4_XS | Strata 0.2.11 / 0.1.57 | PatchEval via pi (20 tasks, 30 min cap), DFlash2 | agent, 64k | — | 15.1 | 7.32 p50 / 7.58 p99 / 7.78 peak of 8.19 GB | PatchEval 12/20 |
 
 TG for the PatchEval row = BenchKit average stream tok/s (not comparable 1:1 with the suite TG). VRAM from a 5 s
-`nvidia-smi` log (`benchkit-patcheval-strata-ud31-iq4xs-noskip-0211.log.vram`): Strata's auto-fit leaves ~400 MB
-unused even at peak, so the 0.2.11 safety margin could likely be lowered.
+`nvidia-smi` log (`benchkit-patcheval-strata-ud31-iq4xs-noskip-0211.log.vram`).
+**Correction 2026-11-09:** the "~400 MB unused at peak" read here was total minus used. On this card used + free is
+always 7,892 MiB, so 296 MiB of the 8,188 are never usable. The 2026-11-09 A/B log (`patcheval-strata-prior-ab-20261109-0153.vram`,
+free MiB per sample) shows **114 MiB free at peak** (used 7,778, same peak as Nov 8), 556 MiB most of the time, below 400 MiB in
+5% of samples. Real spare at peak is ~110 MiB (~55 experts at ~2 MiB each), not ~400.

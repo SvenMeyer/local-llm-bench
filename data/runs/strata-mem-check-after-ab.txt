@@ -1,0 +1,31 @@
+[14:29:15] A/B finished, starting mem check
+[14:29:15] # mem check  setups: base k8v4 res20k both  engine: 0.1.57  max_tokens 700
+[14:29:16] === base:  (CPU 57C)
+  To keep these settings for next time, add --save-preset NAME.
+[14:29:54]     slots 465, free 737 MiB at load, KV int8, 32768 cells on the card
+[14:30:22]     code	110	700	28.1	82.7	252/339	26.2  (min free so far 582 MiB)
+[14:30:50]     prose	89	700	26.8	83.2	215/272	27.2  (min free so far 582 MiB)
+[14:31:24]     agent8k	5333	700	30.4	476.0	355/464	34.3  (min free so far 234 MiB)
+[14:31:57] === k8v4: --kv k8v4 (CPU 62C)
+  To keep these settings for next time, add --save-preset NAME.
+[14:32:35]     slots 509, free 739 MiB at load, KV k8v4, 32768 cells on the card
+[14:33:04]     code	110	700	28.8	79.6	267/352	25.7  (min free so far 584 MiB)
+[14:33:30]     prose	89	700	27.2	79.4	241/291	26.8  (min free so far 584 MiB)
+[14:34:07]     agent8k	5333	700	28.1	467.3	306/385	36.4  (min free so far 188 MiB)
+[14:34:40] === res20k: --set kv-resident=20480 (CPU 64C)
+  To keep these settings for next time, add --save-preset NAME.
+[14:35:18]     slots 540, free 737 MiB at load, KV int8, 20480 cells on the card
+[14:35:45]     code	110	700	30.3	80.2	304/397	24.5  (min free so far 582 MiB)
+[14:36:12]     prose	89	700	27.4	75.1	275/349	26.7  (min free so far 582 MiB)
+[14:36:58]     agent8k	5333	700	20.0	467.8	333/411	46.3  (min free so far 168 MiB)
+[14:37:27] === both: --kv k8v4 --set kv-resident=20480 (CPU 64C)
+  To keep these settings for next time, add --save-preset NAME.
+[14:38:05]     slots 568, free 737 MiB at load, KV k8v4, 20480 cells on the card
+[14:38:34]     code	110	700	28.3	79.0	251/344	26.2  (min free so far 582 MiB)
+[14:39:01]     prose	89	700	27.2	72.0	255/333	27.0  (min free so far 582 MiB)
+[14:40:06]     agent8k	5333	700	13.1	473.0	330/446	64.8  (min free so far 186 MiB)
+[14:40:18] # done; table: strata-mem-check-20261109-1429.tsv
+base    slots 465  free at load 737  min free 234 MiB  decode 28.4 t/s  code 28.1  prose 26.8  agent8k 30.4  8K prefill 476.0 t/s
+k8v4    slots 509  free at load 739  min free 188 MiB  decode 28.0 t/s  code 28.8  prose 27.2  agent8k 28.1  8K prefill 467.3 t/s
+res20k  slots 540  free at load 737  min free 168 MiB  decode 25.1 t/s  code 30.3  prose 27.4  agent8k 20.0  8K prefill 467.8 t/s
+both    slots 568  free at load 737  min free 186 MiB  decode 20.2 t/s  code 28.3  prose 27.2  agent8k 13.1  8K prefill 473.0 t/s

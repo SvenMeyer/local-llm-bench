@@ -1,0 +1,7 @@
+start	drafter	slots	free_mib	prompt	prompt_tok	gen_tok	decode_tps	prompt_tps	drafts_acc	wall_s
+1	dflash2	465	737	code	110	700	35.3	80.7	362/456	21.2
+1	dflash2	465	737	prose	89	700	30.4	83.1	256/315	24.1
+1	dflash2	465	737	agent8k	5333	700	35.7	640.4	398/467	27.9
+2	dflash2	465	737	code	110	700	29.9	78.8	241/299	24.8
+2	dflash2	465	737	prose	89	700	27.8	79.3	232/298	26.3
+2	dflash2	465	737	agent8k	5333	700	30.1	450.1	354/460	35.1

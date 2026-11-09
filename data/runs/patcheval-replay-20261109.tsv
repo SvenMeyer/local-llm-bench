@@ -1,0 +1,19 @@
+run	task	original	calls	green_call	green_score	green_f2p	green_reg	end_score	end_f2p	end_reg	end_patch_same	secs	notes
+2026-11-09_05-50-23	sqlit-246	pass	49	24	1.0	0	0	1.0	0	0	True	588	
+2026-11-09_10-01-36	sqlit-246	pass	41	25	1.0	0	0	1.0	0	0	True	770	
+2026-11-09_14-28-23	sqlit-246	pass	60	29	0.0	1	0	1.0	0	0	True	580	
+2026-11-09_05-50-23	sqlit-260	fail	49	39	0.0	1	0	0.0	1	0	True	576	
+2026-11-09_10-01-36	sqlit-260	fail	51	41	0.0	1	0	0.0	1	0	True	581	
+2026-11-09_14-28-23	sqlit-260	pass	71	42	1.0	0	0	1.0	0	0	True	786	
+2026-11-09_05-50-23	narwhals-3864	fail	81	44	0.0	1	0	0.0	1	0	True	165	
+2026-11-09_10-01-36	narwhals-3864	timeout	96	35	0.0	1	0	0.0	1	0	True	241	
+2026-11-09_14-28-23	narwhals-3864	pass	89	66	1.0	0	0	1.0	0	0	True	107	
+2026-11-09_05-50-23	city2graph-121	pass	93	48	1.0	0	0	1.0	0	0	True	496	
+2026-11-09_10-01-36	city2graph-121	pass	108	42	1.0	0	0	1.0	0	0	True	528	
+2026-11-09_14-28-23	city2graph-121	pass	88	39	1.0	0	0	1.0	0	0	True	588	
+2026-11-09_05-50-23	json-repair-207	pass	35	31	1.0	0	0	1.0	0	0	True	66	
+2026-11-09_10-01-36	json-repair-207	pass	50	34	1.0	0	0	1.0	0	0	True	112	
+2026-11-09_14-28-23	json-repair-207	pass	51	41	0.0	1	0	1.0	0	0	True	73	
+2026-11-09_05-50-23	json-repair-191	pass	50	27	1.0	0	0	1.0	0	0	True	144	
+2026-11-09_10-01-36	json-repair-191	pass	79	44	1.0	0	0	1.0	0	0	True	317	
+2026-11-09_14-28-23	json-repair-191	pass	70	37	1.0	0	0	1.0	0	0	True	130	

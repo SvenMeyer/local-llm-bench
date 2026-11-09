@@ -1,0 +1,8 @@
+[17:32:01] # mem check  setups: 128k  engine: 0.1.57  max_tokens 700
+[17:32:01] === 128k: --context 128k (CPU 64C)
+  To keep these settings for next time, add --save-preset NAME.
+[17:32:40]     slots 481, free 737 MiB at load, KV int8, 20480 cells on the card
+[17:34:58]     big60k	56272	700	27.5	513.3	271/343	135.2  (min free so far 108 MiB)
+[17:36:56]     big95k	88459	700	27.1	463.5	272/342	117.3  (min free so far 108 MiB)
+[17:36:58] # done; table: strata-ctx-check-20261109-1732.tsv
+128k    slots 481  free at load 737  min free 108 MiB  decode 27.3 t/s  big60k 27.5  big95k 27.1  longest prompt 88459 tok, prefill 463.5 t/s

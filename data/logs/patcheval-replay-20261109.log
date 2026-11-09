@@ -1,0 +1,38 @@
+[15:15:34] replaying 18 tasks, 3 at a time
+[15:19:15] 2026-11-09_05-50-23 narwhals-3864: at first green (call 44/81) score 0.0
+[15:20:41] 2026-11-09_05-50-23 narwhals-3864: end score 0.0 (original fail), patch same, 165 s, notes 0
+[15:21:07] 2026-11-09_05-50-23 sqlit-260: at first green (call 39/49) score 0.0
+[15:21:11] 2026-11-09_05-50-23 sqlit-246: at first green (call 24/49) score 1.0
+[15:21:45] 2026-11-09_10-01-36 narwhals-3864: at first green (call 35/96) score 0.0
+[15:25:03] 2026-11-09_10-01-36 narwhals-3864: end score 0.0 (original timeout), patch same, 241 s, notes 0
+[15:26:31] 2026-11-09_14-28-23 narwhals-3864: at first green (call 66/89) score 1.0
+[15:27:12] 2026-11-09_14-28-23 narwhals-3864: end score 1.0 (original pass), patch same, 107 s, notes 0
+[15:27:40] 2026-11-09_05-50-23 sqlit-260: end score 0.0 (original fail), patch same, 576 s, notes 0
+[15:27:52] 2026-11-09_05-50-23 sqlit-246: end score 1.0 (original pass), patch same, 588 s, notes 0
+[15:31:04] 2026-11-09_10-01-36 sqlit-260: at first green (call 41/51) score 0.0
+[15:31:09] 2026-11-09_10-01-36 sqlit-246: at first green (call 25/41) score 1.0
+[15:35:41] 2026-11-09_05-50-23 city2graph-121: at first green (call 48/93) score 1.0
+[15:37:40] 2026-11-09_10-01-36 sqlit-260: end score 0.0 (original fail), patch same, 581 s, notes 0
+[15:40:31] 2026-11-09_05-50-23 city2graph-121: end score 1.0 (original pass), patch same, 496 s, notes 0
+[15:41:00] 2026-11-09_10-01-36 sqlit-246: end score 1.0 (original pass), patch same, 770 s, notes 0
+[15:41:25] 2026-11-09_14-28-23 sqlit-260: at first green (call 42/71) score 1.0
+[15:44:36] 2026-11-09_14-28-23 sqlit-246: at first green (call 29/60) score 0.0
+[15:46:06] 2026-11-09_10-01-36 city2graph-121: at first green (call 42/108) score 1.0
+[15:51:13] 2026-11-09_14-28-23 sqlit-246: end score 1.0 (original pass), patch same, 580 s, notes 0
+[15:51:20] 2026-11-09_14-28-23 sqlit-260: end score 1.0 (original pass), patch same, 786 s, notes 0
+[15:51:35] 2026-11-09_10-01-36 city2graph-121: end score 1.0 (original pass), patch same, 528 s, notes 0
+[15:53:56] 2026-11-09_05-50-23 json-repair-191: at first green (call 27/50) score 1.0
+[15:53:58] 2026-11-09_05-50-23 json-repair-207: at first green (call 31/35) score 1.0
+[15:54:07] 2026-11-09_05-50-23 json-repair-207: end score 1.0 (original pass), patch same, 66 s, notes 0
+[15:55:25] 2026-11-09_05-50-23 json-repair-191: end score 1.0 (original pass), patch same, 144 s, notes 0
+[15:55:38] 2026-11-09_14-28-23 city2graph-121: at first green (call 39/88) score 1.0
+[15:56:32] 2026-11-09_10-01-36 json-repair-207: at first green (call 34/50) score 1.0
+[15:57:05] 2026-11-09_10-01-36 json-repair-207: end score 1.0 (original pass), patch same, 112 s, notes 0
+[15:57:23] 2026-11-09_10-01-36 json-repair-191: at first green (call 44/79) score 1.0
+[15:58:09] 2026-11-09_14-28-23 json-repair-207: at first green (call 41/51) score 0.0
+[15:58:27] 2026-11-09_14-28-23 json-repair-207: end score 1.0 (original pass), patch same, 73 s, notes 0
+[16:00:56] 2026-11-09_10-01-36 json-repair-191: end score 1.0 (original pass), patch same, 317 s, notes 0
+[16:02:44] 2026-11-09_14-28-23 json-repair-191: at first green (call 37/70) score 1.0
+[16:02:55] 2026-11-09_14-28-23 city2graph-121: end score 1.0 (original pass), patch same, 588 s, notes 0
+[16:03:26] 2026-11-09_14-28-23 json-repair-191: end score 1.0 (original pass), patch same, 130 s, notes 0
+[16:03:27] done: /home/sum/Downloads/AI-Runtime/patcheval-replay-20261109.tsv

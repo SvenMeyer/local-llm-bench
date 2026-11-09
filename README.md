@@ -42,6 +42,13 @@ Scores count one re-graded task (`pygments-2828`, flawed hidden test,
 - **GSQ-RCO quants beat Unsloth's at equal size** for Qwen3.8 here, and Unsloth's Dynamic v3.1 re-upload did not
   improve on the October version (12 vs 14/20; within noise, but slower).
 - **The 24-run tool-calling agent suite is saturated**: every Qwen3.8 setup scores 24/24, so only PatchEval separates them.
+- **8 GB is enough with Strata**: GSQ IQ3_S decodes 26-30 tok/s on single prompts up to 88K tokens (128k context),
+  prefill ~460-500 tok/s; experts that don't fit stay in RAM. In long agent sessions the average is ~19 tok/s.
+- **Strata's routing prior** (`STRATA_ROUTE_PRIOR` 0 / 0.5 / 1.5, same engine, DFlash2, tasks 1-6): 4/6, 4/6, 6/6 at
+  about the same speed. No quality cost from 1.5 seen ([run data](data/runs/)).
+- **Qwen keeps polishing after the fix works**: replaying 18 agent transcripts through the hidden tests, the code at the
+  agent's first green test run already passed in 12 of 14 passes; the work after +2 min never changed a result but
+  takes a third of the time ([`scripts/patcheval-replay.py`](scripts/patcheval-replay.py)).
 - One run per setup: treat differences of 1-2 tasks as noise.
 
 ## Hardware

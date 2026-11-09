@@ -1,0 +1,48 @@
+[01:53:53] # patcheval-strata-quants start  arms: iq3s  slice: patcheval:6  0.2.11 build 0.1.57  route: --set STRATA_ROUTE_TAIL_SKIP=0 --set STRATA_ROUTE_PRIOR=0 --drafting dflash2  timeout: 3000s  maxTokens: 65536  profile=balanced
+[01:53:53] === iq3s-noskip-prior0-0.1.57-dflash2-gpuunlock-64k-t3000-first6: cooling to 65C (now 56C)
+[01:53:53] === iq3s-noskip-prior0-0.1.57-dflash2-gpuunlock-64k-t3000-first6: launching (56C)
+  To keep these settings for next time, add --save-preset NAME.
+[01:54:35] === iq3s-noskip-prior0-0.1.57-dflash2-gpuunlock-64k-t3000-first6: PatchEval start (model qwen3.8-flash-next-iq3_s, timeout 3000s, maxTokens 65536, patcheval:6)
+[05:50:23] === iq3s-noskip-prior0-0.1.57-dflash2-gpuunlock-64k-t3000-first6: benchkit exit 0
+[02:20:58]  ✓ 1/6  PASS       sqlit-246  1263.7s · 18 stream tok/s
+[02:43:44]  ✗ 2/6  FAIL       sqlit-260  1135.6s · 18 stream tok/s
+[03:35:22]  ✗ 3/6  FAIL       narwhals-3864  2982.3s · 19 stream tok/s
+[04:31:23]  ✓ 4/6  PASS       city2graph-121  3001.6s · 19 stream tok/s
+[05:22:40]  ✓ 5/6  PASS       json-repair-207  3001.3s · 18 stream tok/s
+[05:50:19]  ✓ 6/6  PASS       json-repair-191  1613.7s · 20 stream tok/s
+[05:50:19] ✓ patcheval · qwen3.8-flash-next-iq3_s · Pi agent   66.7%  PASS 4  FAIL 2  ERR 0  LOOP 0  6 tasks · 18.7 tok/s · 0 killed · 3h 55m
+Saved: results/2026-11-09_05-50-23
+    mean GPU W 27.4  mean CPU 84C max 100C
+[05:50:26] # patcheval-strata-quants done
+[05:50:26] # patcheval-strata-quants start  arms: iq3s  slice: patcheval:6  0.2.11 build 0.1.57  route: --set STRATA_ROUTE_TAIL_SKIP=0 --set STRATA_ROUTE_PRIOR=0.5 --drafting dflash2  timeout: 3000s  maxTokens: 65536  profile=balanced
+[05:50:26] === iq3s-noskip-prior0.5-0.1.57-dflash2-gpuunlock-64k-t3000-first6: cooling to 65C (now 69C)
+[05:50:42] === iq3s-noskip-prior0.5-0.1.57-dflash2-gpuunlock-64k-t3000-first6: launching (61C)
+  To keep these settings for next time, add --save-preset NAME.
+[05:51:24] === iq3s-noskip-prior0.5-0.1.57-dflash2-gpuunlock-64k-t3000-first6: PatchEval start (model qwen3.8-flash-next-iq3_s, timeout 3000s, maxTokens 65536, patcheval:6)
+[10:01:36] === iq3s-noskip-prior0.5-0.1.57-dflash2-gpuunlock-64k-t3000-first6: benchkit exit 0
+[06:16:15]  ✓ 1/6  PASS       sqlit-246  1176.6s · 21 stream tok/s
+[06:38:49]  ✗ 2/6  FAIL       sqlit-260  1130.7s · 22 stream tok/s
+[07:30:44]  ! 3/6  TIMEOUT    narwhals-3864  3001.6s · 20 stream tok/s
+[08:28:12]  ✓ 4/6  PASS       city2graph-121  3001.3s · 21 stream tok/s
+[09:19:36]  ✓ 5/6  PASS       json-repair-207  3001.1s · 18 stream tok/s
+[10:01:33]  ✓ 6/6  PASS       json-repair-191  2475.1s · 19 stream tok/s
+[10:01:33] ✓ patcheval · qwen3.8-flash-next-iq3_s · Pi agent   66.7%  PASS 4  FAIL 2  ERR 0  LOOP 0  6 tasks · 19.7 tok/s · 0 killed · 4h 10m
+Saved: results/2026-11-09_10-01-36
+    mean GPU W 27.4  mean CPU 83C max 100C
+[10:01:39] # patcheval-strata-quants done
+[10:01:39] # patcheval-strata-quants start  arms: iq3s  slice: patcheval:6  0.2.11 build 0.1.57  route: --set STRATA_ROUTE_TAIL_SKIP=0 --set STRATA_ROUTE_PRIOR=1.5 --drafting dflash2  timeout: 3000s  maxTokens: 65536  profile=balanced
+[10:01:40] === iq3s-noskip-prior1.5-0.1.57-dflash2-gpuunlock-64k-t3000-first6: cooling to 65C (now 70C)
+[10:02:10] === iq3s-noskip-prior1.5-0.1.57-dflash2-gpuunlock-64k-t3000-first6: launching (61C)
+  To keep these settings for next time, add --save-preset NAME.
+[10:02:52] === iq3s-noskip-prior1.5-0.1.57-dflash2-gpuunlock-64k-t3000-first6: PatchEval start (model qwen3.8-flash-next-iq3_s, timeout 3000s, maxTokens 65536, patcheval:6)
+[14:28:24] === iq3s-noskip-prior1.5-0.1.57-dflash2-gpuunlock-64k-t3000-first6: benchkit exit 0
+[10:29:03]  ✓ 1/6  PASS       sqlit-246  1253.6s · 20 stream tok/s
+[11:06:48]  ✓ 2/6  PASS       sqlit-260  2043.1s · 20 stream tok/s
+[11:59:45]  ✓ 3/6  PASS       narwhals-3864  3001.1s · 20 stream tok/s
+[12:45:48]  ✓ 4/6  PASS       city2graph-121  2395.0s · 22 stream tok/s
+[13:37:12]  ✓ 5/6  PASS       json-repair-207  3001.4s · 19 stream tok/s
+[14:28:20]  ✓ 6/6  PASS       json-repair-191  3001.4s · 17 stream tok/s
+[14:28:20] ✓ patcheval · qwen3.8-flash-next-iq3_s · Pi agent  100.0%  PASS 6  FAIL 0  ERR 0  LOOP 0  6 tasks · 19.3 tok/s · 0 killed · 4h 25m
+Saved: results/2026-11-09_14-28-23
+    mean GPU W 27.0  mean CPU 81C max 100C
+[14:28:27] # patcheval-strata-quants done
